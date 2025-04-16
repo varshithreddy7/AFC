@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 
 export const Footer: React.FC = () => {
 
@@ -36,42 +37,46 @@ export const Footer: React.FC = () => {
               <span className="font-black text-white tracking-[0.32px]">
                 For Franchise
               </span>
-                                <br/>
+              <br />
               <span className="font-semibold text-white tracking-[0.32px]">
                 {"  "}Contact:
               </span>
-                                <br/>
-             
-                                
-              <span className="font-semibold text-[#ebbd28] tracking-[0.32px]">
-                 📞 Call +91 76 740 73004 - Chaitanya Varma
-              </span>
-                            <br/>
-              
+              <br />
+
 
               <span className="font-semibold text-[#ebbd28] tracking-[0.32px]">
-                 📞 Call +91 95050 66245 - Narasimha
+                📞 Call +91 76 740 73004 - Chaitanya Varma
+              </span>
+              <br />
+
+
+              <span className="font-semibold text-[#ebbd28] tracking-[0.32px]">
+                📞 Call +91 95050 66245 - Narasimha
               </span>
             </p>
           </div>
         </div>
 
         <img
-          className="absolute w-[113px] h-[113px] top-0 left-[668px] object-cover"
+          className="absolute w-[113px] h-[113px] top-0 left-[668px] object-cover rounded-full"
           alt="Image"
-          src="https://c.animaapp.com/ZwbmpiEG/img/image-56@2x.png"
+          src="/images/Afc-logo.png"
         />
       </div>
 
-      <div className="absolute w-[477px] h-[50px] top-[329px] left-[485px]">
+      <div className="absolute w-[477px] h-[50px] top-[329px] left-[522px]">
         <p className="absolute top-[23px] left-0 [font-family:'Inter',Helvetica] font-bold text-[#ebbd28] text-lg text-center tracking-[4.00px] leading-[27px] whitespace-nowrap">
           © 2025 ALL RIGHTS RESERVED BY AFC
         </p>
 
-<div className="absolute w-[200px] h-[3px] top-0 left-[137px] [background:linear-gradient(90deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_10%,rgba(235,190,41,1)_10%,rgba(235,190,41,1)_90%,rgba(0,0,0,0.5)_90%,rgba(0,0,0,0.5)_100%)]" />
-     </div>
+        <img
+          className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[200px] h-[3px]" // Tailwind class equivalent to w-200 and h-3 (12px)
+          alt="Image"
+          src="/images/afc-footer-img.jpg"
+        />
+      </div>
     </div>
   );
 };
- 
+
 export default Footer;

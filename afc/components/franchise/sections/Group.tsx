@@ -1,120 +1,36 @@
 import React from "react";
 
-export const Group = ()=> {
+const franchiseFeatures = [
+  { label: "LOW-COST", icon: "https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png" },
+  { label: "RISK-FREE", icon: "https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png" },
+  { label: "BUDGET-FRIENDLY", icon: "https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png" },
+  { label: "SCALABLE", icon: "https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png" },
+  { label: "PROPER GUIDANCE", icon: "https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png" },
+  { label: "TRUST AND QUALITY", icon: "https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png" },
+];
+
+const FeatureCard = ({ label, icon }) => (
+  <div className="bg-[#ebbd28] rounded-2xl border border-black shadow-[0_4px_15px_5px_rgba(235,189,40,0.5)] p-6 flex items-center gap-6">
+    <img src={icon} alt={label} className="w-16 h-16 object-cover" />
+    <h3 className="text-white text-2xl font-black font-nunito">{label}</h3>
+  </div>
+);
+
+export const Group = () => {
   return (
-    <div className="absolute w-[1210px] h-[664px] top-[1876px] left-[616px]">
-      <p className="absolute w-[596px] h-[50px] top-0 left-[336px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-[50px]">
-        WHY OUR FRANCHISE IS BEST ?
-      </p>
-
-      <div className="absolute w-[1208px] h-[517px] top-[147px] left-0">
-        <div className="absolute w-[1208px] h-[149px] top-0 left-0">
-          <div className="absolute w-[546px] h-[149px] top-0 left-0">
-            <div className="relative h-[151px] -top-px -left-px bg-[#ebbd28] rounded-[20px] border border-solid border-black shadow-[0px_4px_15px_5px_#ebbd2880]">
-              <img
-                className="w-[72px] h-[72px] top-[38px] left-6 absolute object-cover"
-                alt="Image"
-                src="https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png"
-              />
-
-              <div className="absolute h-[50px] top-[60px] left-[148px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-[50px] whitespace-nowrap">
-                LOW-COST
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute w-[546px] h-[149px] top-0 left-[664px]">
-            <div className="relative h-[151px] -top-px -left-px bg-[#ebbd28] rounded-[20px] border border-solid border-black shadow-[0px_4px_15px_5px_#ebbd2880]">
-              <img
-                className="w-[72px] h-[72px] top-[38px] left-6 absolute object-cover"
-                alt="Image"
-                src="https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png"
-              />
-
-              <div className="absolute h-[50px] top-[60px] left-[158px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-[50px] whitespace-nowrap">
-                RISK-FREE
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute w-[1208px] h-[149px] top-[184px] left-0">
-          <div className="absolute w-[546px] h-[149px] top-0 left-0">
-            <div className="relative h-[151px] -top-px -left-px bg-[#ebbd28] rounded-[20px] border border-solid border-black shadow-[0px_4px_15px_5px_#ebbd2880]">
-              <img
-                className="w-[72px] h-[72px] top-[38px] left-6 absolute object-cover"
-                alt="Image"
-                src="https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png"
-              />
-
-              <div className="absolute h-[50px] top-[60px] left-[127px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-[50px] whitespace-nowrap">
-                BUDGET-FRIENDLY
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute w-[546px] h-[149px] top-0 left-[664px]">
-            <div className="relative h-[151px] -top-px -left-px bg-[#ebbd28] rounded-[20px] border border-solid border-black shadow-[0px_4px_15px_5px_#ebbd2880]">
-              <img
-                className="w-[72px] h-[72px] top-[38px] left-6 absolute object-cover"
-                alt="Image"
-                src="https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png"
-              />
-
-              <div className="absolute h-[50px] top-[60px] left-[159px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-[50px] whitespace-nowrap">
-                SCALABLE
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute w-[1208px] h-[149px] top-[368px] left-0">
-          <div className="absolute w-[546px] h-[149px] top-0 left-0">
-            <div className="relative h-[151px] -top-px -left-px bg-[#ebbd28] rounded-[20px] border border-solid border-black shadow-[0px_4px_15px_5px_#ebbd2880]">
-              <img
-                className="w-[72px] h-[72px] top-[38px] left-6 absolute object-cover"
-                alt="Image"
-                src="https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png"
-              />
-
-              <div className="absolute h-[50px] top-[60px] left-[121px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-[50px] whitespace-nowrap">
-                PROPER GUIDANCE
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute w-[546px] h-[149px] top-0 left-[664px]">
-            <div className="relative h-[151px] -top-px -left-px bg-[#ebbd28] rounded-[20px] border border-solid border-black shadow-[0px_4px_15px_5px_#ebbd2880]">
-              <img
-                className="w-[72px] h-[72px] top-[38px] left-6 absolute object-cover"
-                alt="Image"
-                src="https://c.animaapp.com/89fS0TNm/img/image-52-5@2x.png"
-              />
-
-              <div className="absolute h-[50px] top-[60px] left-[138px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-[50px] whitespace-nowrap">
-                TRUST AND QUALITY
-              </div>
-            </div>
-          </div>
-        </div>
+    <section className="relative py-20 px-4  text-center text-white">
+      <h2 className="text-4xl font-black font-nunito mb-4">WHY OUR FRANCHISE IS BEST ?</h2>
+      <div className="flex justify-center items-center gap-4 mb-8">
+        <div className="h-[3px] w-40 bg-yellow-300" />
+        <div className="w-5 h-5 rounded-full bg-[#ebbd28]" />
+        <div className="h-[3px] w-40 bg-yellow-300" />
       </div>
-
-      <div className="absolute w-[431px] h-[23px] top-16 left-[418px]">
-        <div className="absolute w-[21px] h-[23px] top-0 left-[204px] bg-[#ebbd28] rounded-[10.56px/11.5px]" />
-
-        <img
-          className="absolute w-[169px] h-[3px] top-2 left-0"
-          alt="Line"
-          src="https://c.animaapp.com/89fS0TNm/img/line-1-3.svg"
-        />
-
-        <img
-          className="absolute w-[169px] h-[3px] top-2 left-[262px]"
-          alt="Line"
-          src="https://c.animaapp.com/89fS0TNm/img/line-2-3.svg"
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {franchiseFeatures.map((feature, idx) => (
+          <FeatureCard key={idx} label={feature.label} icon={feature.icon} />
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 

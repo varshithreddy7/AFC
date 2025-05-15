@@ -142,7 +142,7 @@ export const Footer = () => {
         <div className="absolute w-[200px] h-[3px] top-0 left-[137px] " />
         <img className="absolute w-[200px] h-[3px] top-0 left-[137px]"
          alt="Image"
-         src="./images/afc-footer-img.jpg"
+         src="/images/afc-footer-img.jpg"
         />
  
       </div>

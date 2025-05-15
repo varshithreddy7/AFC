@@ -1,45 +1,95 @@
 import React from "react";
 
-export const BackgroundBorder : React.FC =()=> {
-  return (
-    <div className="absolute w-[360px] h-[544px] top-[1246px] left-[611px] bg-[#58554a] rounded border border-solid border-[#00000020] shadow-[12px_12px_30px_#ebbd2880]">
-      <div className="absolute w-[358px] h-[228px] top-px left-px rounded-[3px_3px_0px_0px] bg-[url(https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png)] bg-cover bg-[50%_50%]" />
+type CardProps = {
+  image: string;
+  title: string;
+  points: string[];
+  cta: string;
+};
 
-      <div className="absolute w-[169px] h-[39px] top-[253px] left-[86px] [font-family:'Nunito',Helvetica] font-bold text-white text-[27px] text-center tracking-[0] leading-[30px]">
-        Grab &#34;N&#34; Go
+const Card: React.FC<CardProps> = ({ image, title, points, cta }) => (
+  <div className="relative w-[360px] h-auto bg-[#58554a] rounded border border-solid border-[#00000020] shadow-[12px_12px_30px_#ebbd2880] overflow-hidden mb-10">
+    {/* Top Image */}
+    <div
+      className="w-full h-[228px] bg-cover bg-center"
+      style={{ backgroundImage: `url(${image})` }}
+    />
+
+    {/* Content Block */}
+    <div className="p-6">
+      <div className="text-white text-center text-2xl font-bold mb-4">
+        {title}
       </div>
 
-      <div className="absolute w-[286px] h-0.5 top-[300px] left-[31px] bg-[#e69c00]" />
+      <div className="h-0.5 bg-[#e69c00] mb-4 mx-auto w-[80%]" />
 
-      <div className="flex flex-col w-[318px] items-start absolute top-[318px] left-[21px]">
-        <div className="relative w-fit mt-[-1.00px] font-afcofficial-in-semantic-item font-[number:var(--afcofficial-in-semantic-item-font-weight)] text-white text-[length:var(--afcofficial-in-semantic-item-font-size)] tracking-[var(--afcofficial-in-semantic-item-letter-spacing)] leading-[var(--afcofficial-in-semantic-item-line-height)] whitespace-nowrap [font-style:var(--afcofficial-in-semantic-item-font-style)]">
-          Quick Service AFC
-        </div>
-
-        <p className="relative w-fit font-afcofficial-in-semantic-item font-[number:var(--afcofficial-in-semantic-item-font-weight)] text-white text-[length:var(--afcofficial-in-semantic-item-font-size)] tracking-[var(--afcofficial-in-semantic-item-letter-spacing)] leading-[var(--afcofficial-in-semantic-item-line-height)] whitespace-nowrap [font-style:var(--afcofficial-in-semantic-item-font-style)]">
-          Area 250 to 350 sq.ft
-        </p>
-
-        <div className="flex flex-col items-start relative self-stretch w-full flex-[0_0_auto]">
-          <p className="relative w-fit mt-[-1.00px] mr-[-16.00px] font-afcofficial-in-semantic-item font-[number:var(--afcofficial-in-semantic-item-font-weight)] text-white text-[length:var(--afcofficial-in-semantic-item-font-size)] tracking-[var(--afcofficial-in-semantic-item-letter-spacing)] leading-[var(--afcofficial-in-semantic-item-line-height)] whitespace-nowrap [font-style:var(--afcofficial-in-semantic-item-font-style)]">
-            Ideal for High-Street, Townships, IT Parks,
-          </p>
-
-          <div className="relative w-fit font-afcofficial-in-semantic-item font-[number:var(--afcofficial-in-semantic-item-font-weight)] text-white text-[length:var(--afcofficial-in-semantic-item-font-size)] tracking-[var(--afcofficial-in-semantic-item-letter-spacing)] leading-[var(--afcofficial-in-semantic-item-line-height)] whitespace-nowrap [font-style:var(--afcofficial-in-semantic-item-font-style)]">
-            Metros etc.
-          </div>
-        </div>
-
-        <div className="relative w-fit font-afcofficial-in-semantic-item font-[number:var(--afcofficial-in-semantic-item-font-weight)] text-white text-[length:var(--afcofficial-in-semantic-item-font-size)] tracking-[var(--afcofficial-in-semantic-item-letter-spacing)] leading-[var(--afcofficial-in-semantic-item-line-height)] whitespace-nowrap [font-style:var(--afcofficial-in-semantic-item-font-style)]">
-          Team Size of 2+1
-        </div>
+      <div className="text-white space-y-2 text-sm leading-relaxed text-center">
+        {points.map((point, index) => (
+          <p key={index}>{point}</p>
+        ))}
       </div>
 
-      <div className="flex w-[304px] h-12 items-start px-2 py-[3px] absolute top-[453px] left-[26px] bg-[#ebbd28] rounded-[30px] border border-solid border-black">
-        <p className="relative flex-1 self-stretch [font-family:'Nunito',Helvetica] font-extrabold text-black text-[17px] text-center tracking-[0] leading-6">
-          Investment Starting with 6 Lakhs
-        </p>
+      <div className="mt-6">
+        <div className="bg-[#ebbd28] text-black font-extrabold text-center py-3 rounded-[30px] border border-black text-sm">
+          {cta}
+        </div>
       </div>
     </div>
+  </div>
+);
+
+export const BackgroundBorder: React.FC = () => {
+  const cardData: CardProps[] = [
+    {
+      image: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png",
+      title: 'Grab "N" Go',
+      points: [
+        "Quick Service AFC",
+        "Area 250 to 350 sq.ft",
+        "Ideal for High-Street, Townships, IT Parks, Metros etc.",
+        "Team Size of 2+1",
+      ],
+      cta: "Investment Starting with 6 Lakhs",
+    },
+    {
+      image: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png",
+      title: "Kiosk Model",
+      points: [
+        "Compact Self-Serve Unit",
+        "Area 100 to 150 sq.ft",
+        "Perfect for Malls, Airports, and Food Courts",
+        "Team Size of 1+1",
+      ],
+      cta: "Investment Starting with 4 Lakhs",
+    },
+    {
+      image: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png",
+      title: "Dine-In Model",
+      points: [
+        "Full-Service Restaurant",
+        "Area 600 to 800 sq.ft",
+        "Great for Standalone Locations and Townships",
+        "Team Size of 5+",
+      ],
+      cta: "Investment Starting with 12 Lakhs",
+    },
+  ];
+
+  return (
+    <section className="text-center text-white ">
+
+      <h2 className="text-4xl font-black font-nunito mb-4">OUR FRANCHISE MODEL</h2>
+      <div className="flex justify-center items-center gap-4 mb-8">
+        <div className="h-[3px] w-40 bg-yellow-300" />
+        <div className="w-5 h-5 rounded-full bg-[#ebbd28]" />
+        <div className="h-[3px] w-40 bg-yellow-300" />
+      </div>
+      <div className="flex flex-wrap gap-24 justify-center">
+
+        {cardData.map((card, index) => (
+          <Card key={index} {...card} />
+        ))}
+      </div>
+    </section>
   );
 };

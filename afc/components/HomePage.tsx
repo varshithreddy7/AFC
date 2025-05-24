@@ -30,7 +30,8 @@ const Home = () => {
       {/* Experience Section */}
       <ExperienceSection />
       {/* Testimonials Section */}
-      {/* <section className="flex overflow-hidden flex-col items-center pt-12 pr-7 pb-4 pl-16 bg-amber-400 rounded-[50px] max-md:px-5">
+      {/* 
+      <section className="flex overflow-hidden flex-col items-center pt-12 pr-7 pb-4 pl-16 bg-amber-400 rounded-[50px] max-md:px-5">
         <h2 className="ml-6 text-4xl font-extrabold text-white max-md:max-w-full">
           WHAT OUR CUSTOMERS SAY ?
         </h2>

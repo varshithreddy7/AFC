@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion, useInView } from "framer-motion";
 
 type CardProps = {
   image: string;
@@ -8,88 +10,166 @@ type CardProps = {
 };
 
 const Card: React.FC<CardProps> = ({ image, title, points, cta }) => (
-  <div className="relative w-[360px] h-auto bg-[#58554a] rounded border border-solid border-[#00000020] shadow-[12px_12px_30px_#ebbd2880] overflow-hidden mb-10">
+  <motion.div
+    initial={{ opacity: 0, y: 50 }} // Changed from -50 to 50 for downward animation
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}  // This ensures animation only happens once
+    whileHover={{ scale: 1.02 }}
+    className="relative w-[360px] h-auto bg-[#58554a] rounded border border-solid border-[#00000020] shadow-[12px_12px_30px_#ebbd2880] overflow-hidden mb-10"
+  >
     {/* Top Image */}
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}  // Changed from -20 to 50
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
       className="w-full h-[228px] bg-cover bg-center"
       style={{ backgroundImage: `url(${image})` }}
     />
 
     {/* Content Block */}
-    <div className="p-6">
-      <div className="text-white text-center text-2xl font-bold mb-4">
+    <motion.div className="p-6">
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}  // Changed from -20 to 50
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="text-white text-center text-2xl font-bold mb-4"
+      >
         {title}
-      </div>
+      </motion.div>
 
-      <div className="h-0.5 bg-[#e69c00] mb-4 mx-auto w-[80%]" />
+      <motion.div 
+        initial={{ scaleY: 0, originY: 0 }}  // Added originY for downward scale
+        whileInView={{ scaleY: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        viewport={{ once: true }}
+        className="h-0.5 bg-[#e69c00] mb-4 mx-auto w-[80%]" 
+      />
 
-      <div className="text-white space-y-2 text-sm leading-relaxed text-center">
+      <motion.div className="text-white space-y-2 text-sm leading-relaxed text-center">
         {points.map((point, index) => (
-          <p key={index}>{point}</p>
+          <motion.p 
+            key={index}
+            initial={{ opacity: 0, y: 20 }}  // Changed from -10 to 20
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+            viewport={{ once: true }}
+          >
+            {point}
+          </motion.p>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="mt-6">
-        <div className="bg-[#ebbd28] text-black font-extrabold text-center py-3 rounded-[30px] border border-black text-sm">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}  // Changed from -20 to 20
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+        viewport={{ once: true }}
+        className="mt-6"
+      >
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          className="w-full bg-[#ebbd28] text-black font-extrabold text-center py-3 rounded-[30px] border border-black text-sm"
+        >
           {cta}
-        </div>
-      </div>
-    </div>
-  </div>
+        </motion.button>
+      </motion.div>
+    </motion.div>
+  </motion.div>
 );
 
 export const BackgroundBorder: React.FC = () => {
+  const sectionRef = React.useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
+
   const cardData: CardProps[] = [
     {
-      image: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png",
-      title: 'Grab "N" Go',
+      image: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-3.png",
+      title: "Grab & Go Model",
       points: [
-        "Quick Service AFC",
-        "Area 250 to 350 sq.ft",
-        "Ideal for High-Street, Townships, IT Parks, Metros etc.",
-        "Team Size of 2+1",
+        "Quick service restaurant format",
+        "Compact space requirement: 150-250 sq ft",
+        "Ideal for high-traffic locations",
+        "Focused on takeaway and delivery"
       ],
-      cta: "Investment Starting with 6 Lakhs",
+      cta: "Learn More About Grab & Go"
     },
     {
-      image: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png",
-      title: "Kiosk Model",
+      image: "https://c.animaapp.com/HEE7tW43/img/image-82.png",
+      title: "Express Kitchen",
       points: [
-        "Compact Self-Serve Unit",
-        "Area 100 to 150 sq.ft",
-        "Perfect for Malls, Airports, and Food Courts",
-        "Team Size of 1+1",
+        "Full-service restaurant model",
+        "Space requirement: 500-800 sq ft",
+        "Dine-in and takeaway options",
+        "Complete kitchen setup"
       ],
-      cta: "Investment Starting with 4 Lakhs",
+      cta: "Explore Express Kitchen"
     },
     {
-      image: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png",
-      title: "Dine-In Model",
+      image: "https://c.animaapp.com/HEE7tW43/img/image-83.png",
+      title: "Premium Outlet",
       points: [
-        "Full-Service Restaurant",
-        "Area 600 to 800 sq.ft",
-        "Great for Standalone Locations and Townships",
-        "Team Size of 5+",
+        "Flagship restaurant format",
+        "Space requirement: 1000-1500 sq ft",
+        "Full dining experience",
+        "Premium location focus"
       ],
-      cta: "Investment Starting with 12 Lakhs",
-    },
+      cta: "Discover Premium Outlet"
+    }
   ];
 
   return (
-    <section className="text-center text-white ">
+    <motion.section 
+      ref={sectionRef}
+      initial={{ opacity: 0, y: -30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="text-center text-white"
+    >
+      <motion.h2 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-4xl font-black font-nunito mb-4"
+      >
+        OUR FRANCHISE MODEL
+      </motion.h2>
 
-      <h2 className="text-4xl font-black font-nunito mb-4">OUR FRANCHISE MODEL</h2>
-      <div className="flex justify-center items-center gap-4 mb-8">
-        <div className="h-[3px] w-40 bg-yellow-300" />
-        <div className="w-5 h-5 rounded-full bg-[#ebbd28]" />
-        <div className="h-[3px] w-40 bg-yellow-300" />
-      </div>
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="flex justify-center items-center gap-4 mb-8"
+      >
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 0.5 }}
+          className="h-[3px] w-40 bg-yellow-300" 
+        />
+        <motion.div 
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+          className="w-5 h-5 rounded-full bg-[#ebbd28]" 
+        />
+        <motion.div 
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          transition={{ duration: 0.5 }}
+          className="h-[3px] w-40 bg-yellow-300" 
+        />
+      </motion.div>
+
       <div className="flex flex-wrap gap-24 justify-center">
-
         {cardData.map((card, index) => (
           <Card key={index} {...card} />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
+
+export default BackgroundBorder;

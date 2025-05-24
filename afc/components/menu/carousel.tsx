@@ -39,7 +39,6 @@ const PizzaSpinWheel = () => {
   const [spinningItems, setSpinningItems] = useState(categories["pizzas"])
   const [rotation, setRotation] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
-  const [autoRotate, setAutoRotate] = useState(true)
   const rotationRef = useRef(0)
 
   const angleStep = spinningItems?.length ? 360 / spinningItems.length : 0
@@ -49,24 +48,23 @@ const PizzaSpinWheel = () => {
     setRotation(0)
     rotationRef.current = 0
     setActiveIndex(0)
-    setAutoRotate(true)
   }, [activeCategory])
 
-  useEffect(() => {
-    if (!autoRotate) return
-    
-    const interval = setInterval(() => {
-      setRotation(prev => {
-        const newRotation = prev - angleStep
-        rotationRef.current = newRotation
-        return newRotation
-      })
-      
-      setActiveIndex(prev => (prev + 1) % spinningItems.length)
-    }, 3000)
+  const handleNext = () => {
+    const newIndex = (activeIndex + 1) % spinningItems.length
+    const targetRotation = rotationRef.current - angleStep
+    setRotation(targetRotation)
+    rotationRef.current = targetRotation
+    setActiveIndex(newIndex)
+  }
 
-    return () => clearInterval(interval)
-  }, [autoRotate, spinningItems, angleStep])
+  const handlePrev = () => {
+    const newIndex = (activeIndex - 1 + spinningItems.length) % spinningItems.length
+    const targetRotation = rotationRef.current + angleStep
+    setRotation(targetRotation)
+    rotationRef.current = targetRotation
+    setActiveIndex(newIndex)
+  }
 
   const handleSelectItem = (i) => {
     const targetRotation = -i * angleStep
@@ -74,14 +72,13 @@ const PizzaSpinWheel = () => {
     setRotation(rotationRef.current + diff)
     rotationRef.current = targetRotation
     setActiveIndex(i)
-    setAutoRotate(false)
   }
 
   return (
     <div className="relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div 
-        className="absolute inset-0  opacity-90"
+        className="absolute inset-0 opacity-90"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -93,7 +90,7 @@ const PizzaSpinWheel = () => {
         animate={{ opacity: 0.3 }}
         transition={{ duration: 2 }}
       >
-        <div className="absolute inset-0  opacity-20" />
+        <div className="absolute inset-0 opacity-20" />
       </motion.div>
 
       <div className="relative z-10">
@@ -132,7 +129,7 @@ const PizzaSpinWheel = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={spinningItems[activeIndex]?.id}
-                className="text-center mt-4 max-w-[400px] min-h-[60px]  mr-40"
+                className="text-center mt-4 max-w-[400px] min-h-[60px] mr-40"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -140,25 +137,14 @@ const PizzaSpinWheel = () => {
               >
                 <motion.h1
                   className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
-                  initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ 
-                    opacity: 1, 
-                    scale: 1,
                     textShadow: "0 0 10px rgba(234, 179, 8, 0.5)"
-                  }}
-                  transition={{ 
-                    delay: 0.2,
-                    duration: 0.5,
-                    scale: { type: "spring", stiffness: 300 }
                   }}
                 >
                   {spinningItems[activeIndex]?.name}
                 </motion.h1>
                 <motion.p
                   className="text-sm text-gray-300 mt-2"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
                 >
                   {spinningItems[activeIndex]?.desc}
                 </motion.p>
@@ -167,9 +153,6 @@ const PizzaSpinWheel = () => {
 
             <motion.div 
               className="flex gap-4 flex-wrap w-[450px] justify-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
             >
               {categoryKeys.map((key) => (
                 <motion.img
@@ -179,31 +162,18 @@ const PizzaSpinWheel = () => {
                   className={`w-20 h-20 object-cover rounded-full border-2 cursor-pointer ${
                     key === activeCategory ? "border-yellow-500 scale-110" : "border-transparent"
                   }`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  
+                  
                   onClick={() => setActiveCategory(key)}
-                  layoutId={`category-${key}`}
                 />
               ))}
             </motion.div>
           </div>
 
           {/* Carousel */}
-          <div className="absolute left-[1500px] w-[440px] h-[440px] ">
+          <div className="absolute left-[1500px] w-[440px] h-[440px]">
             <motion.h1 
               className="text-4xl text-white left-[-1400px] absolute font-bold"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ 
-                opacity: 1, 
-                x: 0,
-                textShadow: "0 0 15px rgba(234, 179, 8, 0.7)"
-              }}
-              transition={{ 
-                delay: 0.7,
-                duration: 0.8,
-                type: "spring",
-                stiffness: 100
-              }}
             >
               <motion.span
                 animate={{
@@ -219,11 +189,30 @@ const PizzaSpinWheel = () => {
               </motion.span>
               <motion.div 
                 className="h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.9, duration: 0.8 }}
               />
             </motion.h1>
+            
+            {/* Navigation buttons */}
+           <div className="absolute top-1/2 left-[-300] transform -translate-x-1/2 -translate-y-1/2 z-20 flex items-center">
+  <motion.button
+    onClick={handlePrev}
+    className="w-16 h-16 mr-[600px] ml-[2px] rounded-full  flex items-center justify-center shadow-lg"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+    </svg>
+  </motion.button>
+
+  <motion.button
+    onClick={handleNext}
+    className="w-16 h-16 mr-[100px] rounded-full  flex items-center justify-center shadow-lg"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
+  </motion.button>
+</div>
+
             
             <motion.div
               animate={{ rotate: rotation }}
@@ -247,17 +236,13 @@ const PizzaSpinWheel = () => {
                       height: `${PIZZA_SIZE}px`,
                     }}
                     animate={{ rotate: -rotation }}
-                    whileHover={{ scale: 1.1 }}
+                    
                   >
-                    <motion.img
+                    <img
                       src={item.img}
                       alt={item.name}
-                      className="object-contain cursor-pointer rounded-full w-full h-full"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      className="object-contain cursor-pointer rounded-full w-full h-full  hover:scale-130 hover:rotate-10 transition-transform duration-300"
                       onClick={() => handleSelectItem(i)}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: i * 0.1 }}
                     />
                   </motion.div>
                 )
@@ -265,20 +250,11 @@ const PizzaSpinWheel = () => {
             </motion.div>
             
             {/* Center circle */}
-            <motion.div 
-              className="absolute top-1/2 left-1/2 w-32 h-32 bg-yellow-500 rounded-full -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-xl"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.6, type: "spring" }}
-            >
-              <motion.div 
-                className="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              >
+            <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-yellow-500 rounded-full -translate-x-1/2 -translate-y-1/2 flex items-center justify-center shadow-xl">
+              <div className="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center">
                 <span className="text-black font-bold text-lg">MENU</span>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

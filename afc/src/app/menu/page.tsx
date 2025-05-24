@@ -1,5 +1,5 @@
 import  Menu  from "components/menu/Menu";
-import PizzaCarousel from "components/testing/carousel";
+import PizzaCarousel from "components/menu/carousel";
 import Image from "next/image";
 
 export default function Home() {

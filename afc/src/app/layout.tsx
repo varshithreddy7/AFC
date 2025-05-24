@@ -32,8 +32,10 @@ export default function RootLayout({
         style={{
           
           fontFamily: "var(--font-geist-sans)",
-          backgroundImage:"url('/images/for_frame1.png')",
+          backgroundImage:"url('/images/for_frames_new.png')",
           backgroundSize: "cover",
+          
+          width: "100%",
           
         }}
       >

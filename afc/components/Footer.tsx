@@ -3,8 +3,8 @@ import React from "react";
  
 export const Footer = () => {
   return (
-    <div className="relative w-[1540px] h-[754px] bg-[#33333380]">
-      <div className="absolute w-[213px] h-[239px] top-0 left-[77px]">
+    <div className="relative w-full  ">
+      <div className="absolute w-[213px] h-[239px] top-0 left-[77px] ">
         <img
           className="w-[213px] h-[213px] top-0 left-0 absolute object-cover"
           alt="Image"

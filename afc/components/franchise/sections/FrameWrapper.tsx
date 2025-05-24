@@ -1,52 +1,106 @@
+"use client";
 import React from "react";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 
 export const FrameWrapper = () => {
+  const sectionRef = React.useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
+
+  const formVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const inputVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3 }
+    }
+  };
+
   return (
-    <div className="relative w-full py-20 flex flex-row items-center gap-12">
-      {/* Section container */}
+    <motion.div
+      ref={sectionRef}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="relative w-full py-20 flex flex-row items-center gap-12"
+    >
       <div className="flex flex-wrap justify-center items-start gap-12 max-w-[1440px] px-6">
         {/* Left: Background image with form overlay */}
-        <div className="relative w-[822px] h-[987px]">
+        <motion.div
+          variants={formVariants}
+          className="relative w-[822px] h-[987px]"
+        >
+          <motion.div
+            variants={formVariants}
+            className="absolute w-[770px] h-[353px] top-[200px] left-[13px] rounded-xl p-6 flex flex-col justify-center items-center gap-4 shadow-lg"
+          >
+            {["Name", "Email", "Phone No"].map((placeholder, index) => (
+              <motion.input
+                key={placeholder}
+                variants={inputVariants}
+                type={placeholder === "Email" ? "email" : placeholder === "Phone No" ? "tel" : "text"}
+                placeholder={placeholder}
+                className="w-full h-[200px] px-4 py-10 rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-white focus:outline-none"
+              />
+            ))}
 
-          <div className="absolute w-[770px] h-[353px] top-[200px] left-[13px]  rounded-xl p-6 flex flex-col justify-center items-center gap-4 shadow-lg">
-
-            <input
-              type="text"
-              placeholder="Name"
-              className="w-full h-[200px]  px-4 py-10 rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-white focus:outline-none"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full h-[200px]  px-4 py-10  rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-white focus:outline-none"
-            />
-            <input
-              type="tel"
-              placeholder="Phone No"
-              className="w-full h-[200px]  px-4 py-10  rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-white focus:outline-none"
-            />
-
-            <input
+            <motion.input
+              variants={inputVariants}
               type="textarea"
               placeholder="Address"
               className="w-full h-[700px] px-4 py-24 rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-white focus:outline-none"
             />
 
-
-            <button className="w-50 bg-[#ebbd28] text-black font-bold py-2 rounded-md hover:bg-yellow-500 transition">
+            <motion.button
+              variants={inputVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-50 bg-[#ebbd28] text-black font-bold py-2 rounded-md hover:bg-yellow-500 transition"
+            >
               Submit
-            </button>
-          </div>
-        </div>
+            </motion.button>
+          </motion.div>
+        </motion.div>
 
         {/* Right: Text content and image */}
-        <div className="flex flex-col gap-8 max-w-[468px]">
-          <img
-            className="w-full h-[353px] object-cover rounded-xl"
-            alt="Image"
-            src="https://c.animaapp.com/89fS0TNm/img/image-61@2x.png"
-          />
-          <p className="[font-family:'Nunito',Helvetica] text-xl leading-10">
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col gap-8 max-w-[468px]"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Image
+              width={468}
+              height={353}
+              className="w-full h-[353px] object-cover rounded-xl"
+              alt="AFC Experience"
+              src="https://c.animaapp.com/89fS0TNm/img/image-61@2x.png"
+            />
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="[font-family:'Nunito',Helvetica] text-xl leading-10"
+          >
             <span className="font-black text-[#ebbd28]">
               Absolutely Fried Chicken
             </span>
@@ -58,10 +112,10 @@ export const FrameWrapper = () => {
               crispy delights. Embrace the intersection of delicious food and
               digital connectivity for a modern dining experience.
             </span>
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

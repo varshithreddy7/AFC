@@ -17,7 +17,7 @@ const testimonials = [
     quote: "AFC's proven business model and support system helped me expand to 3 successful outlets in just 2 years.",
     location: "Bangalore",
     revenue: "₹48L/month",
-    image: "/images/owner1.jpg"
+    image: "/images/owner1.png"
   },
   {
     name: "Priya Shah",
@@ -25,7 +25,7 @@ const testimonials = [
     quote: "The training and ongoing support from AFC made my transition to restaurant ownership seamless.",
     location: "Mumbai",
     revenue: "₹52L/month",
-    image: "/images/owner2.jpg"
+    image: "/images/owner2.png"
   },
   {
     name: "Rajesh Kumar",

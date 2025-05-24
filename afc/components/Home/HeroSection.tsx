@@ -1,6 +1,9 @@
 "use client";
+
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
+import OrderDetailsCard from "@/components/ui/OrderDetailsCard";
 
 const slides = [
   {
@@ -8,18 +11,21 @@ const slides = [
     title: "Absolutely Fried Chicken",
     subtitle: "Crispy, Juicy, Delicious",
     cta: "Order Now",
+    action: "modal"
   },
   {
     video: "/videos/hero2.mp4",
     title: "Premium Quality",
     subtitle: "Fresh Ingredients, Amazing Taste",
     cta: "View Menu",
+    path: "/menu"
   },
   {
     video: "/videos/hero3.MP4",
     title: "Join AFC Franchise Family",
     subtitle: "Be Part of a Growing Success Story",
     cta: "Start Your Journey",
+    path: "/franchise"
   },
 ];
 
@@ -32,13 +38,22 @@ const offers = [
 ];
 
 export const HeroSection = () => {
+  const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const videoRefs = useRef<HTMLVideoElement[]>([]);
-  const scrollRef = useRef(null);
   const marqueeRef = useRef<HTMLDivElement | null>(null);
   const [marqueeWidth, setMarqueeWidth] = useState(0);
 
-  // Get the width of the marquee content for proper animation
+  const handleCtaClick = () => {
+    const slide = slides[currentSlide];
+    if (slide.action === "modal") {
+      setIsOrderModalOpen(true);
+    } else if (slide.path) {
+      router.push(slide.path);
+    }
+  };
+
   useEffect(() => {
     if (marqueeRef.current) {
       setMarqueeWidth(marqueeRef.current.scrollWidth);
@@ -154,6 +169,7 @@ export const HeroSection = () => {
                   boxShadow: "0 0 30px rgba(235, 189, 40, 0.5)",
                 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={handleCtaClick}
                 className="group relative px-12 py-5 bg-[#ebbd28] text-black rounded-full 
                   font-bold text-xl overflow-hidden transition-all duration-300"
               >
@@ -185,15 +201,21 @@ export const HeroSection = () => {
         </div>
       </div>
 
+      {/* Order Modal */}
+      <OrderDetailsCard
+        isOpen={isOrderModalOpen}
+        onClose={() => setIsOrderModalOpen(false)}
+      />
+
       {/* Optimized Offers Carousel */}
       <div className="w-full bg-black py-4 overflow-hidden">
-        <div className="relative w-full h-10"> 
+        <div className="relative w-full h-10">
           <div className="flex overflow-hidden">
             <motion.div
               ref={marqueeRef}
               className="flex gap-12 items-center whitespace-nowrap text-white text-lg font-semibold"
-              animate={{ 
-                x: [-1000, -2000] 
+              animate={{
+                x: [-1000, -2000]
               }}
               transition={{
                 repeat: Infinity,
@@ -202,7 +224,7 @@ export const HeroSection = () => {
                 ease: "linear",
                 times: [0, 1]
               }}
-              style={{ 
+              style={{
                 willChange: "transform",
                 backfaceVisibility: "hidden",
                 translateZ: 0
@@ -224,12 +246,12 @@ export const HeroSection = () => {
                 </div>
               ))}
             </motion.div>
-            
+
             {/* Duplicate for seamless looping */}
             <motion.div
               className="flex gap-12 items-center whitespace-nowrap text-white text-lg font-semibold"
-              animate={{ 
-                x: [0, -1000] 
+              animate={{
+                x: [0, -1000]
               }}
               transition={{
                 repeat: Infinity,
@@ -238,7 +260,7 @@ export const HeroSection = () => {
                 ease: "linear",
                 times: [0, 1]
               }}
-              style={{ 
+              style={{
                 willChange: "transform",
                 backfaceVisibility: "hidden",
                 translateZ: 0

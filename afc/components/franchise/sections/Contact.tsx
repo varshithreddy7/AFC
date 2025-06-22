@@ -97,7 +97,7 @@ export const Contact: React.FC = () => {
       transition={{ duration: 0.5 }}
       className="w-full flex justify-center py-20"
     >
-      <div className="flex flex-wrap justify-center gap-12 max-w-7xl">
+      <div className="flex flex-wrap justify-center gap-12 max-w-7xl" id="contact">
         {contacts.map((contact, index) => (
           <motion.div
             key={index}

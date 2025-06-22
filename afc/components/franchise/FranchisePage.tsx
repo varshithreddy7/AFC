@@ -20,12 +20,12 @@ const Franchasie = () => {
 
         {/* Franchise Banner */}
         <div
-          className="w-full h-[80vh] bg-cover  rounded-md flex items-center justify-center"
+          className="w-full h-[80vh] sm:bg-cover md:bg-cover bg-center rounded-md flex items-center justify-center"
           style={{ backgroundImage: `url(https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-3.png)` }}
         />
 
         {/* Sub-banner Label */}
-        <div className=" absolute top-[510px] bg-black rounded-t-[15px] text-center py-6 px-6">
+        <div className=" absolute top-[620px] md:top-[510px] bg-black rounded-t-[15px] text-center py-6 px-6">
           <h2 className="text-[#ebbd28] text-5xl tracking-[2px] font-serif">FRANCHISE</h2>
         </div>
 

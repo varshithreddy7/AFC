@@ -34,44 +34,55 @@ export const FrameWrapper = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="relative w-full py-20 flex flex-row items-center gap-12"
+      className="relative w-full py-20 flex flex-row items-center justify-center gap-12"
     >
       <div className="flex flex-wrap justify-center items-start gap-12 max-w-[1440px] px-6">
-        {/* Left: Background image with form overlay */}
+        {/* Left: Form section */}
         <motion.div
           variants={formVariants}
-          className="relative w-[822px] h-[987px]"
+          className="relative w-full md:w-[600px] bg-opacity-70 p-8 rounded-xl shadow-lg"
         >
-          <motion.div
-            variants={formVariants}
-            className="absolute w-[770px] h-[353px] top-[200px] left-[13px] rounded-xl p-6 flex flex-col justify-center items-center gap-4 shadow-lg"
-          >
-            {["Name", "Email", "Phone No"].map((placeholder, index) => (
-              <motion.input
-                key={placeholder}
+          <h2 className="text-3xl font-bold text-[#ebbd28] mb-6">Contact Us</h2>
+          
+          <form className="flex flex-col gap-4">
+            {["Name", "Email", "Phone"].map((field) => (
+              <motion.div 
+                key={field}
                 variants={inputVariants}
-                type={placeholder === "Email" ? "email" : placeholder === "Phone No" ? "tel" : "text"}
-                placeholder={placeholder}
-                className="w-full h-[200px] px-4 py-10 rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-white focus:outline-none"
-              />
+                className="flex flex-col gap-1"
+              >
+                <label className="text-white text-sm">{field}</label>
+                <input
+                  type={
+                    field === "Email" ? "email" : 
+                    field === "Phone" ? "tel" : "text"
+                  }
+                  className="w-full h-12 px-4 rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-gray-300 focus:outline-none"
+                  placeholder={`Enter your ${field}`}
+                />
+              </motion.div>
             ))}
 
-            <motion.input
+            <motion.div 
               variants={inputVariants}
-              type="textarea"
-              placeholder="Address"
-              className="w-full h-[700px] px-4 py-24 rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-white focus:outline-none"
-            />
+              className="flex flex-col gap-1"
+            >
+              <label className="text-white text-sm">Address</label>
+              <textarea
+                className="w-full h-32 px-4 py-2 rounded-md bg-transparent border-2 border-[#ebbd28] text-white placeholder-gray-300 focus:outline-none resize-none"
+                placeholder="Enter your address"
+              />
+            </motion.div>
 
             <motion.button
               variants={inputVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-50 bg-[#ebbd28] text-black font-bold py-2 rounded-md hover:bg-yellow-500 transition"
+              className="w-full bg-[#ebbd28] text-black font-bold py-3 rounded-md hover:bg-yellow-500 transition mt-4"
             >
               Submit
             </motion.button>
-          </motion.div>
+          </form>
         </motion.div>
 
         {/* Right: Text content and image */}
@@ -89,7 +100,7 @@ export const FrameWrapper = () => {
             <Image
               width={468}
               height={353}
-              className="w-full h-[353px] object-cover rounded-xl"
+              className="w-full h-auto object-cover rounded-xl"
               alt="AFC Experience"
               src="https://c.animaapp.com/89fS0TNm/img/image-61@2x.png"
             />
@@ -99,19 +110,17 @@ export const FrameWrapper = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="[font-family:'Nunito',Helvetica] text-xl leading-10"
+            className="text-xl leading-8 text-white"
           >
             <span className="font-black text-[#ebbd28]">
               Absolutely Fried Chicken
             </span>
-            <span className="font-bold text-white">
-              {" "}
-              can access your favorite social media platforms seamlessly while
-              enjoying your meal. Share mouthwatering snapshots of your dining
-              experience or connect with friends online in between bites of our
-              crispy delights. Embrace the intersection of delicious food and
-              digital connectivity for a modern dining experience.
-            </span>
+            {" "}
+            can access your favorite social media platforms seamlessly while
+            enjoying your meal. Share mouthwatering snapshots of your dining
+            experience or connect with friends online in between bites of our
+            crispy delights. Embrace the intersection of delicious food and
+            digital connectivity for a modern dining experience.
           </motion.p>
         </motion.div>
       </div>

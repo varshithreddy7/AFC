@@ -36,39 +36,33 @@ const Abimance = () => {
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="w-full py-20"
+      className="w-full py-16 px-4 sm:px-6"
     >
-      <div className="max-w-screen-xl mx-auto px-6 flex flex-col lg:flex-row gap-12">
-        {/* Left Side: Experience */}
-        <motion.div
-          variants={containerVariants}
-          className="flex-1"
-        >
+      <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-12">
+        {/* Left Side */}
+        <motion.div variants={containerVariants} className="flex-1">
           <motion.h2
             variants={itemVariants}
-            className="text-[#ebbd28] text-4xl sm:text-5xl font-bold mb-6"
+            className="text-[#ebbd28] text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6"
           >
             Experience Our Ambiance
           </motion.h2>
 
           <motion.div
             variants={itemVariants}
-            className="h-1 w-72 bg-[#ebbd28] mb-8"
+            className="h-1 w-32 sm:w-64 bg-[#ebbd28] mb-6 sm:mb-8"
           />
 
           <motion.p
             variants={itemVariants}
-            className="text-white text-lg leading-8 max-w-lg mb-12"
+            className="text-white text-base sm:text-lg leading-7 sm:leading-8 max-w-xl mb-10"
           >
             Step into a world where modern elegance meets timeless comfort. Our carefully curated
             spaces are designed to enhance your dining experience, creating memorable moments in an
             atmosphere of sophisticated luxury.
           </motion.p>
 
-          <motion.div
-            variants={containerVariants}
-            className="space-y-6"
-          >
+          <motion.div variants={containerVariants} className="space-y-4 sm:space-y-6">
             {[
               "Intimate Private Dining Rooms",
               "Scenic Outdoor Terrace",
@@ -85,53 +79,51 @@ const Abimance = () => {
                   className="bg-[#ebbd28] w-10 h-10 rounded-full flex items-center justify-center"
                 >
                   <Image
-                    src="https://c.animaapp.com/v9ACUEeD/img/frame-3.svg"  // Replace this line
+                    src="https://c.animaapp.com/v9ACUEeD/img/frame-3.svg"
                     alt="Check Icon"
                     width={24}
                     height={24}
                   />
                 </motion.div>
-                <span className="text-white text-lg">{item}</span>
+                <span className="text-white text-base sm:text-lg">{item}</span>
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
 
-        {/* Right Side: Categories */}
-        <motion.div
-          variants={containerVariants}
-          className="flex-1"
-        >
+        {/* Right Side */}
+        <motion.div variants={containerVariants} className="flex-1">
           <motion.h3
             variants={itemVariants}
-            className="text-white text-3xl font-extrabold mb-6"
+            className="text-white text-2xl sm:text-3xl font-extrabold mb-4 sm:mb-6"
           >
             Categories
           </motion.h3>
 
           <motion.div
             variants={containerVariants}
-            className="flex flex-wrap gap-6 mb-12"
+            className="flex flex-wrap gap-4 sm:gap-6 mb-8 sm:mb-12"
           >
             <motion.button
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className="bg-[#ebbd28] hover:cursor-pointer rounded-full px-8 py-4 flex items-center justify-center hover:bg-[#d4a91f] transition duration-300"
+              className="bg-[#ebbd28] hover:cursor-pointer rounded-full px-6 py-3 sm:px-8 sm:py-4 hover:bg-[#d4a91f] transition duration-300"
             >
-              <span className="text-black text-2xl font-semibold">Shamshabad</span>
+              <span className="text-black text-lg sm:text-2xl font-semibold">Shamshabad</span>
             </motion.button>
+
             <motion.button
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className="bg-transparent hover:cursor-pointer border border-[#ebbd28] rounded-full px-8 py-4 flex items-center justify-center hover:bg-[#ebbd28] hover:text-black transition duration-300"
+              className="bg-transparent hover:cursor-pointer border border-[#ebbd28] rounded-full px-6 py-3 sm:px-8 sm:py-4 hover:bg-[#ebbd28] hover:text-black transition duration-300"
             >
-              <span className="text-white text-2xl font-semibold">Shivarampally</span>
+              <span className="text-white text-lg sm:text-2xl font-semibold">Shivarampally</span>
             </motion.button>
           </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="mt-10 flex justify-center lg:justify-start"
+            className="mt-6 sm:mt-10 flex justify-center lg:justify-start"
           >
             <Component property1="frame-39" />
           </motion.div>

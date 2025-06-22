@@ -107,9 +107,8 @@ export const HeroSection = () => {
                 ref={(el) => {
                   if (el) videoRefs.current[index] = el;
                 }}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-                  currentSlide === index ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${currentSlide === index ? "opacity-100" : "opacity-0"
+                  }`}
                 muted
                 playsInline
                 loop
@@ -123,7 +122,9 @@ export const HeroSection = () => {
 
             <div className="absolute inset-0 bg-black/40" />
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
+
+            {/* HERO CONTENT */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 md:px-10">
               <motion.div
                 initial={{ y: 100, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -135,7 +136,7 @@ export const HeroSection = () => {
                 }}
                 className="relative"
               >
-                <h1 className="text-7xl font-bold mb-6 text-center">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-center leading-tight">
                   {slides[currentSlide].title}
                 </h1>
                 <motion.div
@@ -155,7 +156,7 @@ export const HeroSection = () => {
                   stiffness: 100,
                   delay: 0.6,
                 }}
-                className="text-3xl mb-12 text-center max-w-2xl leading-relaxed"
+                className="text-base sm:text-xl md:text-2xl lg:text-3xl mb-6 md:mb-12 text-center max-w-2xl leading-relaxed px-2"
               >
                 {slides[currentSlide].subtitle}
               </motion.p>
@@ -170,8 +171,8 @@ export const HeroSection = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleCtaClick}
-                className="group relative px-12 py-5 bg-[#ebbd28] text-black rounded-full 
-                  font-bold text-xl overflow-hidden transition-all duration-300"
+                className="group relative px-6 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 bg-[#ebbd28] text-black rounded-full 
+      font-bold text-base sm:text-lg md:text-xl overflow-hidden transition-all duration-300"
               >
                 <motion.span
                   initial={{ y: "100%" }}
@@ -182,6 +183,10 @@ export const HeroSection = () => {
                 <span className="relative z-10">{slides[currentSlide].cta}</span>
               </motion.button>
             </div>
+
+        
+
+
           </motion.div>
         </AnimatePresence>
 
@@ -191,11 +196,10 @@ export const HeroSection = () => {
               key={index}
               onClick={() => setCurrentSlide(index)}
               whileHover={{ scale: 1.2 }}
-              className={`h-2 rounded-full transition-all duration-500 ${
-                currentSlide === index
+              className={`h-2 rounded-full transition-all duration-500 ${currentSlide === index
                   ? "bg-[#ebbd28] w-16 shadow-[0_0_15px_rgba(235,189,40,0.6)]"
                   : "bg-white/50 w-8"
-              }`}
+                }`}
             />
           ))}
         </div>

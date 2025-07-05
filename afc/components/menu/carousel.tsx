@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect, useRef } from "react"
@@ -185,7 +186,7 @@ const PizzaSpinWheel = () => {
                   ease: "linear"
                 }}
               >
-                Today's Special
+                Our Specials
               </motion.span>
               <motion.div 
                 className="h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2"

@@ -3,9 +3,9 @@ import { BackgroundBorder } from "./sections/BackgroundBorder";
 
 import { Contact } from "./sections/Contact";
 
-import { FrameWrapper } from "./sections/FrameWrapper";
 import { Group } from "./sections/Group";
 import { GroupWrapper } from "./sections/GroupWrapper";
+import ContactForm from "./sections/FrameWrapper";
 
 const Franchasie = () => {
   return (
@@ -36,7 +36,7 @@ const Franchasie = () => {
         
         <GroupWrapper />
         <Contact />
-        <FrameWrapper />
+        <ContactForm />
       </div>
     </div>
   );

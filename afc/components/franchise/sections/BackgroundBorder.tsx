@@ -69,12 +69,15 @@ const Card: React.FC<CardProps> = ({ image, title, points, cta }) => (
         viewport={{ once: true }}
         className="mt-6"
       >
+        <a href="#contact">
         <motion.button
           whileHover={{ scale: 1.05 }}
           className="w-full bg-[#ebbd28] text-black font-extrabold text-center py-3 rounded-[30px] border border-black text-sm"
+        
         >
           {cta}
         </motion.button>
+        </a>
       </motion.div>
     </motion.div>
   </motion.div>

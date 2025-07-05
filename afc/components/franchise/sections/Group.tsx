@@ -16,16 +16,39 @@ interface FeatureCardProps {
   icon: string;
 }
 
+// const FeatureCard: React.FC<FeatureCardProps> = ({ label, icon }) => (
+//   <motion.div
+//     initial={{ opacity: 0, y: 20 }}
+//     whileInView={{ opacity: 1, y: 0 }}
+//     transition={{ duration: 0.5 }}
+//     whileHover={{ scale: 1.05 }}
+//     className="w-full h-32 md:w-full md:h-32 bg-[#ebbd28] rounded-2xl border border-black shadow-[0_4px_15px_5px_rgba(235,189,40,0.5)] p-4 flex flex-col md:flex-row md:justify-around items-center justify-center gap-4"
+//   >
+//     <Image
+//       src={icon}
+//       alt={label}
+//       width={40}
+//       height={40}
+      // className="object-cover md:w-16 md:h-16 w-10 h-10"
+//     />
+//     <h3 className="text-white  text-left text-sm md:text-2xl font-black font-nunito text-center">
+//       {label}
+//     </h3>
+//   </motion.div>
+// );
+
 const FeatureCard: React.FC<FeatureCardProps>=({ label, icon }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
     whileHover={{ scale: 1.05 }}
-    className="bg-[#ebbd28] rounded-2xl border border-black shadow-[0_4px_15px_5px_rgba(235,189,40,0.5)] p-6 flex items-center gap-6"
+    className="bg-[#ebbd28] rounded-2xl border border-black shadow-[0_4px_15px_5px_rgba(235,189,40,0.5)] p-6 flex flex-col md:flex-row items-center gap-6"
   >
-    <Image src={icon} alt={label} width={64} height={64} className="object-cover" />
-    <h3 className="text-white text-2xl font-black font-nunito">{label}</h3>
+    <Image src={icon} alt={label} width={32} height={32}    
+       className="object-cover md:w-16 md:h-16 w-10 h-10"
+ />
+    <h3 className="text-white text-sm md:text-2xl font-black font-nunito">{label}</h3>
   </motion.div>
 );
 
@@ -76,7 +99,7 @@ export const Group = () => {
         />
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2  sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {franchiseFeatures.map((feature, idx) => (
           <FeatureCard key={idx} label={feature.label} icon={feature.icon} />
         ))}

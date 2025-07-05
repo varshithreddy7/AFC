@@ -19,7 +19,7 @@ const OrderDetailsCard = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
       <motion.div
@@ -91,45 +91,47 @@ export default function ResponsiveMenu() {
 
   return (
     <div className="min-h-screen  text-white">
-      {/* Mobile Header */}
-      <div className="md:hidden flex items-center justify-between p-4 bg-black bg-opacity-50">
-        <h1 className="text-xl font-bold">Menu</h1>
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+      {/* Mobile Header with Menu Items */}
+      <div className="md:hidden flex flex-col items-center p-4  bg-opacity-50">
+        <h1 className="text-4xl font-bold mb-2">Menu Items</h1>
+        <div className="flex justify-center items-center gap-4 mb-8">
+            <motion.div 
+              className="h-[3px] w-25 bg-yellow-300"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            />
+            <motion.div 
+              className="w-5 h-5 rounded-full bg-[#ebbd28]"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.4, type: "spring" }}
+            />
+            <motion.div 
+              className="h-[3px] w-25 bg-yellow-300"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            />
+          </div>
+        <div className="flex flex-wrap justify-center gap-2 w-full">
+          {menuItems.map((item) => (
+            <button
+              key={item}
+              onClick={() => setActiveCategory(item)}
+              className={`px-3 py-1 rounded-full text-sm font-semibold transition-all border-2 ${
+                activeCategory === item
+                  ? 'bg-yellow-400 text-black border-yellow-400'
+                  : 'text-white border-gray-700 hover:bg-yellow-400 hover:text-black hover:border-yellow-400'
+              }`}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Mobile Category Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden fixed top-16 left-0 right-0 bg-black bg-opacity-95 z-40 p-4 space-y-2"
-          >
-            {menuItems.map((item) => (
-              <button
-                key={item}
-                onClick={() => {
-                  setActiveCategory(item)
-                  setIsMobileMenuOpen(false)
-                }}
-                className={`block w-full text-left text-lg py-3 px-4 rounded-lg transition-all ${
-                  activeCategory === item
-                    ? 'bg-yellow-400 text-black font-semibold'
-                    : 'hover:bg-gray-800'
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Category Menu Overlay removed, menu items are now always visible on mobile */}
 
       <div className="flex flex-col md:flex-row min-h-screen">
         {/* Desktop Sidebar */}
@@ -199,7 +201,7 @@ export default function ResponsiveMenu() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className="flex flex-col sm:flex-row bg-black bg-opacity-60 text-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+                  className="flex flex-col sm:flex-row  bg-opacity-60 text-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
                 >
                   {/* Image */}
                   <div className="w-full sm:w-48 md:w-56 lg:w-64 h-48 sm:h-40 md:h-48 flex-shrink-0">
@@ -218,12 +220,7 @@ export default function ResponsiveMenu() {
                     <div>
                       <h2 className="text-lg md:text-xl lg:text-2xl font-bold mb-2">{item.title}</h2>
                       
-                      {/* Decorative line */}
-                      <div className="flex items-center gap-2 mb-3 md:mb-4">
-                        <div className="h-[1px] w-6 md:w-8 lg:w-10 bg-yellow-300" />
-                        <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-yellow-400" />
-                        <div className="h-[1px] w-6 md:w-8 lg:w-10 bg-yellow-300" />
-                      </div>
+                      
                       
                       {/* Rating */}
                       <div className="flex items-center mb-2 md:mb-3 text-yellow-400 text-sm md:text-base">

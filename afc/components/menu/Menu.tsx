@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { X } from 'lucide-react'
 
 interface FoodItem {
   title: string
@@ -10,16 +10,17 @@ interface FoodItem {
   image: string
 }
 
-// Mock OrderDetailsCard component since it's not available
+// ────────────────────────────────────────────────────────────────────────────────
+// Mock OrderDetailsCard (replace with real one when available)
+// ────────────────────────────────────────────────────────────────────────────────
 const OrderDetailsCard = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
-  if (!isOpen) return null;
-  
+  if (!isOpen) return null
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
       <motion.div
@@ -44,10 +45,20 @@ const OrderDetailsCard = ({ isOpen, onClose }: { isOpen: boolean; onClose: () =>
         </button>
       </motion.div>
     </motion.div>
-  );
-};
+  )
+}
 
-const menuItems: string[] = ['Pizza', 'Milk Shakes', 'Combos', 'Fries', 'Mojitos', 'Deserts']
+// ────────────────────────────────────────────────────────────────────────────────
+// Data
+// ────────────────────────────────────────────────────────────────────────────────
+const menuItems: string[] = [
+  'Pizza',
+  'Milk Shakes',
+  'Combos',
+  'Fries',
+  'Mojitos',
+  'Deserts',
+]
 
 const foodData: Record<string, FoodItem[]> = {
   Pizza: [
@@ -84,46 +95,53 @@ const foodData: Record<string, FoodItem[]> = {
   ],
 }
 
+// ────────────────────────────────────────────────────────────────────────────────
+// Component
+// ────────────────────────────────────────────────────────────────────────────────
 export default function ResponsiveMenu() {
   const [activeCategory, setActiveCategory] = useState<string>('Pizza')
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <div className="min-h-screen  text-white">
-      {/* Mobile Header with Menu Items */}
-      <div className="md:hidden flex flex-col items-center p-4  bg-opacity-50">
+    <div className="min-h-screen bg-[url('/images/hero-bg.jpg')] bg-cover bg-center text-white">
+      {/* ─────────────── Mobile Header ─────────────── */}
+      <div className="md:hidden flex flex-col items-center p-4 bg-black/40 backdrop-blur-sm">
         <h1 className="text-4xl font-bold mb-2">Menu Items</h1>
-        <div className="flex justify-center items-center gap-4 mb-8">
-            <motion.div 
-              className="h-[3px] w-25 bg-yellow-300"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            />
-            <motion.div 
-              className="w-5 h-5 rounded-full bg-[#ebbd28]"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.4, type: "spring" }}
-            />
-            <motion.div 
-              className="h-[3px] w-25 bg-yellow-300"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            />
-          </div>
-        <div className="flex flex-wrap justify-center gap-2 w-full">
+        <div className="flex justify-center items-center gap-4 mb-6">
+          <motion.div
+            className="h-[3px] w-24 bg-yellow-300 origin-left"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          />
+          <motion.div
+            className="w-5 h-5 rounded-full bg-[#ebbd28]"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.4, type: 'spring' }}
+          />
+          <motion.div
+            className="h-[3px] w-24 bg-yellow-300 origin-right"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+          />
+        </div>
+
+        {/* Horizontal‑scrolling categories */}
+        <div
+          className="w-full flex flex-wrap items-center justify-center gap-2 scrollbar-hidden scrollbar-thumb-transparent scrollbar-track-transparent"
+        >
           {menuItems.map((item) => (
             <button
               key={item}
               onClick={() => setActiveCategory(item)}
-              className={`px-3 py-1 rounded-full text-sm font-semibold transition-all border-2 ${
-                activeCategory === item
-                  ? 'bg-yellow-400 text-black border-yellow-400'
-                  : 'text-white border-gray-700 hover:bg-yellow-400 hover:text-black hover:border-yellow-400'
-              }`}
+              className={`inline-block mx-1 px-3 py-1 rounded-full text-sm font-semibold border-2 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 ${
+              /* Active styles */
+              activeCategory === item
+                ? 'bg-yellow-400 text-black border-yellow-400'
+                : 'text-white border-gray-700 hover:bg-yellow-400 hover:text-black hover:border-yellow-400'
+            }`}
             >
               {item}
             </button>
@@ -131,145 +149,131 @@ export default function ResponsiveMenu() {
         </div>
       </div>
 
-      {/* Mobile Category Menu Overlay removed, menu items are now always visible on mobile */}
-
-      <div className="flex flex-col md:flex-row min-h-screen">
-        {/* Desktop Sidebar */}
-        <div className="hidden md:block w-full md:w-1/4 lg:w-1/5 p-4 md:p-6 space-y-3 bg-black bg-opacity-50">
-          <div className="mb-8">
-            <h2 className="text-2xl lg:text-3xl font-bold text-center md:text-left">Categories</h2>
-            <div className="flex justify-center md:justify-start items-center gap-2 mt-2">
-              <div className="h-[2px] w-8 bg-yellow-300" />
-              <div className="w-2 h-2 rounded-full bg-yellow-400" />
-              <div className="h-[2px] w-8 bg-yellow-300" />
-            </div>
+      {/* ─────────────── Layout Wrapper ─────────────── */}
+      <div className="flex flex-col md:flex-row min-h-screen bg-black/60">
+        {/* Sidebar (desktop only) */}
+        <aside className="hidden md:block md:w-1/4 lg:w-1/5 p-6 bg-black/50 backdrop-blur-sm overflow-y-auto">
+          <h2 className="text-3xl font-bold mb-4">Categories</h2>
+          <div className="flex items-center gap-2 mb-8">
+            <div className="h-[2px] w-8 bg-yellow-300" />
+            <div className="w-2 h-2 rounded-full bg-yellow-400" />
+            <div className="h-[2px] w-8 bg-yellow-300" />
           </div>
-          
+
           {menuItems.map((item) => (
             <motion.button
               key={item}
               onClick={() => setActiveCategory(item)}
-              whileHover={{ scale: 1.02, x: 5 }}
+              whileHover={{ scale: 1.02, x: 4 }}
               whileTap={{ scale: 0.98 }}
-              className={`block w-full text-left text-lg lg:text-xl py-3 px-4 rounded-lg transition-all ${
-                activeCategory === item
-                  ? 'bg-yellow-400 text-black font-semibold shadow-lg'
-                  : 'hover:bg-gray-800 hover:translate-x-1'
-              }`}
+              className={`block w-full text-left py-3 px-4 rounded-lg mb-1 transition-all ${
+              activeCategory === item
+                ? 'bg-yellow-400 text-black font-semibold shadow-lg'
+                : 'hover:bg-gray-800'
+            }`}
             >
               {item}
             </motion.button>
           ))}
-        </div>
+        </aside>
 
-        {/* Main Content Area */}
-        <div className="flex-1 p-4 md:p-6 lg:p-8">
-          {/* Category Title */}
+        {/* ─────────────── Main Content ─────────────── */}
+        <main className="flex-1 p-6 md:p-8 lg:p-10 space-y-8 overflow-y-auto">
+          {/* Category heading */}
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.header
               key={activeCategory + '-header'}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="text-center mb-8"
+              className="text-center"
             >
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
                 {activeCategory}
               </h1>
-              <div className="flex justify-center items-center gap-3 md:gap-4">
-                <div className="h-[2px] md:h-[3px] w-12 md:w-16 lg:w-20 bg-yellow-300" />
-                <div className="w-3 md:w-4 lg:w-5 h-3 md:h-4 lg:h-5 rounded-full bg-yellow-400" />
-                <div className="h-[2px] md:h-[3px] w-12 md:w-16 lg:w-20 bg-yellow-300" />
+              <div className="flex justify-center items-center gap-3">
+                <div className="h-[2px] w-12 bg-yellow-300" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="h-[2px] w-12 bg-yellow-300" />
               </div>
-            </motion.div>
+            </motion.header>
           </AnimatePresence>
 
-          {/* Food Items */}
+          {/* Items grid */}
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.section
               key={activeCategory + '-items'}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              className="space-y-4 md:space-y-6"
+              className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
             >
               {foodData[activeCategory].map((item, idx) => (
-                <motion.div
+                <motion.article
                   key={idx}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1, duration: 0.5 }}
-                  className="flex flex-col sm:flex-row  bg-opacity-60 text-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
+                  transition={{ delay: idx * 0.05, duration: 0.4 }}
+                  className="bg-gray-900/70 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl backdrop-blur-md flex flex-col"
                 >
                   {/* Image */}
-                  <div className="w-full sm:w-48 md:w-56 lg:w-64 h-48 sm:h-40 md:h-48 flex-shrink-0">
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
+                  <div className="h-48 sm:h-40 md:h-48 w-full overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
-                        e.currentTarget.src = '/images/pizza.png';
+                        ;(e.currentTarget as HTMLImageElement).src = '/images/pizza.png'
                       }}
                     />
                   </div>
-                  
+
                   {/* Content */}
-                  <div className="p-4 md:p-6 flex flex-col justify-between flex-1">
-                    <div>
-                      <h2 className="text-lg md:text-xl lg:text-2xl font-bold mb-2">{item.title}</h2>
-                      
-                      
-                      
-                      {/* Rating */}
-                      <div className="flex items-center mb-2 md:mb-3 text-yellow-400 text-sm md:text-base">
-                        {'★'.repeat(5)}
-                      </div>
-                      
-                      {/* Description */}
-                      <p className="text-xs md:text-sm text-gray-300 mb-4 leading-relaxed">
-                        Experience the perfect blend of premium ingredients and expert craftsmanship in every bite.
-                      </p>
-                    </div>
-                    
-                    {/* Price and Order Button */}
-                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
-                      <span className="text-yellow-400 text-xl md:text-2xl font-bold">{item.price}</span>
-                      <motion.button 
+                  <div className="p-4 flex flex-col flex-1">
+                    <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+                    <div className="text-yellow-400 text-sm mb-2">{'★'.repeat(5)}</div>
+                    <p className="text-xs text-gray-300 flex-1 mb-4 leading-relaxed">
+                      Experience the perfect blend of premium ingredients and expert craftsmanship in every bite.
+                    </p>
+                    <div className="flex items-center justify-between gap-4 mt-auto">
+                      <span className="text-yellow-400 text-xl font-bold">{item.price}</span>
+                      <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="w-full sm:w-auto bg-yellow-400 text-black px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold text-sm md:text-base hover:bg-yellow-300 transition-all duration-200 shadow-lg hover:shadow-xl"
+                        className="bg-yellow-400 text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-yellow-300"
                         onClick={() => setIsOrderModalOpen(true)}
                       >
                         Order Now
                       </motion.button>
                     </div>
                   </div>
-                </motion.div>
+                </motion.article>
               ))}
-            </motion.div>
+            </motion.section>
           </AnimatePresence>
 
-          {/* Empty State */}
+          {/* Empty state */}
           {(!foodData[activeCategory] || foodData[activeCategory].length === 0) && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-center py-12"
-            >
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
               <h3 className="text-xl text-gray-400 mb-2">No items available</h3>
               <p className="text-gray-500">Please check back later!</p>
             </motion.div>
           )}
-        </div>
+        </main>
       </div>
 
-      {/* Order Modal */}
-      <OrderDetailsCard
-        isOpen={isOrderModalOpen}
-        onClose={() => setIsOrderModalOpen(false)}
-      />
+      {/* ─────────────── Order Modal ─────────────── */}
+      <OrderDetailsCard isOpen={isOrderModalOpen} onClose={() => setIsOrderModalOpen(false)} />
     </div>
   )
 }
+
+// ────────────────────────────────────────────────────────────────────────────────
+// ✨ Quick Note – Hiding the mobile scrollbar
+// If you want to fully hide the horizontal scrollbar on mobile WebKit browsers,
+// add this to your global CSS (requires the `tailwind-scrollbar-hide` plugin or
+// manual CSS):
+// .scrollbar-hide::-webkit-scrollbar { display: none; }
+// ────────────────────────────────────────────────────────────────────────────────

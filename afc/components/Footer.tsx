@@ -166,12 +166,19 @@
 // };
 
 
+
+
+
+
+
+
 "use client";
 import React from "react";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="relative w-full  text-white pt-20 pb-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <footer className="relative w-full bg-black   text-white pt-20 pb-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row gap-12 mb-16">
@@ -202,13 +209,31 @@ export const Footer = () => {
             <div>
               <h3 className="font-black text-xl sm:text-2xl text-[#ebbd28] mb-4 sm:mb-6">QUICK LINKS</h3>
               <ul className="space-y-2 sm:space-y-3">
-                {['HOME', 'ABOUT', 'MENU', 'FRANCHISE', 'GALLERY'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="text-white hover:text-[#ebbd28] transition-colors text-base sm:text-lg">
-                      {item}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <Link href="/" className="text-white hover:text-[#ebbd28] transition-colors text-base sm:text-lg">
+                    HOME
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/about" className="text-white hover:text-[#ebbd28] transition-colors text-base sm:text-lg">
+                    ABOUT
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/menu" className="text-white hover:text-[#ebbd28] transition-colors text-base sm:text-lg">
+                    MENU
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/franchise" className="text-white hover:text-[#ebbd28] transition-colors text-base sm:text-lg">
+                    FRANCHISE
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/gallery" className="text-white hover:text-[#ebbd28] transition-colors text-base sm:text-lg">
+                    GALLERY
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -265,7 +290,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-[#333333]">
+        <div className="flex flex-col sm:flex-row items-center text-center justify-between pt-8 relative before:content-[''] before:absolute before:top-0 before:left-0 before:h-[6px] before:w-full before:bg-gradient-to-r before:from-black before:via-yellow-400 before:to-black">
           <p className="font-extrabold text-[#ebbd28] text-center align-center sm:text-left mb-4 sm:mb-0">
             © 2025 ALL RIGHTS RESERVED BY AFC
           </p>
@@ -276,14 +301,10 @@ export const Footer = () => {
               alt="Social Media"
               src="https://c.animaapp.com/ncrVY1LD/img/image-62@2x.png"
             />
-            <img
-              className="w-12 h-12 object-cover"
-              alt="AFC Logo"
-              src="/images/afc-logo-small.png"
-            />
+            
           </div>
         </div>
       </div>
     </footer>
   );
-};
+}; 

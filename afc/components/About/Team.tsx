@@ -1,113 +1,183 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
+const hoverEffect = {
+  scale: 1.05,
+  boxShadow: "0 8px 32px 0 rgba(235,189,40,0.25)",
+  transition: { duration: 0.3 }
+};
+
+const founders = [
+  { name: "CHAITANYA VARMA", img: "images/owner2.png", role: "Founder" },
+  { name: "NARASHIMA", img: "images/owner1.png", role: "Founder" }
+];
+
+const franchiseOwners = [
+  { name: "RAVI", img: "images/member1.png", role: "Franchise Owner" },
+  { name: "SURESH", img: "images/member2.png", role: "Franchise Owner" },
+  { name: "PRIYA", img: "images/member3.png", role: "Franchise Owner" }
+];
+
+const franchiseManagers = [
+  { name: "ANITA", img: "images/member4.png", role: "Franchise Manager" },
+  { name: "VIKRAM", img: "images/member5.png", role: "Franchise Manager" },
+  { name: "MEENA", img: "images/member6.png", role: "Franchise Manager" },
+  { name: "RAHUL", img: "images/member7.png", role: "Franchise Manager" }
+];
 
 const Team: React.FC = () => {
-  // Animation variants
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-  };
-
-  const hoverEffect = {
-    scale: 1.03,
-    transition: { duration: 0.3 }
-  };
-
-  return (<>
-   <motion.div 
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex justify-center items-center mb-10"
-      >
-        <div className="flex flex-col justify-center items-center">
-
-        
-        <div className="font-extrabold text-white text-4xl tracking-[0] leading-[50px] whitespace-nowrap">
-          OUR TEAM
-        </div>
-        <div className="flex justify-center items-center gap-4 mb-8">
-            <motion.div 
-              className="h-[3px] w-25 bg-yellow-300"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            />
-            <motion.div 
-              className="w-5 h-5 rounded-full bg-[#ebbd28]"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.4, type: "spring" }}
-            />
-            <motion.div 
-              className="h-[3px] w-25 bg-yellow-300"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-            />
-          </div>
-          </div>
-      </motion.div>
-  
-    <div className="relative w-full h-auto pt-[50px] px-[20px] py-[20px] sm:px-[100px] flex flex-row justify-center items-center bg-[#00000003]">
-     
-
-      <motion.div 
+  // Helper to render a row with label and animated cards
+  const renderRow = (
+    label: string,
+    members: any[],
+    cardSize = "w-[110px] h-[130px] xs:w-[120px] xs:h-[150px] sm:w-[150px] sm:h-[200px] md:w-[180px] md:h-[250px]",
+    gridCols = "grid-cols-2"
+  ) => (
+    <div className="flex flex-col items-center w-full mb-8">
+      {/* Bigger label and more space below */}
+      <div className="mb-5 text-base xs:text-xl sm:text-2xl md:text-3xl font-extrabold text-yellow-300 tracking-wide drop-shadow-lg text-center">
+        {label}
+      </div>
+      <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center"
-        >
-        {/* Team Member 1 */}
-        <motion.div 
-          variants={item}
-          whileHover={hoverEffect}
-          className="w-full h-[500px] bg-black border-2 border-solid border-[#ebbd28] relative overflow-hidden"
-        >
-          <img
-            className="w-full h-full object-fill transition-transform duration-500  pb-20"
-            alt="Chaitanya Varma"
-            src="images/owner2.png"
-            />
-          <div className="absolute bottom-0 left-0 right-0 p-4 font-bold text-white text-xl bg-gradient-to-t from-black to-transparent">
-            CHAITANYA VARMA
-          </div>
-        </motion.div>
-
-        {/* Team Member 2 */}
-        <motion.div 
-          variants={item}
-          whileHover={hoverEffect}
-          className="w-full h-[500px] bg-black border-2 border-solid border-[#ebbd28] relative overflow-hidden"
+        className={`
+          grid ${gridCols} gap-3 xs:gap-5 sm:gap-10 w-full max-w-fit mx-auto place-items-center
+        `}
+      >
+        {members.map((member, idx) => (
+          <motion.div
+            key={member.name}
+            variants={item}
+            whileHover={hoverEffect}
+            className={`
+              ${cardSize}
+              bg-black border-2 border-solid border-[#ebbd28] relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 group
+              flex flex-col justify-end items-center
+            `}
           >
-          <img
-            className="w-full h-full object-fill transition-transform duration-500  pb-20"
-            alt="Narashima"
-            src="images/owner1.png"
+            <img
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              alt={member.name}
+              src={member.img}
             />
-          <div className="absolute bottom-0 left-0 right-0 p-4 font-bold text-white text-xl bg-gradient-to-t from-black to-transparent">
-            NARASHIMA
-          </div>
-        </motion.div>
-
-        {/* Team Member 3 - Example of additional member */}
-        
+            {/* Badge */}
+            <div className="absolute top-1 left-1 xs:top-2 xs:left-2 sm:top-3 sm:left-3 bg-yellow-300 text-black text-[9px] xs:text-xs font-bold px-2 xs:px-3 py-1 rounded-full shadow">
+              {member.role}
+            </div>
+            {/* Name */}
+            <div className="absolute bottom-0 left-0 right-0 p-1 xs:p-2 sm:p-3 font-bold text-white text-[10px] xs:text-xs sm:text-lg bg-gradient-to-t from-black/80 to-transparent text-center">
+              {member.name}
+            </div>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
-            </>
+  );
+
+  return (
+    <>
+      {/* Title */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex justify-center items-center mb-8"
+      >
+        <div className="flex flex-col justify-center items-center w-full">
+          <div className="font-extrabold text-white text-lg xs:text-2xl sm:text-4xl tracking-[0] leading-[28px] xs:leading-[40px] sm:leading-[50px] whitespace-nowrap text-center">
+            OUR TEAM
+          </div>
+          <div className="flex justify-center items-center gap-2 sm:gap-4 mb-6">
+            <motion.div
+              className="h-[2px] w-8 sm:w-16 bg-yellow-300"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            />
+            <motion.div
+              className="w-3 h-3 sm:w-5 sm:h-5 rounded-full bg-[#ebbd28]"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.4, type: "spring" }}
+            />
+            <motion.div
+              className="h-[2px] w-8 sm:w-16 bg-yellow-300"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Hierarchical Team Layout */}
+      <div className="relative w-full h-auto pt-6 sm:pt-10 px-1 xs:px-2 sm:px-[100px] py-2 sm:py-5 flex flex-col items-center bg-[#00000003]">
+
+        {/* Founders Row - Fixed 2 in a row */}
+        {renderRow(
+          "Founders", 
+          founders, 
+          "w-[110px] h-[130px] xs:w-[120px] xs:h-[150px] sm:w-[250px] sm:h-[350px]",
+          "grid-cols-2"
+        )}
+
+        {/* Glowing thin vertical connection line */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          style={{ originY: 0 }}
+          className="bg-yellow-300 w-[2px] sm:w-[3px] h-8 xs:h-10 sm:h-20 mx-auto my-2 rounded-full z-0 shadow-[0_0_8px_2px_rgba(235,189,40,0.7)]"
+        />
+
+        {/* Franchise Owners Row - 3 per row */}
+        {renderRow(
+          "Franchise Owners", 
+          franchiseOwners, 
+          "w-[110px] h-[130px] xs:w-[120px] xs:h-[150px] sm:w-[200px] sm:h-[280px]",
+          "grid-cols-3"
+        )}
+
+        {/* Glowing thin vertical connection line */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          style={{ originY: 0 }}
+          className="bg-yellow-300 w-[2px] sm:w-[3px] h-8 xs:h-10 sm:h-20 mx-auto my-2 rounded-full z-0 shadow-[0_0_8px_2px_rgba(235,189,40,0.7)]"
+        />
+
+        {/* Franchise Managers Row - 4 per row */}
+        {renderRow(
+          "Franchise Managers", 
+          franchiseManagers, 
+          "w-[110px] h-[130px] xs:w-[120px] xs:h-[150px] sm:w-[200px] sm:h-[280px]",
+          "grid-cols-2 sm:grid-cols-4"
+        )}
+
+        {/* Removed bottom horizontal yellow line */}
+      </div>
+    </>
   );
 };
 

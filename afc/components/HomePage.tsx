@@ -225,13 +225,14 @@ const Home = () => {
 
       {/* FAQ & Feedback Section */}
       <section className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-4 sm:px-6 md:px-8 py-10 md:py-16">
+       
         {/* FAQ Section - Full width on mobile, half on desktop */}
         <div className="w-full lg:w-1/2">
           <FaqSection />
         </div>
 
         {/* Feedback Section - Full width on mobile, half on desktop */}
-        <div className="w-full lg:w-1/2 flex flex-col items-center md:mt-40">
+        <div className="w-full lg:w-1/2 flex flex-col items-center md:mt-100">
           {/* Header */}
           <div className="flex flex-col items-center w-full max-w-md mx-auto">
             <img
@@ -239,53 +240,7 @@ const Home = () => {
               className="w-40 md:w-52 lg:w-60 object-contain"
               alt="Feedback illustration"
             />
-            <h1 className="mt-8 md:mt-12 text-2xl md:text-3xl lg:text-4xl text-white text-center font-bold">
-              Any Questions?
-            </h1>
-            <p className="mt-2 md:mt-4 text-sm md:text-base text-white text-center opacity-80">
-              You can ask anything you want to know about our services
-            </p>
-          </div>
-
-          {/* Input Section */}
-          <div className="w-full max-w-md mt-8 md:mt-12 px-4">
-            <div className="flex justify-between items-start gap-4 w-full">
-              <div className="flex flex-col flex-grow">
-                <label htmlFor="feedback-input" className="text-sm text-white opacity-80">
-                  Let us know your question
-                </label>
-                <input
-                  id="feedback-input"
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Enter your question here..."
-                  className="mt-2 p-2 w-full text-base bg-transparent border-b border-white text-white outline-none placeholder-white/50 focus:border-amber-400 transition-colors"
-                />
-              </div>
-              {inputValue && (
-                <button
-                  onClick={handleClose}
-                  className="mt-2 text-2xl text-white hover:text-amber-400 cursor-pointer transition-colors"
-                  aria-label="Clear input"
-                >
-                  ×
-                </button>
-              )}
-            </div>
-
-            {/* Submit Button */}
-            <button
-              disabled={!inputValue.trim()}
-              className={`mt-6 w-full py-3 rounded-lg text-base md:text-lg font-bold transition-colors ${
-                inputValue.trim()
-                  ? "bg-amber-400 text-black hover:bg-amber-500"
-                  : "bg-gray-600 text-gray-400 cursor-not-allowed"
-              }`}
-            >
-              Submit Question
-            </button>
-          </div>
+           </div>
         </div>
       </section>
     </div>

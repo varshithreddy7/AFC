@@ -7,21 +7,21 @@ import OrderDetailsCard from "@/components/ui/OrderDetailsCard";
 
 const slides = [
   {
-    video: "/videos/hero1.MP4",
+    video: "/",
     title: "Absolutely Fried Chicken",
-    subtitle: "Crispy, Juicy, Delicious",
+    subtitle: "🔥 Food That Makes You Drool",
     cta: "Order Now",
     action: "modal"
   },
   {
-    video: "/videos/hero2.mp4",
+    video: "/",
     title: "Premium Quality",
     subtitle: "Fresh Ingredients, Amazing Taste",
     cta: "View Menu",
     path: "/menu"
   },
   {
-    video: "/videos/hero3.MP4",
+    video: "/",
     title: "Join AFC Franchise Family",
     subtitle: "Be Part of a Growing Success Story",
     cta: "Start Your Journey",
@@ -36,6 +36,7 @@ const offers = [
   "Exclusive deals for AFC members!",
   "Limited-time offer: 30% off on family meals!",
 ];
+
 
 export const HeroSection = () => {
   const router = useRouter();
@@ -171,16 +172,10 @@ export const HeroSection = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleCtaClick}
-                className="group relative px-6 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 bg-[#ebbd28] text-black rounded-full 
-      font-bold text-base sm:text-lg md:text-xl overflow-hidden transition-all duration-300"
+                className="relative px-6 py-3 sm:px-10 sm:py-4 md:px-12 md:py-5 bg-[#ebbd28] text-black rounded-full 
+      font-bold text-base sm:text-lg md:text-xl transition-all duration-300 shadow-lg hover:bg-yellow-400 focus:outline-none"
               >
-                <motion.span
-                  initial={{ y: "100%" }}
-                  whileHover={{ y: "0%" }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute inset-0 bg-white/20"
-                />
-                <span className="relative z-10">{slides[currentSlide].cta}</span>
+                {slides[currentSlide].cta}
               </motion.button>
             </div>
 

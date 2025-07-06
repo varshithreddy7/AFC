@@ -6,9 +6,9 @@ import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 
 const stats = [
-  { number: "15+", label: "Years Experience" },
-  { number: "50+", label: "Locations" },
-  { number: "2M+", label: "Happy Customers" },
+  { number: "2+", label: "Years Experience" },
+  { number: "5+", label: "Locations" },
+  { number: "10k+", label: "Happy Customers" },
 ];
 
 export const AboutSection = () => {
@@ -140,15 +140,10 @@ export const AboutSection = () => {
             {/* Description */}
             <motion.div
               variants={itemVariants}
-              className="text-white text-base sm:text-lg leading-relaxed"
+              className="text-white text-base sm:text-lg md:text-xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] mb-2"
             >
               <p>
-                Absolutely Fried Chicken is a bustling hub for crispy, golden delights
-                that satisfy cravings instantly. Our signature recipe, a closely guarded
-                secret, ensures each bite is bursting with flavor and juiciness. Nestled
-                in the heart of the town, it&#39;s a go-to spot for those seeking
-                comfort food on the go. With friendly service and affordable prices,
-                it&#39;s a favorite haunt for families and friends alike.
+                <span className="font-semibold">Absolutely Fried Chicken</span> is more than a food brand — it’s a <span className="font-bold">flavor movement</span>! Our chefs craft every item fresh with care, our team greets you with a smile, and our franchise partners thrive with strong, ongoing support. From the kitchen to the counter, we believe in <span className="font-bold">quality</span>, <span className="font-bold">community</span>, and <span className="font-bold">consistency</span>.
               </p>
             </motion.div>
 

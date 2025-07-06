@@ -9,7 +9,7 @@ import OurJourney from "components/About/OurJourney";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[url('/images/for_frame.png')] bg-cover bg-center">
+    <div >
       
    <AbsolutelyFried/>
    <MisionVision/>

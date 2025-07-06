@@ -25,7 +25,7 @@ const Franchasie = () => {
         />
 
         {/* Sub-banner Label */}
-        <div className=" absolute top-[620px] md:top-[510px] bg-black rounded-t-[15px] text-center py-6 px-6">
+        <div className=" absolute top-[70vh] md:top-[510px] bg-black rounded-t-[15px] text-center py-6 px-6">
           <h2 className="text-[#ebbd28] text-5xl tracking-[2px] font-serif">FRANCHISE</h2>
         </div>
 

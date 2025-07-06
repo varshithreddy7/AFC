@@ -19,7 +19,7 @@ const AboutSection = () => {
   };
 
   return (
-    <div className="bg-black text-white font-nunito">
+    <div className=" text-white font-nunito">
       {/* Hero Banner */}
       <section className="relative w-full h-screen">
         <img
@@ -48,15 +48,9 @@ const AboutSection = () => {
           animate={isInView ? "visible" : "hidden"}
           className="max-w-4xl text-2xl leading-loose"
         >
-          <p>
-            <span className="text-[#ebbd28] font-bold">Absolutely Fried Chicken</span>{" "}
-            is a celebration of crispy,golden perfection, bringing together the best of comfort food with a vibrant,
-            welcoming atmosphere. Known for its signature secret recipe, AFC delivers irresistibly juicy,
-            flavor-packed bites that keep guests coming back for more.
-            The menu features a tempting selection of fried chicken, sides, and sauces,
-            all crafted to elevate the experience. Whether grabbing a quick bite or sharing a hearty meal
-            with loved ones, AFC offers a satisfying, no-fuss dining experience.
-            Committed to quality and hospitality, AFC ensures every visit is filled with warmth, crunch, and deliciousness.          </p>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-loose">
+            <span className="text-[#ebbd28] font-bold">Absolutely Fried Chicken</span> was born from a bold idea to serve food that’s not just delicious, but made with integrity. We craft fresh, flavorful fried chicken, burgers, pizzas, desserts, and mojitos never using frozen ingredients. Our passionate chefs and caring team ensure every meal is memorable. Committed to quality and customer care, we also empower entrepreneurs with a trusted, low-investment franchise model. At AFC, you’re not just enjoying a meal—you’re joining a fresh, friendly food revolution.
+          </p>
         </motion.div>
       </section>
 

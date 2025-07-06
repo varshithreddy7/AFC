@@ -67,7 +67,7 @@ const OurJourney = () => {
           data={{
             src: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-3.png",
             alt: "The Beginning",
-            description: "Our journey started in 2020 with a vision to revolutionize the food industry. We began with a small team and big dreams."
+            description: "Our journey started in 2020 with a vision to serve. We began with a small team and big dreams."
           }}
         />
       ),
@@ -123,25 +123,36 @@ const OurJourney = () => {
     >
       <motion.div
         variants={itemVariants}
-        className="text-center mb-16 relative"
+        className="relative w-full mb-8 sm:mb-12 lg:mb-16"
       >
-        <div className="absolute top-[47px] left-[106px]  font-black text-white text-2xl text-center tracking-[2.00px] leading-[35px] whitespace-nowrap">
-          OUR JOURNEY
-        </div>
-
-        <div className="absolute w-[103px] h-[7px] top-[86px] left-[126px]">
-          <div className="absolute w-[5px] h-[7px] top-0 left-[49px] bg-[#ebbd28] rounded-[2.52px/3.5px]" />
-
-          <img
-            className="left-0 absolute w-10 h-[3px] top-0"
-            alt="Line"
-            src="https://c.animaapp.com/W6zTihmA/img/line-1.svg"
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-black text-[#ebbd28] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center leading-tight mb-4 sm:mb-6"
+        >
+          Our Journey
+        </motion.h2>
+        <div className="flex items-center justify-center">
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: '48px' }}
+            viewport={{ once: true }}
+            className="h-0.5 bg-[#ebbd28] hidden sm:block sm:w-12 lg:w-24"
           />
-
-          <img
-            className="left-[63px] absolute w-10 h-[3px] top-0"
-            alt="Line"
-            src="https://c.animaapp.com/W6zTihmA/img/line-2.svg"
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mx-4 sm:mx-6 lg:mx-8 font-normal text-white text-sm sm:text-base lg:text-lg text-center tracking-[2px] sm:tracking-[3px] lg:tracking-[4px] leading-relaxed uppercase"
+          >
+            From One Kitchen to a Craving Across Cities
+          </motion.p>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: '48px' }}
+            viewport={{ once: true }}
+            className="h-0.5 bg-[#ebbd28] hidden sm:block sm:w-12 lg:w-24"
           />
         </div>
       </motion.div>

@@ -82,17 +82,17 @@ const TestimonialsCarousel: React.FC = () => {
                 className="absolute inset-0 flex flex-col items-center justify-center"
               >
                 {/* Testimonial Text */}
-                <p className="w-full max-w-[600px] font-normal text-black text-xl text-center leading-[30px] mb-6">
+                <p className="w-full max-w-[600px] font-normal text-black text-sm text-center leading-[30px] mb-6">
                   {testimonials[currentIndex].quote}
                 </p>
 
                 {/* Guest Name */}
-                <div className="font-semibold text-black text-lg text-center leading-[27px]">
+                <div className="font-semibold text-black text-sm text-center leading-[27px]">
                   {testimonials[currentIndex].name}
                 </div>
 
                 {/* Guest Dish */}
-                <div className="font-normal text-[#333333] text-base text-center leading-6 mt-2">
+                <div className="font-normal text-[#333333] text- text-center leading-6 mt-2">
                   {testimonials[currentIndex].dish}
                 </div>
 

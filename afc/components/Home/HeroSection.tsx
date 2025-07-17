@@ -5,23 +5,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import OrderDetailsCard from "@/components/ui/OrderDetailsCard";
 
+
 const slides = [
   {
-    video: "/",
+
+    video: "https://res.cloudinary.com/dpfwi3nym/video/upload/Untitled_video_-_Made_with_Clipchamp_2_qpylpo.mp4",
+
     title: "Absolutely Fried Chicken",
     subtitle: "🔥 Food That Makes You Drool",
     cta: "Order Now",
     action: "modal"
   },
   {
-    video: "/",
+    video: "https://res.cloudinary.com/dpfwi3nym/video/upload/C2167_hubcwx.mp4",
+
     title: "Premium Quality",
     subtitle: "Fresh Ingredients, Amazing Taste",
     cta: "View Menu",
     path: "/menu"
   },
   {
-    video: "/",
+    video: "https://res.cloudinary.com/dpfwi3nym/video/upload/Untitled_video_-_Made_with_Clipchamp_1_hcpp4r.mp4",
     title: "Join AFC Franchise Family",
     subtitle: "Be Part of a Growing Success Story",
     cta: "Start Your Journey",
@@ -108,17 +112,18 @@ export const HeroSection = () => {
                 ref={(el) => {
                   if (el) videoRefs.current[index] = el;
                 }}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${currentSlide === index ? "opacity-100" : "opacity-0"
+                className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ${currentSlide === index ? "opacity-100" : "opacity-0"
                   }`}
                 muted
                 playsInline
-                loop
                 autoPlay
+                loop
                 preload="auto"
                 onError={(e) => console.error("Video playback error:", e)}
               >
                 <source src={slide.video} type="video/mp4" />
               </video>
+
             ))}
 
             <div className="absolute inset-0 bg-black/40" />
@@ -179,7 +184,7 @@ export const HeroSection = () => {
               </motion.button>
             </div>
 
-        
+
 
 
           </motion.div>
@@ -192,8 +197,8 @@ export const HeroSection = () => {
               onClick={() => setCurrentSlide(index)}
               whileHover={{ scale: 1.2 }}
               className={`h-2 rounded-full transition-all duration-500 ${currentSlide === index
-                  ? "bg-[#ebbd28] w-16 shadow-[0_0_15px_rgba(235,189,40,0.6)]"
-                  : "bg-white/50 w-8"
+                ? "bg-[#ebbd28] w-16 shadow-[0_0_15px_rgba(235,189,40,0.6)]"
+                : "bg-white/50 w-8"
                 }`}
             />
           ))}

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const stats = [
   { number: "150+", label: "Locations" },
@@ -240,14 +241,16 @@ export const FranchiseSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#ebbd28] text-black px-8 sm:px-12 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-lg sm:text-xl
-              hover:bg-yellow-500 transition-all duration-300 shadow-lg"
-          >
-            Start Your Journey
-          </motion.button>
+          <Link href="/franchise">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#ebbd28] text-black px-8 sm:px-12 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-lg sm:text-xl
+                hover:bg-yellow-500 transition-all duration-300 shadow-lg"
+            >
+              Start Your Journey
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.div>
     </div>

@@ -3,49 +3,13 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { X } from 'lucide-react'
+import OrderDetailsCard from '@/components/ui/OrderDetailsCard'
+import HomeDelivery from '@/components/ui/HomeDelivery'
 
 interface FoodItem {
   title: string
   price: string
   image: string
-}
-
-// ────────────────────────────────────────────────────────────────────────────────
-// Mock OrderDetailsCard (replace with real one when available)
-// ────────────────────────────────────────────────────────────────────────────────
-const OrderDetailsCard = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
-  if (!isOpen) return null
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-      onClick={onClose}
-    >
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        className="bg-gray-900 text-white p-6 rounded-lg max-w-md w-full"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">Order Details</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-white">
-            <X size={24} />
-          </button>
-        </div>
-        <p className="text-gray-300 mb-4">Your order has been placed successfully!</p>
-        <button
-          onClick={onClose}
-          className="w-full bg-yellow-400 text-black py-2 rounded-full font-semibold hover:bg-yellow-300"
-        >
-          Close
-        </button>
-      </motion.div>
-    </motion.div>
-  )
 }
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -101,6 +65,7 @@ const foodData: Record<string, FoodItem[]> = {
 export default function ResponsiveMenu() {
   const [activeCategory, setActiveCategory] = useState<string>('Pizza')
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
+  const [showHomeDelivery, setShowHomeDelivery] = useState(false);
 
   return (
     <div className="min-h-screen bg-[url('/images/hero-bg.jpg')] bg-cover bg-center text-white">
@@ -130,7 +95,7 @@ export default function ResponsiveMenu() {
 
         {/* Horizontal‑scrolling categories */}
         <div
-          className="w-full flex flex-wrap items-center justify-center gap-2 scrollbar-hidden scrollbar-thumb-transparent scrollbar-track-transparent"
+          className="w-full flex flex-wrap items-center justify-center scrollbar-hidden scrollbar-thumb-transparent scrollbar-track-transparent"
         >
           {menuItems.map((item) => (
             <button
@@ -273,7 +238,7 @@ export default function ResponsiveMenu() {
 // ────────────────────────────────────────────────────────────────────────────────
 // ✨ Quick Note – Hiding the mobile scrollbar
 // If you want to fully hide the horizontal scrollbar on mobile WebKit browsers,
-// add this to your global CSS (requires the `tailwind-scrollbar-hide` plugin or
+// add this to your global CSS (requires the tailwind-scrollbar-hide plugin or
 // manual CSS):
 // .scrollbar-hide::-webkit-scrollbar { display: none; }
 // ────────────────────────────────────────────────────────────────────────────────

@@ -186,7 +186,6 @@
 
 
 "use client";
-
 import React from "react";
 import FaqSection from "./FaqSection";
 import HeroSection from "./Home/HeroSection";
@@ -225,6 +224,7 @@ const Home = () => {
 
       {/* FAQ & Feedback Section */}
       <section className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-4 sm:px-6 md:px-8 py-10 md:py-16">
+        
        
         {/* FAQ Section - Full width on mobile, half on desktop */}
         <div className="w-full lg:w-1/2">

@@ -1,4 +1,4 @@
-
+/* eslint-disable react/jsx-key */
 "use client";
 import * as React from "react";
 import { useState } from "react";
@@ -9,25 +9,49 @@ import { Plus, Minus } from "lucide-react";
 const FaqSection: React.FC = () => {
   const faqItems = [
     {
-      question: "What kind of service can I expect at AFC restaurants?",
+      question: "What are AFC's opening hours?",
       answer:
-        "We prioritize friendly, fast, and professional service across all locations. Our team is trained to deliver a welcoming experience from the moment you step in.",
+        "Most AFC outlets are open from 11:00 AM to 11:00 PM, seven days a week. Timings may vary by location, so please check your nearest outlet for exact hours.",
     },
     {
-      question: "How is the ambiance at AFC outlets?",
+      question: "Does AFC offer vegetarian options?",
       answer:
-        "Our outlets are designed with cozy seating, vibrant interiors, and Instagrammable corners — perfect for casual dining and memorable moments.",
+        "Yes! Alongside our signature fried chicken, we offer a variety of vegetarian dishes, including burgers, pizzas, and sides. Check our menu for the full selection.",
     },
     {
-      question: "What kind of support do franchise owners receive?",
+      question: "Can I order AFC food online?",
       answer:
-        "Franchise owners get full support including kitchen setup, staff hiring, marketing materials, chef training, and ongoing operational guidance.",
+        "Absolutely! You can order online through our website, Zomato, or Swiggy for home delivery. Visit the Order Now section for more details.",
     },
-    
     {
-      question: "Lifetime Partnership",
+      question: "Is AFC food freshly prepared?",
       answer:
-        "We grow only when you grow — long‑term support guaranteed.",
+        "Yes, all our dishes are made fresh daily using high-quality ingredients. We never use frozen raw materials.",
+    },
+    {
+      question: "How can I become an AFC franchise owner?",
+      answer:
+        "You can start by filling out the franchise inquiry form on our website. Our team will guide you through the process, from setup to launch and beyond.",
+    },
+    {
+      question: "What support does AFC provide to franchisees?",
+      answer:
+        "AFC offers end-to-end support: kitchen setup, staff hiring, chef training, marketing, and ongoing operational guidance. We’re with you every step of the way!",
+    },
+    {
+      question: "What is the investment required for an AFC franchise?",
+      answer:
+        "Our franchise model is designed to be affordable and scalable. Investment varies by location and format. Contact us for a detailed proposal tailored to your needs.",
+    },
+    {
+      question: "Can I host parties or events at AFC?",
+      answer:
+        "Yes! Many of our outlets offer party packages and event hosting. Contact your nearest AFC for details and reservations.",
+    },
+    {
+      question: "Is there a loyalty or membership program?",
+      answer:
+        "Yes, AFC offers exclusive deals and rewards for members. Ask at your local outlet or check our website for the latest offers.",
     },
   ];
 
@@ -64,7 +88,7 @@ const FaqSection: React.FC = () => {
         </h2>
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          className="z-10 flex items-center justify-center w-10 h-10 text-white bg-black rounded-full shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 transition-colors"
+          className="z-10 flex items-center justify-center w-10 h-10 text-white bg-black rounded-full shadow-md hover:bg-[#ebbd28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 transition-colors"
           aria-expanded={isOpen}
           aria-controls={`answer-${question.replace(/\s+/g, "-").toLowerCase()}`}
           whileTap={{ scale: 0.9 }}
@@ -92,8 +116,8 @@ const FaqSection: React.FC = () => {
   };
 
   return (
-<section className="flex overflow-hidden flex-col items-center px-20 pt-28 pb-48 bg-opacity-20 max-md:px-5 max-md:py-24 bg-[url('/images/faq-bg.png')] bg-cover bg-center">
-       <div className="flex flex-col items-center align-center ">
+    <section className="flex overflow-hidden flex-col items-center px-20 pt-28 pb-48 bg-opacity-20 max-md:px-5 max-md:py-24 bg-[url('/images/faq-bg.png')] bg-cover bg-center z-100">
+      <div className="flex flex-col items-center align-center ">
          <motion.h1
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -123,8 +147,10 @@ const FaqSection: React.FC = () => {
             />
           </div>
        </div>
-      <div className="flex flex-col w-full max-w-[1111px] max-md:max-w-full text-center items-center">
-        <div className="max-md:max-w-full mt-2 w-full max-w-[1111px]">
+      
+      <div className="flex flex-col w-full max-w-[1111px] max-md:max-w-full text-center items-center relative">
+      
+        <div className="max-md:max-w-full mt-2 w-full max-w-[1111px] z-10">
           <div className="flex gap-5 max-md:flex-col">
             <div className="w-full max-md:ml-0 max-md:w-full">
               <div className="mt-20 w-[600px] text-sm leading-tight max-md:mt-10 max-md:max-w-full">
@@ -145,4 +171,4 @@ const FaqSection: React.FC = () => {
   );
 };
 
-export default FaqSection;
+export default FaqSection;

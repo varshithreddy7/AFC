@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import OrderDetailsCard from "@/components/ui/OrderDetailsCard";
 
 interface FeaturedDish {
   id: number;
@@ -54,6 +55,7 @@ const featuredDishes: FeaturedDish[] = [
 export const FeaturedDishSection = () => {
   const [currentDish, setCurrentDish] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
 
   useEffect(() => {
     if (isHovered) return;
@@ -202,8 +204,8 @@ export const FeaturedDishSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-[#ebbd28] text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full 
-                      font-bold text-base sm:text-lg hover:bg-yellow-500 transition-colors order-1 sm:order-2"
+                    className="bg-[#ebbd28] text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-yellow-500 transition-colors order-1 sm:order-2"
+                    onClick={() => setIsOrderModalOpen(true)}
                   >
                     Order Now
                   </motion.button>
@@ -283,6 +285,12 @@ export const FeaturedDishSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Order Details Modal */}
+      <OrderDetailsCard
+        isOpen={isOrderModalOpen}
+        onClose={() => setIsOrderModalOpen(false)}
+      />
     </section>
   );
 };

@@ -28,16 +28,16 @@ const founders = [
 ];
 
 const franchiseOwners = [
-  { name: "RAVI", img: "images/member1.png", role: "Franchise Owner" },
-  { name: "SURESH", img: "images/member2.png", role: "Franchise Owner" },
-  { name: "PRIYA", img: "images/member3.png", role: "Franchise Owner" }
+  { name: "RAVI", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTArlOmRRBmBdYmedl4gxyBQJeyU4x5RTwf6A&s", role: "Franchise Owner" },
+  { name: "SURESH", img: "https://img.freepik.com/premium-photo/ai-human-avatar-characters-male-model_1166271-38.jpg", role: "Franchise Owner" },
+  { name: "PRIYA", img: "https://static.vecteezy.com/system/resources/previews/039/334/802/large_2x/ai-generated-indian-female-student-free-photo.jpg", role: "Franchise Owner" }
 ];
 
 const franchiseManagers = [
-  { name: "ANITA", img: "images/member4.png", role: "Franchise Manager" },
-  { name: "VIKRAM", img: "images/member5.png", role: "Franchise Manager" },
-  { name: "MEENA", img: "images/member6.png", role: "Franchise Manager" },
-  { name: "RAHUL", img: "images/member7.png", role: "Franchise Manager" }
+  { name: "ANITA", img: "https://static.vecteezy.com/system/resources/previews/039/334/804/non_2x/ai-generated-indian-female-student-free-photo.jpg", role: "Franchise Manager" },
+  { name: "VIKRAM", img: "https://cdn.pixabay.com/photo/2024/03/31/05/00/ai-generated-8665996_1280.jpg", role: "Franchise Manager" },
+  { name: "MEENA", img: "https://img.freepik.com/premium-photo/successful-indian-female-student_722401-31462.jpg", role: "Franchise Manager" },
+  { name: "RAHUL", img: "https://cdn.pixabay.com/photo/2024/03/31/05/00/ai-generated-8665996_1280.jpg", role: "Franchise Manager" }
 ];
 
 const Team: React.FC = () => {

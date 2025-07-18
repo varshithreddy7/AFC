@@ -55,7 +55,7 @@ const ContactForm: React.FC = () => {
       };
 
       // Use appropriate API URL based on environment
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://afc-backend-fhlt.onrender.com';
       
       // Create fetch with timeout
       const fetchWithTimeout = async (url: string, options: RequestInit, timeout = 10000) => {

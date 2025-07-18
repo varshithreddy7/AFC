@@ -41,7 +41,6 @@ const ContactForm: React.FC = () => {
       return;
     }
 
-
     setIsSubmitting(true);
     setSubmitError('');
 
@@ -55,16 +54,38 @@ const ContactForm: React.FC = () => {
         message: formData.message
       };
 
-      const response = await fetch('https://afc-backend-fhlt.onrender.com/api/contact', {
+      // Use appropriate API URL based on environment
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      
+      // Create fetch with timeout
+      const fetchWithTimeout = async (url, options, timeout = 10000) => {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeout);
+        
+        try {
+          const response = await fetch(url, {
+            ...options,
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+          return response;
+        } catch (error) {
+          clearTimeout(timeoutId);
+          throw error;
+        }
+      };
+
+      const response = await fetchWithTimeout(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload)
-      });
+      }, 15000); // 15 second timeout
 
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        const errorData = await response.json().catch(() => null);
+        throw new Error(errorData?.message || 'Network response was not ok');
       }
 
       const data = await response.json();
@@ -81,7 +102,15 @@ const ContactForm: React.FC = () => {
       });
     } catch (error) {
       console.error('Error:', error);
-      setSubmitError('Failed to send message. Please try again later.');
+      
+      // More specific error messages
+      if (error.name === 'AbortError') {
+        setSubmitError('Request timed out. Please try again.');
+      } else if (error.message.includes('fetch')) {
+        setSubmitError('Network error. Please check your connection and try again.');
+      } else {
+        setSubmitError(error.message || 'Failed to send message. Please try again later.');
+      }
     } finally {
       setIsSubmitting(false);
     }

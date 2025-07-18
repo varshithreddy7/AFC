@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import OrderDetailsCard from '@/components/ui/OrderDetailsCard'
+import Image from 'next/image'
 
 interface FoodItem {
   title: string
@@ -181,11 +182,12 @@ export default function ResponsiveMenu() {
                   className="bg-gray-900/70 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl backdrop-blur-md flex flex-col"
                 >
                   {/* Image */}
-                  <div className="h-48 sm:h-40 md:h-48 w-full overflow-hidden">
-                    <img
+                  <div className="relative h-48 sm:h-40 md:h-48 w-full overflow-hidden">
+                    <Image
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      fill
                       onError={(e) => {
                         ;(e.currentTarget as HTMLImageElement).src = '/images/pizza.png'
                       }}

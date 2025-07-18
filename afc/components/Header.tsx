@@ -136,6 +136,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import OrderDetailsCard from "@/components/ui/OrderDetailsCard";
+import Image from "next/image";
 
 const tabs = [
   { name: "HOME", href: "/" },
@@ -200,10 +201,12 @@ const Header = () => {
       <div className="relative h-[80px] md:h-[130px] flex items-center justify-between px-4 md:px-8">
         {/* Logo */}
         <Link href="/" onClick={() => setActiveTab("HOME")}>
-          <img
+          <Image
             src="/images/Afc-logo.png"
             alt="Logo"
             className="w-20 h-20 md:w-32 md:h-32 object-cover"
+            width={128}
+            height={128}
           />
         </Link>
 
@@ -289,10 +292,12 @@ const Header = () => {
             onClick={() => setIsOrderModalOpen(true)}
           >
             <span className="font-black text-black text-xl">ORDER NOW</span>
-            <img
+            <Image
               src="https://c.animaapp.com/X56oiYEi/img/image-54@2x.png"
               alt="Order"
               className="w-[90px] h-[60px] object-cover"
+              width={90}
+              height={60}
             />
           </div>
         </motion.div>
@@ -349,10 +354,12 @@ const Header = () => {
                     }}
                   >
                     <span className="font-black text-black text-xl sm:text-2xl">ORDER NOW</span>
-                    <img
+                    <Image
                       src="https://c.animaapp.com/X56oiYEi/img/image-54@2x.png"
                       alt="Order"
                       className="w-[90px] h-[40px] object-cover"  // Adjusted image size
+                      width={90}
+                      height={40}
                     />
                   </div>
                 </motion.div>

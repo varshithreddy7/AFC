@@ -194,6 +194,7 @@ import FeaturedDishSection from "./Home/FeaturedDishSection";
 import ExperienceSection from "./Home/ExperienceSection";
 import AboutSection from "./Home/AboutSection";
 import TestimonialsSection from "./Home/TestimonialsSection";
+import Image from "next/image";
 
 const Home = () => {
 
@@ -230,10 +231,12 @@ const Home = () => {
         <div className="w-full lg:w-1/2 flex flex-col items-center md:mt-100">
           {/* Header */}
           <div className="flex flex-col items-center w-full max-w-md mx-auto">
-            <img
+            <Image
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/9482fb9f1aabb8a2cc6b1271facceeb769a403e3?placeholderIfAbsent=true&apiKey=ab2ef5d51ed843ffa372bcaec288b309"
               className="w-40 md:w-52 lg:w-60 object-contain"
               alt="Feedback illustration"
+              width={240}
+              height={240}
             />
            </div>
         </div>

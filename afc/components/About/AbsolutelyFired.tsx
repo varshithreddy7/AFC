@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 
 const AboutSection = () => {
   const textRef = useRef(null);
@@ -19,10 +20,12 @@ const AboutSection = () => {
     <div className=" text-white font-nunito">
       {/* Hero Banner */}
       <section className="relative w-full h-screen">
-        <img
+        <Image
           src="/images/about-us-hero.jpg"
           className="w-full h-full object-cover"
           alt="About Hero"
+          fill
+          priority
         />
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -30,7 +33,7 @@ const AboutSection = () => {
           transition={{ duration: 0.8 }}
           className="absolute bottom-0 left-0 bg-black bg-opacity-60 p-10 rounded-md max-w-lg"
         >
-          <h2 className="text-3xl font-extrabold text-[#ebbd28]">
+          <h2 className="text-4xl md:text-4xl  text-[#ebbd28] font-serif w-auto">
             Absolutely Fried Chicken
           </h2>
         </motion.div>

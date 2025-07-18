@@ -20,22 +20,22 @@ const categories = {
     { id: 4, name: "BBQ Chicken", desc: "Smoky & sweet", img: "/images/pizza.png" },
   ],
   burgers: [
-    { id: 5, name: "Cheeseburger", desc: "Juicy with melted cheese", img: "images/burger1.png" },
-    { id: 6, name: "Veggie Burger", desc: "Grilled garden delight", img: "images/burger2.png" },
-    { id: 7, name: "Double Beef", desc: "Stacked & meaty", img: "images/burger3.png" },
-    { id: 8, name: "Monster Burger", desc: "Mega-sized goodness", img: "images/burger2.png" },
+    { id: 5, name: "Cheeseburger", desc: "Juicy with melted cheese", img: "/images/burger1.png" },
+    { id: 6, name: "Veggie Burger", desc: "Grilled garden delight", img: "/images/burger2.png" },
+    { id: 7, name: "Double Beef", desc: "Stacked & meaty", img: "/images/burger3.png" },
+    { id: 8, name: "Monster Burger", desc: "Mega-sized goodness", img: "/images/burger2.png" },
   ],
   mocktails: [
     { id: 9, name: "Mojito", desc: "Minty & fresh", img: "images/mocktail2.png" },
-    { id: 10, name: "Berry Blast", desc: "Fruity explosion", img: "images/mocktail1.png" },
-    { id: 11, name: "Sunset Punch", desc: "Tropical vibe", img: "images/mocktail3.png" },
-    { id: 12, name: "Citrus Rush", desc: "Zesty delight", img: "images/mocktail2.png" },
+    { id: 10, name: "Berry Blast", desc: "Fruity explosion", img: "/images/mocktail1.png" },
+    { id: 11, name: "Sunset Punch", desc: "Tropical vibe", img: "/images/mocktail3.png" },
+    { id: 12, name: "Citrus Rush", desc: "Zesty delight", img: "/images/mocktail2.png" },
   ],
   chickenfries: [
-    { id: 13, name: "Crispy Strips", desc: "Golden & crunchy", img: "images/fires1.png" },
-    { id: 14, name: "Spicy Wings", desc: "Hot & saucy", img: "images/fires2.png" },
-    { id: 15, name: "Nuggets", desc: "Bite-sized flavor", img: "images/fires1.png" },
-    { id: 16, name: "Hot Drumsticks", desc: "Fiery & crunchy", img: "images/fires2.png" },
+    { id: 13, name: "Crispy Strips", desc: "Golden & crunchy", img: "/images/fires1.png" },
+    { id: 14, name: "Spicy Wings", desc: "Hot & saucy", img: "/images/fires2.png" },
+    { id: 15, name: "Nuggets", desc: "Bite-sized flavor", img: "/images/fires1.png" },
+    { id: 16, name: "Hot Drumsticks", desc: "Fiery & crunchy", img: "/images/fires2.png" },
   ],
 } as const;
 

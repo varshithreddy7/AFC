@@ -105,6 +105,7 @@ import React, { useState } from "react";
 import { MapPin, Home, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import HomeDelivery from "./HomeDelivery";
+import Image from "next/image";
 
 interface OrderDetailsCardProps {
   isOpen: boolean;
@@ -139,7 +140,7 @@ const OrderDetailsCard: React.FC<OrderDetailsCardProps> = ({ isOpen, onClose }) 
             exit={{ opacity: 0, scale: 0.95 }}
             className="fixed inset-0 z-50 flex items-center justify-center"
           >
-            <div className="w-[539px] h-auto bg-black rounded-[30px] border-2 border-yellow-400 relative overflow-hidden">
+            <div className="w-[400px] md:w-[539px] h-auto bg-black rounded-[30px] border-2 border-yellow-400 relative overflow-hidden">
               {/* Close Button */}
               <button
                 onClick={handleClose}
@@ -150,10 +151,12 @@ const OrderDetailsCard: React.FC<OrderDetailsCardProps> = ({ isOpen, onClose }) 
 
               {/* Background logo */}
               <div className="absolute inset-0 opacity-10 flex items-center justify-center pointer-events-none z-0">
-                <img
+                <Image
                   src="/images/Afc-logo.jpg"
                   alt="AFC Logo"
                   className="w-80 h-80 object-contain"
+                  width={320}
+                  height={320}
                 />
               </div>
 

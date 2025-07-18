@@ -58,7 +58,7 @@ const ContactForm: React.FC = () => {
       const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
       
       // Create fetch with timeout
-      const fetchWithTimeout = async (url, options, timeout = 10000) => {
+      const fetchWithTimeout = async (url: string, options: RequestInit, timeout = 10000) => {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), timeout);
         
@@ -104,12 +104,16 @@ const ContactForm: React.FC = () => {
       console.error('Error:', error);
       
       // More specific error messages
-      if (error.name === 'AbortError') {
-        setSubmitError('Request timed out. Please try again.');
-      } else if (error.message.includes('fetch')) {
-        setSubmitError('Network error. Please check your connection and try again.');
+      if (error instanceof Error) {
+        if (error.name === 'AbortError') {
+          setSubmitError('Request timed out. Please try again.');
+        } else if (error.message.includes('fetch')) {
+          setSubmitError('Network error. Please check your connection and try again.');
+        } else {
+          setSubmitError(error.message || 'Failed to send message. Please try again later.');
+        }
       } else {
-        setSubmitError(error.message || 'Failed to send message. Please try again later.');
+        setSubmitError('Failed to send message. Please try again later.');
       }
     } finally {
       setIsSubmitting(false);

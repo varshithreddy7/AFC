@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 
 const MissionVision = () => {
   const [activeTab, setActiveTab] = useState("mission");
@@ -134,10 +135,12 @@ const MissionVision = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="w-full lg:w-[40%] max-w-[400px]"
         >
-          <img
+          <Image
             src="https://c.animaapp.com/v9ACUEeD/img/image-80@2x.png"
             alt="Mission Visual"
             className="w-full h-auto object-cover rounded"
+            width={400}
+            height={300}
           />
         </motion.div>
       </div>

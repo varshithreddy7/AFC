@@ -87,6 +87,7 @@
 
 
 import React from "react";
+import Image from "next/image";
 
 const Gallery: React.FC = () => {
   return (
@@ -94,10 +95,12 @@ const Gallery: React.FC = () => {
       <div className="w-screen relative bg-[#00000003]">
         {/* Hero Image */}
         <div className="relative w-full h-[80vh] overflow-hidden rounded-t-md">
-          <img
+          <Image
             src="https://c.animaapp.com/HEE7tW43/img/grab--n--go-model.png"
             alt="Main Banner"
             className="w-full h-full object-cover"
+            fill
+            priority
           />
         </div>
 
@@ -113,65 +116,72 @@ const Gallery: React.FC = () => {
           <div className="flex flex-col gap-6">
 
             {/* Row 1 - Full Width */}
-            <div className="w-full h-[200px] md:h-[250px]">
-              <img
+            <div className="relative w-full h-[200px] md:h-[250px]">
+              <Image
                 src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&h=400&fit=crop"
                 alt="Outdoor"
                 className="w-full h-full object-cover rounded-md"
+                fill
               />
             </div>
 
             {/* Row 2 - Two Images Side by Side */}
             <div className="w-full flex flex-row gap-4 h-[200px] md:h-[250px]">
-              <div className="w-2/3 h-full">
-                <img
+              <div className="relative w-2/3 h-full">
+                <Image
                   src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&h=400&fit=crop"
                   alt="Chef"
                   className="w-full h-full object-cover rounded-md"
+                  fill
                 />
               </div>
-              <div className="w-1/3 h-full">
-                <img
+              <div className="relative w-1/3 h-full">
+                <Image
                   src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=400&fit=crop"
                   alt="Burger"
                   className="w-full h-full object-cover rounded-md"
+                  fill
                 />
               </div>
             </div>
 
             {/* Row 3 - Full Width */}
-            <div className="w-full h-[200px] md:h-[250px]">
-              <img
+            <div className="relative w-full h-[200px] md:h-[250px]">
+              <Image
                 src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&h=400&fit=crop"
                 alt="Wine"
                 className="w-full h-full object-cover rounded-md"
+                fill
               />
             </div>
 
             {/* Row 4 - Two Images Side by Side (Reversed) */}
             <div className="w-full flex flex-row gap-4 h-[200px] md:h-[250px]">
-              <div className="w-1/3 h-full">
-                <img
+              <div className="relative w-1/3 h-full">
+                <Image
                   src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop"
                   alt="Plating"
                   className="w-full h-full object-cover rounded-md"
+                  fill
                 />
               </div>
-              <div className="w-2/3 h-full">
-                <img
+              <div className="relative w-2/3 h-full">
+                <Image
                   src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800&h=400&fit=crop"
                   alt="Family"
                   className="w-full h-full object-cover rounded-md"
+                  fill
                 />
               </div>
             </div>
 
             {/* Row 5 - Full Width */}
-            <div className="w-full h-[200px] md:h-[250px]">
-              <img
+            <div className="relative w-full h-[200px] md:h-[250px]">
+              <Image
                 src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=1400&h=400&fit=crop"
                 alt="Interior"
                 className="w-full h-full object-cover rounded-md"
+                fill
               />
             </div>
 

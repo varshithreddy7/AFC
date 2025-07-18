@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -96,10 +97,12 @@ const TestimonialsSection: React.FC = () => {
     <div className={`${testimonial.bgColor} rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 w-full sm:w-80 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-rotate-1 backdrop-blur-sm border border-gray-800`}>
       <div className="flex items-center mb-4">
         <div className="relative">
-          <img
+          <Image
             src={testimonial.avatar}
             alt={testimonial.name}
             className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover mr-3 sm:mr-4 ring-2 ring-yellow-400 transition-all duration-300 hover:ring-4"
+            width={60}
+            height={60}
           />
           <div className="absolute -top-1 -right-1 w-3 h-3 sm:w-4 sm:h-4 rounded-full border-2 border-black animate-pulse"></div>
         </div>

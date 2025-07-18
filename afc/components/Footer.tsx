@@ -175,6 +175,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
@@ -185,10 +186,12 @@ export const Footer = () => {
           {/* About Section */}
           <div className="flex-1 max-w-md">
             <div className="flex items-center gap-4 mb-6">
-              <img
+              <Image
                 className="w-16 h-16 sm:w-20 sm:h-20 object-cover"
                 alt="AFC Logo"
                 src="https://c.animaapp.com/ncrVY1LD/img/image-1@2x.png"
+                width={80}
+                height={80}
               />
               <h2 className="font-black text-2xl sm:text-3xl text-[#ebbd28]">
                 <span className="text-[#ebbd28]">ABOUT</span>
@@ -296,10 +299,12 @@ export const Footer = () => {
           </p>
           
           <div className="flex items-center gap-4">
-            <img
+            <Image
               className="w-10 h-10 object-cover"
               alt="Social Media"
               src="https://c.animaapp.com/ncrVY1LD/img/image-62@2x.png"
+              width={40}
+              height={40}
             />
             
           </div>

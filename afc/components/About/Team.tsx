@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import React from "react";
+import Image from "next/image";
 
 const container = {
   hidden: { opacity: 0 },
@@ -23,8 +24,8 @@ const hoverEffect = {
 };
 
 const founders = [
-  { name: "CHAITANYA VARMA", img: "images/owner2.png", role: "Founder" },
-  { name: "NARASHIMA", img: "images/owner1.png", role: "Founder" }
+  { name: "CHAITANYA VARMA", img: "/images/owner2.png", role: "Founder" },
+  { name: "NARASHIMA", img: "/images/owner1.png", role: "Founder" }
 ];
 
 const franchiseOwners = [
@@ -73,10 +74,11 @@ const Team: React.FC = () => {
               flex flex-col justify-end items-center
             `}
           >
-            <img
+            <Image
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               alt={member.name}
               src={member.img}
+              fill
             />
             {/* Badge */}
             <div className="absolute top-1 left-1 xs:top-2 xs:left-2 sm:top-3 sm:left-3 bg-yellow-300 text-black text-[9px] xs:text-xs font-bold px-2 xs:px-3 py-1 rounded-full shadow">

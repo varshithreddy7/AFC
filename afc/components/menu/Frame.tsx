@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export const Frame = () => {
   return (
@@ -6,10 +7,12 @@ export const Frame = () => {
       <div className="absolute w-[1078px] h-[382px] top-0 left-0 bg-black">
         <div className="relative w-[1063px] h-[382px]">
           <div className="absolute w-[1047px] h-[382px] top-0 left-0">
-            <img
+            <Image
               className="w-[573px] h-[382px] top-0 left-0 absolute object-cover"
               alt="Image"
               src="https://c.animaapp.com/89fS0TNm/img/image-64-4.png"
+              width={573}
+              height={382}
             />
 
             <div className="absolute w-[292px] top-[68px] left-[562px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-10 whitespace-nowrap">
@@ -17,34 +20,44 @@ export const Frame = () => {
             </div>
 
             <div className="absolute w-[152px] h-6 top-[143px] left-[562px]">
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-0"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-13.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-8"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-13.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-16"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-13.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-24"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-13.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-32"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-14.svg"
+                width={24}
+                height={24}
               />
             </div>
 
@@ -67,16 +80,20 @@ export const Frame = () => {
           <div className="absolute w-[243px] h-[11px] top-[114px] left-[574px]">
             <div className="absolute w-3 h-[11px] top-0 left-[115px] bg-[#ebbd28] rounded-[5.96px/5.5px]" />
 
-            <img
+            <Image
               className="left-0 absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-1.svg"
+              width={95}
+              height={1}
             />
 
-            <img
+            <Image
               className="left-[148px] absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-2.svg"
+              width={95}
+              height={1}
             />
           </div>
         </div>
@@ -85,10 +102,12 @@ export const Frame = () => {
       <div className="absolute w-[1078px] h-[382px] top-[1783px] left-[9px] bg-black">
         <div className="relative w-[1063px] h-[382px]">
           <div className="absolute w-[1047px] h-[382px] top-0 left-0">
-            <img
+            <Image
               className="w-[573px] h-[382px] top-0 left-0 absolute object-cover"
               alt="Image"
               src="https://c.animaapp.com/89fS0TNm/img/image-64-4.png"
+              width={573}
+              height={382}
             />
 
             <div className="absolute w-[292px] top-[68px] left-[562px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-10 whitespace-nowrap">
@@ -96,34 +115,44 @@ export const Frame = () => {
             </div>
 
             <div className="absolute w-[152px] h-6 top-[143px] left-[562px]">
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-0"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-23.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-8"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-23.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-16"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-23.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-24"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-23.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-32"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-24.svg"
+                width={24}
+                height={24}
               />
             </div>
 
@@ -146,16 +175,20 @@ export const Frame = () => {
           <div className="absolute w-[243px] h-[11px] top-[114px] left-[574px]">
             <div className="absolute w-3 h-[11px] top-0 left-[115px] bg-[#ebbd28] rounded-[5.96px/5.5px]" />
 
-            <img
+            <Image
               className="left-0 absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-1-4.svg"
+              width={95}
+              height={1}
             />
 
-            <img
+            <Image
               className="left-[148px] absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-2-5.svg"
+              width={95}
+              height={1}
             />
           </div>
         </div>
@@ -164,10 +197,12 @@ export const Frame = () => {
       <div className="absolute w-[1078px] h-[382px] top-[438px] left-[3px] bg-black">
         <div className="relative w-[1063px] h-[382px]">
           <div className="absolute w-[1047px] h-[382px] top-0 left-0">
-            <img
+            <Image
               className="w-[573px] h-[382px] top-0 left-0 absolute object-cover"
               alt="Image"
               src="https://c.animaapp.com/89fS0TNm/img/image-64-4.png"
+              width={573}
+              height={382}
             />
 
             <div className="absolute w-[292px] top-[68px] left-[562px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-10 whitespace-nowrap">
@@ -175,34 +210,44 @@ export const Frame = () => {
             </div>
 
             <div className="absolute w-[152px] h-6 top-[143px] left-[562px]">
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-0"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-13.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-8"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-13.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-16"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-13.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-24"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-13.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-32"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-14.svg"
+                width={24}
+                height={24}
               />
             </div>
 
@@ -225,16 +270,20 @@ export const Frame = () => {
           <div className="absolute w-[243px] h-[11px] top-[114px] left-[574px]">
             <div className="absolute w-3 h-[11px] top-0 left-[115px] bg-[#ebbd28] rounded-[5.96px/5.5px]" />
 
-            <img
+            <Image
               className="left-0 absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/image.svg"
+              width={95}
+              height={1}
             />
 
-            <img
+            <Image
               className="left-[148px] absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-2-2.svg"
+              width={95}
+              height={1}
             />
           </div>
         </div>
@@ -243,10 +292,12 @@ export const Frame = () => {
       <div className="absolute w-[1078px] h-[382px] top-[876px] left-1.5 bg-black">
         <div className="relative w-[1063px] h-[382px]">
           <div className="absolute w-[1047px] h-[382px] top-0 left-0">
-            <img
+            <Image
               className="w-[573px] h-[382px] top-0 left-0 absolute object-cover"
               alt="Image"
               src="https://c.animaapp.com/89fS0TNm/img/image-64-4.png"
+              width={573}
+              height={382}
             />
 
             <div className="absolute w-[292px] top-[68px] left-[562px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-10 whitespace-nowrap">
@@ -254,34 +305,44 @@ export const Frame = () => {
             </div>
 
             <div className="absolute w-[152px] h-6 top-[143px] left-[562px]">
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-0"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-18.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-8"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-18.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-16"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-18.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-24"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-18.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-32"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-19.svg"
+                width={24}
+                height={24}
               />
             </div>
 
@@ -304,16 +365,20 @@ export const Frame = () => {
           <div className="absolute w-[243px] h-[11px] top-[114px] left-[574px]">
             <div className="absolute w-3 h-[11px] top-0 left-[115px] bg-[#ebbd28] rounded-[5.96px/5.5px]" />
 
-            <img
+            <Image
               className="left-0 absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-1-2.svg"
+              width={95}
+              height={1}
             />
 
-            <img
+            <Image
               className="left-[148px] absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-2-3.svg"
+              width={95}
+              height={1}
             />
           </div>
         </div>
@@ -322,10 +387,12 @@ export const Frame = () => {
       <div className="absolute w-[1078px] h-[382px] top-[1314px] left-3 bg-black">
         <div className="relative w-[1063px] h-[382px]">
           <div className="absolute w-[1047px] h-[382px] top-0 left-0">
-            <img
+            <Image
               className="w-[573px] h-[382px] top-0 left-0 absolute object-cover"
               alt="Image"
               src="https://c.animaapp.com/89fS0TNm/img/image-64-4.png"
+              width={573}
+              height={382}
             />
 
             <div className="absolute w-[292px] top-[68px] left-[562px] [font-family:'Nunito',Helvetica] font-black text-white text-4xl tracking-[0] leading-10 whitespace-nowrap">
@@ -333,34 +400,44 @@ export const Frame = () => {
             </div>
 
             <div className="absolute w-[152px] h-6 top-[143px] left-[562px]">
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-0"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-23.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-8"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-23.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-16"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-23.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-24"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-23.svg"
+                width={24}
+                height={24}
               />
 
-              <img
+              <Image
                 className="absolute w-6 h-6 top-0 left-32"
                 alt="Frame"
                 src="https://c.animaapp.com/89fS0TNm/img/frame-24.svg"
+                width={24}
+                height={24}
               />
             </div>
 
@@ -383,16 +460,20 @@ export const Frame = () => {
           <div className="absolute w-[243px] h-[11px] top-[114px] left-[574px]">
             <div className="absolute w-3 h-[11px] top-0 left-[115px] bg-[#ebbd28] rounded-[5.96px/5.5px]" />
 
-            <img
+            <Image
               className="left-0 absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-1-3.svg"
+              width={95}
+              height={1}
             />
 
-            <img
+            <Image
               className="left-[148px] absolute w-[95px] h-px top-1.5"
               alt="Line"
               src="/img/line-2-4.svg"
+              width={95}
+              height={1}
             />
           </div>
         </div>

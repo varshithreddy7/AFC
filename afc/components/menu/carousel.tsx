@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
 
 const PIZZA_SIZE = 400
 const RADIUS = 550
@@ -15,22 +16,22 @@ const categories = {
     { id: 4, name: "BBQ Chicken", desc: "Smoky & sweet", img: "/images/pizza.png" },
   ],
   burgers: [
-    { id: 5, name: "Cheeseburger", desc: "Juicy with melted cheese", img: "images/burger1.png" },
-    { id: 6, name: "Veggie Burger", desc: "Grilled garden delight", img: "images/burger2.png" },
-    { id: 7, name: "Double Beef", desc: "Stacked & meaty", img: "images/burger3.png" },
-    { id: 8, name: "Monster Burger", desc: "Mega-sized goodness", img: "images/burger2.png" },
+    { id: 5, name: "Cheeseburger", desc: "Juicy with melted cheese", img: "/images/burger1.png" },
+    { id: 6, name: "Veggie Burger", desc: "Grilled garden delight", img: "/images/burger2.png" },
+    { id: 7, name: "Double Beef", desc: "Stacked & meaty", img: "/images/burger3.png" },
+    { id: 8, name: "Monster Burger", desc: "Mega-sized goodness", img: "/images/burger2.png" },
   ],
   mocktails: [
-    { id: 9, name: "Mojito", desc: "Minty & fresh", img: "images/mocktail2.png" },
-    { id: 10, name: "Berry Blast", desc: "Fruity explosion", img: "images/mocktail1.png" },
-    { id: 11, name: "Sunset Punch", desc: "Tropical vibe", img: "images/mocktail3.png" },
-    { id: 12, name: "Citrus Rush", desc: "Zesty delight", img: "images/mocktail2.png" },
+    { id: 9, name: "Mojito", desc: "Minty & fresh", img: "/images/mocktail2.png" },
+    { id: 10, name: "Berry Blast", desc: "Fruity explosion", img: "/images/mocktail1.png" },
+    { id: 11, name: "Sunset Punch", desc: "Tropical vibe", img: "/images/mocktail3.png" },
+    { id: 12, name: "Citrus Rush", desc: "Zesty delight", img: "/images/mocktail2.png" },
   ],
   chickenfries: [
-    { id: 13, name: "Crispy Strips", desc: "Golden & crunchy", img: "images/fires1.png" },
-    { id: 14, name: "Spicy Wings", desc: "Hot & saucy", img: "images/fires2.png" },
-    { id: 15, name: "Nuggets", desc: "Bite-sized flavor", img: "images/fires1.png" },
-    { id: 16, name: "Hot Drumsticks", desc: "Fiery & crunchy", img: "images/fires2.png" },
+    { id: 13, name: "Crispy Strips", desc: "Golden & crunchy", img: "/images/fires1.png" },
+    { id: 14, name: "Spicy Wings", desc: "Hot & saucy", img: "/images/fires2.png" },
+    { id: 15, name: "Nuggets", desc: "Bite-sized flavor", img: "/images/fires1.png" },
+    { id: 16, name: "Hot Drumsticks", desc: "Fiery & crunchy", img: "/images/fires2.png" },
   ]
 }
 
@@ -156,17 +157,21 @@ const PizzaSpinWheel = () => {
               className="flex gap-4 flex-wrap w-[450px] justify-center"
             >
               {categoryKeys.map((key) => (
-                <motion.img
+                <motion.div
                   key={key}
-                  src={categories[key as keyof typeof categories][0].img}
-                  alt={key}
-                  className={`w-20 h-20 object-cover rounded-full border-2 cursor-pointer ${
+                  className={`w-20 h-20 object-cover rounded-full border-2 cursor-pointer relative ${
                     key === activeCategory ? "border-yellow-500 scale-110" : "border-transparent"
                   }`}
-                  
-                  
                   onClick={() => setActiveCategory(key)}
-                />
+                >
+                  <Image
+                    src={categories[key as keyof typeof categories][0].img}
+                    alt={key}
+                    className="w-full h-full object-cover rounded-full"
+                    width={80}
+                    height={80}
+                  />
+                </motion.div>
               ))}
             </motion.div>
           </div>
@@ -239,11 +244,13 @@ const PizzaSpinWheel = () => {
                     animate={{ rotate: -rotation }}
                     
                   >
-                    <img
+                    <Image
                       src={item.img}
                       alt={item.name}
                       className="object-contain cursor-pointer rounded-full w-full h-full  hover:scale-130 hover:rotate-10 transition-transform duration-300"
                       onClick={() => handleSelectItem(i)}
+                      width={PIZZA_SIZE}
+                      height={PIZZA_SIZE}
                     />
                   </motion.div>
                 )

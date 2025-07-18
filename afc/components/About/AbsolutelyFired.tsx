@@ -1,13 +1,10 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const AboutSection = () => {
-  const [tab, setTab] = useState<"mission" | "vision">("mission");
   const textRef = useRef(null);
-  const missionRef = useRef(null);
   const isInView = useInView(textRef, { once: true });
-  const isMissionInView = useInView(missionRef, { once: true });
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },

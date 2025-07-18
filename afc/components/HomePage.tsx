@@ -196,11 +196,6 @@ import AboutSection from "./Home/AboutSection";
 import TestimonialsSection from "./Home/TestimonialsSection";
 
 const Home = () => {
-  const [inputValue, setInputValue] = React.useState("");
-
-  const handleClose = () => {
-    setInputValue("");
-  };
 
   return (
     <div className="overflow-hidden">

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 type ContactCardProps = {
@@ -65,7 +65,6 @@ const ContactCard: React.FC<ContactCardProps> = ({ title, phone, email, image })
 
 export const Contact: React.FC = () => {
   const sectionRef = React.useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
 
   const contacts: ContactCardProps[] = [
     {

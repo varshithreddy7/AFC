@@ -7,7 +7,6 @@ import PizzaSpinWheelMobile from "./MenuSpinnerMobile"
 
 
 const ResponsiveComponent = () => {
-  const isMobile = useIsMobile()
 
   return (
     <>

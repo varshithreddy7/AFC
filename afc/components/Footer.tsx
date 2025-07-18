@@ -273,7 +273,7 @@ export const Footer = () => {
               <span className="text-2xl">📅</span>
               <div>
                 <p className="font-bold text-white">Everyday</p>
-                <p className="text-[#ebbd28]">We're here to serve you</p>
+                <p className="text-[#ebbd28]">We&apos;re here to serve you</p>
               </div>
             </div>
           </div>

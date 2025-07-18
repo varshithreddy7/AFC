@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 import Abimance from "components/About/Abimanca";
 import AbsolutelyFried from "components/About/AbsolutelyFired";

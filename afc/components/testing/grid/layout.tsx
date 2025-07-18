@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { motion } from "framer-motion"
 
-export default function SelectedCard({ selected }) {
+export default function SelectedCard({ selected }: { selected: { id: string; audio: string; image: string; title: string; description: string; [key: string]: unknown } }) {
   useEffect(() => {
     const audio = new Audio(selected.audio)
     audio.play()

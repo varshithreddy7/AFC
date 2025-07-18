@@ -1,6 +1,5 @@
 "use client";
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
@@ -39,7 +38,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     >
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <h2 className="text-lg md:text-4xl mb-4 text-white dark:text-white max-w-4xl">
-          AFC's Journey Through the Years
+          AFC&apos;s Journey Through the Years
         </h2>
         <p className="text-neutral-300 dark:text-neutral-400 text-sm md:text-base max-w-sm">
           Discover the milestones that shaped Absolute Fried Chicken (AFC) into

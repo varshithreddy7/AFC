@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 
 interface MenuItem {
@@ -25,6 +25,13 @@ const CircularCarousel: React.FC<CircularCarouselProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  const nextSlide = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev + 1) % items.length);
+    setTimeout(() => setIsAnimating(false), 600);
+  }, [isAnimating, items.length]);
+
   // Auto-play functionality
   useEffect(() => {
     if (!autoPlay) return;
@@ -34,14 +41,7 @@ const CircularCarousel: React.FC<CircularCarouselProps> = ({
     }, autoPlayInterval);
 
     return () => clearInterval(interval);
-  }, [currentIndex, autoPlay, autoPlayInterval]);
-
-  const nextSlide = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrentIndex((prev) => (prev + 1) % items.length);
-    setTimeout(() => setIsAnimating(false), 600);
-  };
+  }, [autoPlay, autoPlayInterval, nextSlide]);
 
   const prevSlide = () => {
     if (isAnimating) return;
@@ -59,7 +59,6 @@ const CircularCarousel: React.FC<CircularCarouselProps> = ({
 
   const getItemPosition = (index: number) => {
     const totalItems = items.length;
-    const angle = (360 / totalItems) * index;
     const radius = 200; // Distance from center
     
     // Calculate position relative to current index

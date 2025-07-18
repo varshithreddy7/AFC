@@ -45,7 +45,7 @@ const PizzaSpinWheel = () => {
   const angleStep = spinningItems?.length ? 360 / spinningItems.length : 0
 
   useEffect(() => {
-    setSpinningItems(categories[activeCategory])
+    setSpinningItems(categories[activeCategory as keyof typeof categories])
     setRotation(0)
     rotationRef.current = 0
     setActiveIndex(0)
@@ -67,7 +67,7 @@ const PizzaSpinWheel = () => {
     setActiveIndex(newIndex)
   }
 
-  const handleSelectItem = (i) => {
+  const handleSelectItem = (i: number) => {
     const targetRotation = -i * angleStep
     const diff = (targetRotation - rotationRef.current + 540) % 360 - 180
     setRotation(rotationRef.current + diff)
@@ -158,7 +158,7 @@ const PizzaSpinWheel = () => {
               {categoryKeys.map((key) => (
                 <motion.img
                   key={key}
-                  src={categories[key][0].img}
+                  src={categories[key as keyof typeof categories][0].img}
                   alt={key}
                   className={`w-20 h-20 object-cover rounded-full border-2 cursor-pointer ${
                     key === activeCategory ? "border-yellow-500 scale-110" : "border-transparent"

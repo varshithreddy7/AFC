@@ -44,7 +44,7 @@ const Team: React.FC = () => {
   // Helper to render a row with label and animated cards
   const renderRow = (
     label: string,
-    members: any[],
+    members: Array<{ name: string; img: string; role: string }>,
     cardSize = "w-[110px] h-[130px] xs:w-[120px] xs:h-[150px] sm:w-[150px] sm:h-[200px] md:w-[180px] md:h-[250px]",
     gridCols = "grid-cols-2"
   ) => (
@@ -62,7 +62,7 @@ const Team: React.FC = () => {
           grid ${gridCols} gap-3 xs:gap-5 sm:gap-10 w-full max-w-fit mx-auto place-items-center
         `}
       >
-        {members.map((member, idx) => (
+        {members.map((member) => (
           <motion.div
             key={member.name}
             variants={item}

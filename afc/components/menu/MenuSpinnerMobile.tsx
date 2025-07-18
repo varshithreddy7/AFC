@@ -46,13 +46,13 @@ type Item = (typeof categories)[CategoryKey][number];
 const PizzaSpinWheelMobile: React.FC = () => {
   const categoryKeys = Object.keys(categories) as CategoryKey[];
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("pizzas");
-  const [carouselItems, setCarouselItems] = useState<Item[]>(categories["pizzas"]);
+  const [carouselItems, setCarouselItems] = useState<Item[]>([...categories["pizzas"]]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1); // +1 -> next, -1 -> prev
 
   /** Whenever category changes reset */
   useEffect(() => {
-    setCarouselItems(categories[activeCategory]);
+    setCarouselItems([...categories[activeCategory]]);
     setActiveIndex(0);
     setDirection(1);
   }, [activeCategory]);

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 type CardProps = {
   image: string;
@@ -85,7 +85,6 @@ const Card: React.FC<CardProps> = ({ image, title, points, cta }) => (
 
 export const BackgroundBorder: React.FC = () => {
   const sectionRef = React.useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
 
   const cardData: CardProps[] = [
     {

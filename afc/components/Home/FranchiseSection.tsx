@@ -78,7 +78,7 @@ export const FranchiseSection = () => {
               Build Your Success Story with AFC
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-white mb-8 md:mb-12 leading-relaxed">
-              Join India's fastest-growing QSR franchise network. Our partners average
+              Join India&apos;s fastest-growing QSR franchise network. Our partners average
               ₹40L+ monthly revenue with our proven business model.
             </p>
 
@@ -179,7 +179,7 @@ export const FranchiseSection = () => {
                         {testimonials[currentTestimonial].role}
                       </p>
                       <p className="text-white text-sm sm:text-base mb-2 sm:mb-3 italic">
-                        "{testimonials[currentTestimonial].quote}"
+                        &quot;{testimonials[currentTestimonial].quote}&quot;
                       </p>
                       <div className="flex items-center justify-between flex-wrap gap-2">
                         <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-gray-400">

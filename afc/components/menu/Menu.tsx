@@ -2,9 +2,7 @@
 
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { X } from 'lucide-react'
 import OrderDetailsCard from '@/components/ui/OrderDetailsCard'
-import HomeDelivery from '@/components/ui/HomeDelivery'
 
 interface FoodItem {
   title: string
@@ -65,7 +63,6 @@ const foodData: Record<string, FoodItem[]> = {
 export default function ResponsiveMenu() {
   const [activeCategory, setActiveCategory] = useState<string>('Pizza')
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
-  const [showHomeDelivery, setShowHomeDelivery] = useState(false);
 
   return (
     <div className="min-h-screen bg-[url('/images/hero-bg.jpg')] bg-cover bg-center text-white">

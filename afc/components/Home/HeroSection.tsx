@@ -47,8 +47,6 @@ export const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
   const videoRefs = useRef<HTMLVideoElement[]>([]);
-  const marqueeRef = useRef<HTMLDivElement | null>(null);
-  const [marqueeWidth, setMarqueeWidth] = useState(0);
 
   const handleCtaClick = () => {
     const slide = slides[currentSlide];
@@ -59,11 +57,6 @@ export const HeroSection = () => {
     }
   };
 
-  useEffect(() => {
-    if (marqueeRef.current) {
-      setMarqueeWidth(marqueeRef.current.scrollWidth);
-    }
-  }, []);
 
   useEffect(() => {
     videoRefs.current = videoRefs.current.slice(0, slides.length);
@@ -216,7 +209,6 @@ export const HeroSection = () => {
         <div className="relative w-full h-10">
           <div className="flex overflow-hidden">
             <motion.div
-              ref={marqueeRef}
               className="flex gap-12 items-center whitespace-nowrap text-white text-lg font-semibold"
               animate={{
                 x: [-1000, -2000]

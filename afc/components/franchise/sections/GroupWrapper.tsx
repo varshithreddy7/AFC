@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export const GroupWrapper = () => {
   const sectionRef = React.useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
 
   return (
     <motion.div
@@ -51,7 +50,7 @@ export const GroupWrapper = () => {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="text-white text-lg md:text-2xl font-bold tracking-wide"
             >
-              LET'S GROW TOGETHER
+              LET&apos;S GROW TOGETHER
             </motion.p>
           </motion.div>
 

@@ -132,7 +132,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -149,7 +148,6 @@ const tabs = [
 const Header = () => {
   const pathname = usePathname();
   const [activeTab, setActiveTab] = useState("");
-  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const tabRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [scrolled, setScrolled] = useState(false);
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
@@ -174,14 +172,6 @@ const Header = () => {
     }
   }, [pathname]);
 
-  useEffect(() => {
-    const index = tabs.findIndex((tab) => tab.name === activeTab);
-    const tabElement = tabRefs.current[index];
-    if (tabElement) {
-      const { offsetLeft, clientWidth } = tabElement;
-      setUnderlineStyle({ left: offsetLeft, width: clientWidth });
-    }
-  }, [activeTab]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -227,7 +217,7 @@ const Header = () => {
               className="no-underline hover:no-underline"
             >
               <div
-                ref={(el) => (tabRefs.current[index] = el)}
+                ref={(el) => { tabRefs.current[index] = el; }}
                 onClick={() => setActiveTab(tab.name)}
                 className={`relative font-black text-xl tracking-[2px] px-4 py-2 cursor-pointer overflow-hidden`}
               >

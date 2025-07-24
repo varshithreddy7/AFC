@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 /**
  * Mobile circular carousel with left ↔ right slide + spin effect on active image
@@ -176,13 +177,21 @@ const PizzaSpinWheelMobile: React.FC = () => {
                   />
                 )}
 
-                <motion.img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-64 h-64 object-cover rounded-full   relative z-10" 
+                <motion.div
                   animate={item.position === 0 ? { rotate: [0, direction * 3] } : { rotate: 0 }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
+                  className="relative w-64 h-64 z-10"
+                >
+                  <Image
+                    src={item.img}
+                    alt={item.name}
+                    className="w-full h-full object-cover rounded-full"
+                    width={256}
+                    height={256}
+                    loading="lazy"
+                    quality={85}
+                  />
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -213,17 +222,25 @@ const PizzaSpinWheelMobile: React.FC = () => {
           className="flex gap-2 flex-wrap justify-center"
         >
           {categoryKeys.map((key) => (
-            <motion.img
+            <motion.div
               key={key}
-              src={categories[key][0].img}
-              alt={key}
-              className={`w-16 h-16 object-cover rounded-full border-2 cursor-pointer ${
+              className={`relative w-16 h-16 rounded-full border-2 cursor-pointer overflow-hidden ${
                 key === activeCategory ? "border-yellow-500 scale-110" : "border-gray-600"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(key)}
-            />
+            >
+              <Image
+                src={categories[key][0].img}
+                alt={key}
+                className="w-full h-full object-cover"
+                width={64}
+                height={64}
+                loading="lazy"
+                quality={80}
+              />
+            </motion.div>
           ))}
         </motion.div>
       </div>

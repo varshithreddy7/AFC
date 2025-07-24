@@ -97,10 +97,12 @@ const Gallery: React.FC = () => {
         <div className="relative w-full h-[80vh] overflow-hidden rounded-t-md">
           <Image
             src="https://c.animaapp.com/HEE7tW43/img/grab--n--go-model.png"
-            alt="Main Banner"
+            alt="AFC Restaurant Gallery Main Banner"
             className="w-full h-full object-cover"
             fill
             priority
+            quality={90}
+            sizes="100vw"
           />
         </div>
 
@@ -119,9 +121,12 @@ const Gallery: React.FC = () => {
             <div className="relative w-full h-[200px] md:h-[250px]">
               <Image
                 src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&h=400&fit=crop"
-                alt="Outdoor"
+                alt="Restaurant outdoor seating area"
                 className="w-full h-full object-cover rounded-md"
                 fill
+                loading="lazy"
+                quality={85}
+                sizes="100vw"
               />
             </div>
 
@@ -130,17 +135,23 @@ const Gallery: React.FC = () => {
               <div className="relative w-2/3 h-full">
                 <Image
                   src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&h=400&fit=crop"
-                  alt="Chef"
+                  alt="Professional chef cooking in kitchen"
                   className="w-full h-full object-cover rounded-md"
                   fill
+                  loading="lazy"
+                  quality={85}
+                  sizes="(max-width: 768px) 66vw, 50vw"
                 />
               </div>
               <div className="relative w-1/3 h-full">
                 <Image
                   src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=400&fit=crop"
-                  alt="Burger"
+                  alt="Gourmet burger with fresh ingredients"
                   className="w-full h-full object-cover rounded-md"
                   fill
+                  loading="lazy"
+                  quality={85}
+                  sizes="(max-width: 768px) 33vw, 25vw"
                 />
               </div>
             </div>

@@ -20,7 +20,7 @@ export const DivWrapper = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
-        className="absolute w-[358px] h-[228px] top-px left-px rounded-[3px_3px_0px_0px] bg-[url(https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png)] bg-cover bg-[50%_50%]"
+        className="absolute w-[358px] h-[228px] top-px left-px rounded-[3px_3px_0px_0px] bg-[url('https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-2@2x.png')] bg-cover bg-[50%_50%]"
       />
 
       <motion.div

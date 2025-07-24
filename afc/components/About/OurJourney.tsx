@@ -18,30 +18,16 @@ const OurJourney = () => {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Animation variants removed - using inline animations for better TypeScript compatibility
 
   const TimelineItem: React.FC<TimelineItemProps> = ({ data }) => (
-    <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center gap-4">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="flex flex-col md:flex-row items-center gap-4"
+    >
       <motion.div className="relative w-full md:w-1/3 aspect-video rounded-lg overflow-hidden">
         <motion.img
           initial={{ opacity: 0, scale: 1.2 }}
@@ -53,7 +39,10 @@ const OurJourney = () => {
         />
       </motion.div>
       <motion.p 
-        variants={itemVariants}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
         className="text-white text-base md:text-lg leading-relaxed"
       >
         {data.description}
@@ -115,16 +104,19 @@ const OurJourney = () => {
   return (
     <motion.section
       ref={sectionRef}
-      variants={containerVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.8, staggerChildren: 0.3 }}
       className="relative w-full max-w-screen-xl mx-auto px-4 py-20 bg-black/20"
       style={{
         backdropFilter: "blur(10px)",
       }}
     >
       <motion.div
-        variants={itemVariants}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
         className="relative w-full mb-8 sm:mb-12 lg:mb-16"
       >
         <motion.h2

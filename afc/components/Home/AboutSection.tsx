@@ -15,79 +15,7 @@ export const AboutSection = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1.0]
-      }
-    }
-  };
-
-  const lineVariants = {
-    hidden: { width: 0 },
-    visible: {
-      width: "40px",
-      transition: {
-        duration: 0.7,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 40 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1.0]
-      }
-    }
-  };
-
-  const buttonVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.3,
-        ease: "easeOut"
-      }
-    },
-    hover: {
-      scale: 1.05,
-      boxShadow: "0px 0px 20px rgba(235, 189, 40, 0.8)",
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
-    },
-    tap: {
-      scale: 0.95,
-      transition: {
-        duration: 0.1
-      }
-    }
-  };
+  // Animation variants removed - using inline animations for better TypeScript compatibility
 
   return (
     <section
@@ -95,35 +23,43 @@ export const AboutSection = () => {
       className="relative w-full py-12 md:py-20 overflow-hidden"
     >
       <motion.div
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={containerVariants}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+        transition={{ duration: 0.8, staggerChildren: 0.15, delayChildren: 0.2 }}
         className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
           {/* Content Side */}
           <motion.div
-            variants={containerVariants}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             className="flex-1 space-y-8 md:space-y-12 order-2 lg:order-1"
           >
             {/* Header */}
             <div className="space-y-2">
               <motion.h2
-                variants={itemVariants}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.6 }}
                 className="font-black text-3xl sm:text-4xl md:text-5xl text-[#ebbd28] tracking-[2.00px]"
               >
                 ABOUT US
               </motion.h2>
               <div className="flex items-center gap-2 sm:gap-4 w-full">
                 <motion.div
-                  variants={lineVariants}
+                  initial={{ width: 0 }}
+                  animate={isInView ? { width: "40px" } : { width: 0 }}
+                  transition={{ duration: 0.7 }}
                   className="h-0.5 bg-[#ebbd28] w-12 sm:w-16 md:w-24"
                 />
                 <motion.p className="font-normal text-white text-sm sm:text-base md:text-lg tracking-[2px] sm:tracking-[4px] leading-7 whitespace-nowrap">
                   OUR STORY
                 </motion.p>
                 <motion.div
-                  variants={lineVariants}
+                  initial={{ width: 0 }}
+                  animate={isInView ? { width: "40px" } : { width: 0 }}
+                  transition={{ duration: 0.7 }}
                   className="h-0.5 bg-[#ebbd28] w-12 sm:w-16 md:w-24"
                 />
               </div>
@@ -131,7 +67,9 @@ export const AboutSection = () => {
 
             {/* Title */}
             <motion.h3
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="font-black text-white text-2xl sm:text-4xl md:text-4xl "
             >
               Absolute Fried Chicken
@@ -139,7 +77,9 @@ export const AboutSection = () => {
 
             {/* Description */}
             <motion.div
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="text-white text-base sm:text-lg md:text-xl leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] mb-2"
             >
               <p>
@@ -180,9 +120,11 @@ export const AboutSection = () => {
             {/* Visit Button */}
             <Link href="/franchise#contact">
               <motion.button
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(235, 189, 40, 0.8)" }}
+                whileTap={{ scale: 0.95 }}
                 className="bg-[#ebbd28] text-black px-6 py-3 sm:px-8 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-yellow-500 transition-colors"
               >
                 Visit Our Place
@@ -192,7 +134,9 @@ export const AboutSection = () => {
 
           {/* Image Side */}
           <motion.div
-            variants={imageVariants}
+            initial={{ opacity: 0, scale: 0.95, y: 40 }}
+            animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 40 }}
+            transition={{ duration: 0.8 }}
             className="relative w-full lg:w-[800px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[800px] order-1 lg:order-2 mb-8 lg:mb-0"
             style={{
               willChange: "transform, opacity",

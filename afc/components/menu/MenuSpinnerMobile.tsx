@@ -85,31 +85,7 @@ const PizzaSpinWheelMobile: React.FC = () => {
     return items;
   };
 
-  /** Variants use `custom` to know the item's relative position and navigation direction */
-  const itemVariants = {
-    initial: ({ position, direction }: { position: -1 | 0 | 1; direction: 1 | -1 }) => ({
-      x: position * 90 + direction * 60, // start a bit further in nav direction
-      scale: position === 0 ? 0.5 : 0.3,
-      opacity: 0,
-      rotate: direction * 90,
-      zIndex: 5,
-    }),
-    animate: ({ position, direction }: { position: -1 | 0 | 1; direction: 1 | -1 }) => ({
-      x: position * 90,
-      scale: position === 0 ? 1 : 0.4,
-      opacity: position === 0 ? 1 : 0.5,
-      rotate: position === 0 ? 0 : direction * (position === -1 ? -25 : 25),
-      zIndex: position === 0 ? 10 : 5,
-      transition: { type: "spring", stiffness: 300, damping: 30, duration: 0.5 },
-    }),
-    exit: ({ position, direction }: { position: -1 | 0 | 1; direction: 1 | -1 }) => ({
-      x: position * 90 - direction * 60,
-      scale: position === 0 ? 0.5 : 0.3,
-      opacity: 0,
-      rotate: direction * -90,
-      zIndex: 0,
-    }),
-  };
+  // Animation variants removed - using inline animations for better TypeScript compatibility
 
   return (
     <div className="relative overflow-hidden min-h-screen ">
@@ -165,11 +141,28 @@ const PizzaSpinWheelMobile: React.FC = () => {
             {getVisibleItems().map((item) => (
               <motion.div
                 key={item.id}
-                custom={{ position: item.position, direction }}
-                variants={itemVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
+                initial={{
+                  x: item.position * 90 + direction * 60,
+                  scale: item.position === 0 ? 0.5 : 0.3,
+                  opacity: 0,
+                  rotate: direction * 90,
+                  zIndex: 5,
+                }}
+                animate={{
+                  x: item.position * 90,
+                  scale: item.position === 0 ? 1 : 0.4,
+                  opacity: item.position === 0 ? 1 : 0.5,
+                  rotate: item.position === 0 ? 0 : direction * (item.position === -1 ? -25 : 25),
+                  zIndex: item.position === 0 ? 10 : 5,
+                }}
+                exit={{
+                  x: item.position * 90 - direction * 60,
+                  scale: item.position === 0 ? 0.5 : 0.3,
+                  opacity: 0,
+                  rotate: direction * -90,
+                  zIndex: 0,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 30, duration: 0.5 }}
                 onClick={() => handleSelectItem(item.index)}
                 className="absolute cursor-pointer "   
               >

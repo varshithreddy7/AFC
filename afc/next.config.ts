@@ -102,7 +102,6 @@ const nextConfig = {
   
   // Performance optimizations
   experimental: {
-    optimizeCss: true,
     esmExternals: true,
   },
 };

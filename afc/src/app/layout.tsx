@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: "AFC - Best Fried Chicken | Absolutely Fried Chicken Restaurant",
   description: "Experience the best fried chicken at AFC (Absolutely Fried Chicken). Premium quality, fresh ingredients, crispy chicken, burgers, pizza & more. Order online for delivery or join our franchise family.",
   keywords: "best fried chicken, AFC, absolutely fried chicken, crispy chicken, chicken restaurant, fried chicken near me, chicken burgers, premium chicken, fresh chicken, chicken delivery, chicken franchise, quality chicken",

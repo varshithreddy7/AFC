@@ -9,6 +9,7 @@ interface FoodItem {
   title: string
   price: string
   image: string
+  fallbackImage?: string
 }
 
 // ────────────────────────────────────────────────────────────────────────────────
@@ -25,69 +26,133 @@ const menuItems: string[] = [
   'Deserts',
 ]
 
+// Fallback images for different categories
+const categoryFallbacks: Record<string, string> = {
+  'Fried Chicken': '/images/fried-chicken.jpg',
+  'Combos': '/images/combo-home.jpg',
+  'Burgers': '/images/burger.png',
+  'Pizzas': '/images/pizza.png',
+  'Sandwich': '/images/burger.png', // Use burger as sandwich fallback
+  'Mojitos': '/images/mocktail1.png',
+  'Milkshakes': '/images/milkshake-1.JPG',
+  'Deserts': '/images/ds-1.JPG',
+}
+
 const foodData: Record<string, FoodItem[]> = {
   'Fried Chicken': [
-    { title: 'Brosted Chicken', price: '₹150', image: '/images/brosted.png' },
-    { title: 'Chicken legs', price: '₹150', image: '/images/legs.jpg' },
-    { title: "Chicken popcorn", price: "₹120", image:'/images/popcorn.jpg'},
-    {title:"Chicken nugets", price:"₹150", image:"/images/nugets.jpg"},
-    {title:"Chicken lolly pops", price:"₹150", image:"/images/lolly-pops.png"},
-    // Add your fried chicken items here
+    { title: 'Brosted Chicken', price: '₹150', image: '/images/brosted.png', fallbackImage: '/images/fried-chicken.jpg' },
+    { title: 'Chicken legs', price: '₹150', image: '/images/legs.JPG', fallbackImage: '/images/fried-chicken.jpg' },
+    { title: "Chicken popcorn", price: "₹120", image:'/images/popcorn.JPG', fallbackImage: '/images/fried-chicken.jpg'},
+    {title:"Chicken nuggets", price:"₹150", image:"/images/nugets.JPG", fallbackImage: '/images/fried-chicken.jpg'},
+    {title:"Chicken lolly pops", price:"₹150", image:"/images/lolly-pops.png", fallbackImage: '/images/fried-chicken.jpg'},
   ],
   'Combos': [
-    { title: "Fried Supreme Combo", price: '₹299', image: '/images/combo-1.jpg' },
-    { title: "Fried Special Combo", price: '₹299', image: '/images/combo-2.jpg' },
-    { title: "Fried Friendship Combo", price: '₹299', image: '/images/combo-3.jpg' },
-    { title: "Wings Combo", price: '₹299', image: '/images/combo-4.jpg' },
-    { title: "Fried Boneless", price: '₹299', image: '/images/combo-5.jpg' },
-    { title: "Brosted Chicken Combo", price: '₹299', image: '/images/combo-6.jpg' },
-    // Add your combo items here
+    { title: "Fried Supreme Combo", price: '₹299', image: '/images/combo-1.jpg', fallbackImage: '/images/combo-home.jpg' },
+    { title: "Fried Special Combo", price: '₹299', image: '/images/combo-2.jpg', fallbackImage: '/images/combo-home.jpg' },
+    { title: "Fried Friendship Combo", price: '₹299', image: '/images/combo-3.jpg', fallbackImage: '/images/combo-home.jpg' },
+    { title: "Wings Combo", price: '₹299', image: '/images/combo-4.jpg', fallbackImage: '/images/combo-home.jpg' },
+    { title: "Fried Boneless", price: '₹299', image: '/images/combo-5.jpg', fallbackImage: '/images/combo-home.jpg' },
+    { title: "Brosted Chicken Combo", price: '₹299', image: '/images/combo-6.jpg', fallbackImage: '/images/combo-home.jpg' },
   ],
   'Burgers': [
-    {title: 'Paneer Burger', price: '₹149', image: '/images/bg-4.jpg' },
-    {title: 'Veg populat Burger', price: '₹149', image: '/images/bg-5.jpg' },
-    {title: 'King Burger', price: '₹149', image: '/images/bg-6.jpg' },
-    { title: 'Chiken Patty Burger', price: '₹149', image: '/images/bg-3.jpg' },
-    { title: 'Special Chicken Grilled Burger', price: '₹149', image: '/images/bg-2.jpg' },
-    { title: 'Chicken Crispy Zinger Burger', price: '₹149', image: '/images/bg-1.jpg' },
-    
-    // Add your burger items here
+    {title: 'Paneer Burger', price: '₹149', image: '/images/bg-4.JPG', fallbackImage: '/images/burger.png' },
+    {title: 'Veg Popular Burger', price: '₹149', image: '/images/bg-5.JPG', fallbackImage: '/images/burger2.png' },
+    {title: 'King Burger', price: '₹149', image: '/images/bg-6.JPG', fallbackImage: '/images/burger3.png' },
+    { title: 'Chicken Patty Burger', price: '₹149', image: '/images/bg-3.JPG', fallbackImage: '/images/burger.png' },
+    { title: 'Special Chicken Grilled Burger', price: '₹149', image: '/images/bg-2.JPG', fallbackImage: '/images/burger2.png' },
+    { title: 'Chicken Crispy Zinger Burger', price: '₹149', image: '/images/bg-1.JPG', fallbackImage: '/images/burger3.png' },
   ],
   'Pizzas': [
-    { title: 'Veggie Paradise Pizza', price: '₹199', image: '/images/piza-1.jpg' },
-    { title: 'Paneer Tika Pizza', price: '₹199', image: '/images/piza-2.jpg' },
-    { title: 'Margarita Pizza', price: '₹199', image: '/images/piza-3.jpg' },
-    { title: 'Chicken Supreme Pizza', price: '₹199', image: '/images/piza-4.jpg' },
-    { title: 'Rosted Chicken Pizza', price: '₹199', image: '/images/piza-5.jpg' },
-    // Add your pizza items here
+    { title: 'Veggie Paradise Pizza', price: '₹199', image: '/images/piza-1.JPG', fallbackImage: '/images/pizza.png' },
+    { title: 'Paneer Tikka Pizza', price: '₹199', image: '/images/piza-2.JPG', fallbackImage: '/images/pizza2.png' },
+    { title: 'Margherita Pizza', price: '₹199', image: '/images/piza-3.JPG', fallbackImage: '/images/pizza3.png' },
+    { title: 'Chicken Supreme Pizza', price: '₹199', image: '/images/piza-4.JPG', fallbackImage: '/images/pizza.png' },
+    { title: 'Roasted Chicken Pizza', price: '₹199', image: '/images/piza-5.jpg', fallbackImage: '/images/pizza2.png' },
   ],
   'Sandwich': [
-    { title: 'Panner Sandwich', price: '₹129', image: '/images/sd-1.jpg' },
-    { title: 'Chicken Sandwich', price: '₹129', image: '/images/sd-2.jpg' },
-    // Add your sandwich items here
+    { title: 'Paneer Sandwich', price: '₹129', image: '/images/sd-1.JPG', fallbackImage: '/images/burger.png' },
+    { title: 'Chicken Sandwich', price: '₹129', image: '/images/sd-2.JPG', fallbackImage: '/images/burger2.png' },
   ],
   'Mojitos': [
-    { title: 'Virgin Mojito', price: '₹70', image: '/images/mocktail1.png' },
-    { title: 'Watermelon Mojito', price: '₹70', image: '/images/mocktail3.png' },
-    { title: 'Blueberry Mojito', price: '₹80', image: '/images/mocktail2.png' },
-    // Add your mojito items here
+    { title: 'Virgin Mojito', price: '₹70', image: '/images/mocktail1.png', fallbackImage: '/images/mocktail1.png' },
+    { title: 'Watermelon Mojito', price: '₹70', image: '/images/mocktail3.png', fallbackImage: '/images/mocktail2.png' },
+    { title: 'Blueberry Mojito', price: '₹80', image: '/images/mocktail2.png', fallbackImage: '/images/mocktail3.png' },
   ],
   'Milkshakes': [
-    { title: 'Oreo Milkshake', price: '₹129', image: '/images/milkshake-1.jpg' },
-    { title: 'Chocolate', price: '₹129', image: '/images/milkshake-2.jpg' },
-    { title: 'Kitkat Milkshake', price: '₹129', image: '/images/milkshake-3.jpg' },
-    // Add your milkshake items here
+    { title: 'Oreo Milkshake', price: '₹129', image: '/images/milkshake-1.JPG', fallbackImage: '/images/milkshake-2.jpg' },
+    { title: 'Chocolate Milkshake', price: '₹129', image: '/images/milkshake-2.jpg', fallbackImage: '/images/milkshake-3.jpg' },
+    { title: 'Kitkat Milkshake', price: '₹129', image: '/images/milkshake-3.jpg', fallbackImage: '/images/milkshake-1.JPG' },
   ],
   'Deserts': [
-    { title: 'Hot Sizzling Brownie', price: '₹149', image: '/images/ds-1.JPG' },
-    { title: 'Choco Lava Brownie', price: '₹149', image: '/images/ds-2.JPG' },
-    // Add your desert items here
+    { title: 'Hot Sizzling Brownie', price: '₹149', image: '/images/ds-1.JPG', fallbackImage: '/images/ds-2.jpg' },
+    { title: 'Choco Lava Brownie', price: '₹149', image: '/images/ds-2.jpg', fallbackImage: '/images/ds-1.JPG' },
   ],
 }
 
 // ────────────────────────────────────────────────────────────────────────────────
 // Component
 // ────────────────────────────────────────────────────────────────────────────────
+// Image Component with Loading State
+const MenuItemImage = ({ item, category }: { item: FoodItem; category: string }) => {
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
+  const [imgSrc, setImgSrc] = useState(item.image)
+
+  const handleLoad = () => {
+    setIsLoading(false)
+    setHasError(false)
+  }
+
+  const handleError = () => {
+    setIsLoading(false)
+    setHasError(true)
+    // Try fallback image first
+    if (item.fallbackImage && imgSrc !== item.fallbackImage) {
+      setImgSrc(item.fallbackImage)
+      setIsLoading(true)
+    } else if (categoryFallbacks[category] && imgSrc !== categoryFallbacks[category]) {
+      setImgSrc(categoryFallbacks[category])
+      setIsLoading(true)
+    }
+  }
+
+  return (
+    <div className="relative h-48 sm:h-40 md:h-48 w-full overflow-hidden bg-gray-800">
+      {/* Loading Skeleton */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-gray-700 animate-pulse flex items-center justify-center">
+          <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      
+      {/* Error State */}
+      {hasError && !isLoading && (
+        <div className="absolute inset-0 bg-gray-800 flex flex-col items-center justify-center text-gray-400">
+          <div className="text-4xl mb-2">🍽️</div>
+          <p className="text-sm text-center px-2">Image not available</p>
+        </div>
+      )}
+      
+      {/* Image */}
+      <Image
+        src={imgSrc}
+        alt={`${item.title} - AFC Restaurant Menu Item`}
+        className={`w-full h-full object-cover hover:scale-105 transition-all duration-300 ${
+          isLoading ? 'opacity-0' : 'opacity-100'
+        }`}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        quality={85}
+        loading="lazy"
+        onLoad={handleLoad}
+        onError={handleError}
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+      />
+    </div>
+  )
+}
+
 export default function ResponsiveMenu() {
   const [activeCategory, setActiveCategory] = useState<string>('Fried Chicken')
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
@@ -209,17 +274,7 @@ export default function ResponsiveMenu() {
                   className="bg-gray-900/70 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl backdrop-blur-md flex flex-col"
                 >
                   {/* Image */}
-                  <div className="relative h-48 sm:h-40 md:h-48 w-full overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      fill
-                      onError={(e) => {
-                        ;(e.currentTarget as HTMLImageElement).src = '/images/pizza.png'
-                      }}
-                    />
-                  </div>
+                  <MenuItemImage item={item} category={activeCategory} />
 
                   {/* Content */}
                   <div className="p-4 flex flex-col flex-1">

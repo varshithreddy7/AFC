@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState ,useEffect} from 'react';
-import { Phone, Mail, MapPin, Twitter, Instagram, MessageCircle } from 'lucide-react';
+import { Phone, Mail, Twitter, Instagram, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 
 
@@ -191,37 +191,45 @@ const ContactForm: React.FC = () => {
                 <div className="p-2">
                   <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
-                <span className="text-base md:text-xl">+1012 3456 789</span>
+                <span className="text-base md:text-xl">+91 7674073004</span>
               </div>
 
               <div className="flex items-center space-x-4 md:space-x-6">
                 <div className="p-2">
                   <Mail className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
-                <span className="text-base md:text-xl">demo@gmail.com</span>
+                <span className="text-base md:text-xl">afcindiaofficial@gmail.com</span>
               </div>
 
               <div className="flex items-center space-x-4 md:space-x-6">
-                <div className="p-2">
-                  <MapPin className="w-5 h-5 md:w-6 md:h-6 text-white" />
-                </div>
-                <div className="text-base md:text-xl">
-                  <div>132 Dartmouth Street Boston,</div>
-                  <div>Massachusetts 02156 United States</div>
-                </div>
               </div>
             </div>
 
             <div className="flex space-x-4 md:space-x-6 mt-12 md:mt-20" id='contact1'>
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-black bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 cursor-pointer transition-all">
+              <a 
+                href="https://twitter.com/AfcIndian" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 md:w-12 md:h-12 bg-black bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 hover:scale-110 transition-all duration-300"
+              >
                 <Twitter className="w-4 h-4 md:w-6 md:h-6 text-white" />
-              </div>
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-black bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 cursor-pointer transition-all">
+              </a>
+              <a 
+                href="https://www.instagram.com/afcofficial.in/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 md:w-12 md:h-12 bg-black bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 hover:scale-110 transition-all duration-300"
+              >
                 <Instagram className="w-4 h-4 md:w-6 md:h-6 text-white" />
-              </div>
-              <div className="w-10 h-10 md:w-12 md:h-12 bg-black bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 cursor-pointer transition-all">
+              </a>
+              <a 
+                href="https://wa.me/+917674073004" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 md:w-12 md:h-12 bg-black bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 hover:scale-110 transition-all duration-300"
+              >
                 <MessageCircle className="w-4 h-4 md:w-6 md:h-6 text-white" />
-              </div>
+              </a>
             </div>
           </div>
         </div>

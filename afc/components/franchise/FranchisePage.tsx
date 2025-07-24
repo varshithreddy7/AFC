@@ -1,11 +1,10 @@
 import React from "react";
 import { BackgroundBorder } from "./sections/BackgroundBorder";
 
-import { Contact } from "./sections/Contact";
-
 import { Group } from "./sections/Group";
 import { GroupWrapper } from "./sections/GroupWrapper";
 import ContactForm from "./sections/FrameWrapper";
+import OurLocations from "components/OurLocations";
 
 const Franchasie = () => {
   return (
@@ -35,7 +34,7 @@ const Franchasie = () => {
         <Group />
         
         <GroupWrapper />
-        <Contact />
+        <OurLocations/>
         <ContactForm />
       </div>
     </div>

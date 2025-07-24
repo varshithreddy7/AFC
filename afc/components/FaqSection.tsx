@@ -23,11 +23,6 @@ const FaqSection: React.FC = () => {
         "Absolutely! You can order online through our website, Zomato, or Swiggy for home delivery. Visit the Order Now section for more details.",
     },
     {
-      question: "Is AFC food freshly prepared?",
-      answer:
-        "Yes, all our dishes are made fresh daily using high-quality ingredients. We never use frozen raw materials.",
-    },
-    {
       question: "How can I become an AFC franchise owner?",
       answer:
         "You can start by filling out the franchise inquiry form on our website. Our team will guide you through the process, from setup to launch and beyond.",
@@ -41,17 +36,7 @@ const FaqSection: React.FC = () => {
       question: "What is the investment required for an AFC franchise?",
       answer:
         "Our franchise model is designed to be affordable and scalable. Investment varies by location and format. Contact us for a detailed proposal tailored to your needs.",
-    },
-    {
-      question: "Can I host parties or events at AFC?",
-      answer:
-        "Yes! Many of our outlets offer party packages and event hosting. Contact your nearest AFC for details and reservations.",
-    },
-    {
-      question: "Is there a loyalty or membership program?",
-      answer:
-        "Yes, AFC offers exclusive deals and rewards for members. Ask at your local outlet or check our website for the latest offers.",
-    },
+    }
   ];
 
 
@@ -80,20 +65,22 @@ const FaqSection: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
-        className={`flex flex-wrap gap-6 items-start py-9 pr-6 pl-20 bg-white rounded-md shadow-2xl max-md:px-5 ${className}`}
+        className={`bg-white rounded-md shadow-2xl p-6 max-md:p-4 ${className}`}
       >
-        <h2 className="flex-auto mt-3 text-md font-semibold text-slate-900">
-          {question}
-        </h2>
-        <motion.button
-          onClick={() => setIsOpen(!isOpen)}
-          className="z-10 flex items-center justify-center w-10 h-10 text-white bg-black rounded-full shadow-md hover:bg-[#ebbd28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 transition-colors"
-          aria-expanded={isOpen}
-          aria-controls={`answer-${question.replace(/\s+/g, "-").toLowerCase()}`}
-          whileTap={{ scale: 0.9 }}
-        >
-          {isOpen ? <Minus size={20} strokeWidth={3} /> : <Plus size={20} strokeWidth={3} />}
-        </motion.button>
+        <div className="flex items-start justify-between gap-4">
+          <h2 className="flex-1 text-md font-semibold text-slate-900 leading-relaxed">
+            {question}
+          </h2>
+          <motion.button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex-shrink-0 flex items-center justify-center w-10 h-10 text-white bg-black rounded-full shadow-md hover:bg-[#ebbd28] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-400 transition-colors"
+            aria-expanded={isOpen}
+            aria-controls={`answer-${question.replace(/\s+/g, "-").toLowerCase()}`}
+            whileTap={{ scale: 0.9 }}
+          >
+            {isOpen ? <Minus size={20} strokeWidth={3} /> : <Plus size={20} strokeWidth={3} />}
+          </motion.button>
+        </div>
 
         <AnimatePresence initial={false}>
           {isOpen && (
@@ -147,23 +134,15 @@ const FaqSection: React.FC = () => {
           </div>
        </div>
       
-      <div className="flex flex-col w-full max-w-[1111px] max-md:max-w-full text-center items-center relative">
-      
-        <div className="max-md:max-w-full mt-2 w-full max-w-[1111px] z-10">
-          <div className="flex gap-5 max-md:flex-col">
-            <div className="w-full max-md:ml-0 max-md:w-full">
-              <div className="mt-20 w-[600px] text-sm leading-tight max-md:mt-10 max-md:max-w-full">
-                {faqItems.map((item, index) => (
-                  <FaqItem
-                    key={index}
-                    question={item.question}
-                    answer={item.answer}
-                    className={index > 0 ? "mt-4" : ""}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="w-full max-w-4xl mx-auto px-4">
+        <div className="mt-12 max-md:mt-8 space-y-4">
+          {faqItems.map((item, index) => (
+            <FaqItem
+              key={index}
+              question={item.question}
+              answer={item.answer}
+            />
+          ))}
         </div>
       </div>
     </section>

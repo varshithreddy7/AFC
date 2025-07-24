@@ -7,15 +7,6 @@ const AboutSection = () => {
   const textRef = useRef(null);
   const isInView = useInView(textRef, { once: true });
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
-
   return (
     <div className=" text-white font-nunito">
       {/* Hero Banner */}
@@ -43,9 +34,9 @@ const AboutSection = () => {
       <section className="w-full px-6 py-20 flex justify-center">
         <motion.div
           ref={textRef}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
           className="max-w-4xl text-2xl leading-loose"
         >
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-loose">

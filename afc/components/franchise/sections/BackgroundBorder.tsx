@@ -93,7 +93,7 @@ export const BackgroundBorder: React.FC = () => {
       points: [
         "Quick service restaurant format",
         "Compact space requirement: 150-250 sq ft",
-        "Ideal for high-traffic locations",
+        "Ideal for high-traffic, metropolitan Areas",
         "Focused on takeaway and delivery"
       ],
       cta: "Learn More About Grab & Go"
@@ -104,7 +104,7 @@ export const BackgroundBorder: React.FC = () => {
       points: [
         "Full-service restaurant model",
         "Space requirement: 500-800 sq ft",
-        "Dine-in and takeaway options",
+        "Dine-in upto 20-30 people and aslo takeaway",
         "Complete kitchen setup"
       ],
       cta: "Explore Express Kitchen"
@@ -114,7 +114,7 @@ export const BackgroundBorder: React.FC = () => {
       title: "Premium Outlet",
       points: [
         "Flagship restaurant format",
-        "Space requirement: 1000-1500 sq ft",
+        "Space requirement: 800-1500 sq ft",
         "Full dining experience",
         "Premium location focus"
       ],

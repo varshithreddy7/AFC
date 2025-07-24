@@ -42,17 +42,19 @@ const OurJourney = () => {
 
   const TimelineItem: React.FC<TimelineItemProps> = ({ data }) => (
     <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center gap-4">
-      <motion.img
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        src={data.src}
-        alt={data.alt}
-        className="w-full md:w-1/3 rounded-lg object-cover"
-      />
+      <motion.div className="relative w-full md:w-1/3 aspect-video rounded-lg overflow-hidden">
+        <motion.img
+          initial={{ opacity: 0, scale: 1.2 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          src={data.src}
+          alt={data.alt}
+          className="w-full h-full object-cover rounded-lg"
+        />
+      </motion.div>
       <motion.p 
         variants={itemVariants}
-        className="text-white bg-transparent"
+        className="text-white text-base md:text-lg leading-relaxed"
       >
         {data.description}
       </motion.p>
@@ -67,7 +69,7 @@ const OurJourney = () => {
           data={{
             src: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-3.png",
             alt: "The Beginning",
-            description: "Our journey started in 2020 with a vision to serve. We began with a small team and big dreams."
+            description: "Our journey started in 2022 with a vision to serve. We began with a small team and big dreams."
           }}
         />
       ),
@@ -79,7 +81,7 @@ const OurJourney = () => {
           data={{
             src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR1FoL1avel_ZusYiF8NTHow_5YvSrgn4J-KgmnTn7CKHX2WeLQQam27I&s",
             alt: "First Milestone",
-            description: "In 2021, we opened our first flagship store, which became an instant hit among food lovers."
+            description: "In 2023, we opened our first flagship store, which became an instant hit among food lovers."
           }}
         />
       ),
@@ -91,7 +93,7 @@ const OurJourney = () => {
           data={{
             src: "https://img.freepik.com/free-photo/close-up-hands-using-smartphone_23-2149250119.jpg?semt=ais_hybrid&w=740",
             alt: "Expanding Horizons",
-            description: "By 2023, we expanded to multiple locations, serving thousands of happy customers every day."
+            description: "By 2024, we expanded to multiple locations, serving thousands of happy customers every day."
           }}
         />
       ),
@@ -116,9 +118,9 @@ const OurJourney = () => {
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="relative w-full max-w-screen-xl mx-auto px-4 py-20 bg-transparent"
+      className="relative w-full max-w-screen-xl mx-auto px-4 py-20 bg-black/20"
       style={{
-        backdropFilter: "blur(5px)",
+        backdropFilter: "blur(10px)",
       }}
     >
       <motion.div

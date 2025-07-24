@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+    <!-- Homepage - Best Fried Chicken -->
+    <url>
+        <loc>https://your-domain.com/</loc>
+        <lastmod>2025-01-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://your-domain.com/images/fried-chicken.jpg</image:loc>
+            <image:title>AFC Best Fried Chicken - Crispy and Delicious</image:title>
+            <image:caption>Experience the best fried chicken at AFC with premium quality and fresh ingredients</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Menu Page - Best Fried Chicken Menu -->
+    <url>
+        <loc>https://your-domain.com/menu</loc>
+        <lastmod>2025-01-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://your-domain.com/images/burger.png</image:loc>
+            <image:title>AFC Best Fried Chicken Menu</image:title>
+            <image:caption>Explore our menu of best fried chicken, burgers, pizza and more</image:caption>
+        </image:image>
+    </url>
+
+    <!-- About Page - AFC Best Fried Chicken Story -->
+    <url>
+        <loc>https://your-domain.com/about</loc>
+        <lastmod>2025-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://your-domain.com/images/about-us-hero.jpg</image:loc>
+            <image:title>About AFC - Best Fried Chicken Restaurant</image:title>
+            <image:caption>Learn about AFC's journey to become the best fried chicken restaurant</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Franchise Page - AFC Best Fried Chicken Franchise -->
+    <url>
+        <loc>https://your-domain.com/franchise</loc>
+        <lastmod>2025-01-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://your-domain.com/images/afc_store.png</image:loc>
+            <image:title>AFC Best Fried Chicken Franchise Opportunity</image:title>
+            <image:caption>Join AFC franchise family and start your best fried chicken business</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Gallery Page - Best Fried Chicken Photos -->
+    <url>
+        <loc>https://your-domain.com/gallery</loc>
+        <lastmod>2025-01-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://your-domain.com/images/combo-home.jpg</image:loc>
+            <image:title>AFC Best Fried Chicken Gallery</image:title>
+            <image:caption>View photos of our best fried chicken dishes and restaurant</image:caption>
+        </image:image>
+    </url>
+
+</urlset>

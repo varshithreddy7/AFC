@@ -34,12 +34,6 @@ const franchiseOwners = [
   { name: "PRIYA", img: "https://static.vecteezy.com/system/resources/previews/039/334/802/large_2x/ai-generated-indian-female-student-free-photo.jpg", role: "Franchise Owner" }
 ];
 
-const franchiseManagers = [
-  { name: "ANITA", img: "https://static.vecteezy.com/system/resources/previews/039/334/804/non_2x/ai-generated-indian-female-student-free-photo.jpg", role: "Franchise Manager" },
-  { name: "VIKRAM", img: "https://cdn.pixabay.com/photo/2024/03/31/05/00/ai-generated-8665996_1280.jpg", role: "Franchise Manager" },
-  { name: "MEENA", img: "https://img.freepik.com/premium-photo/successful-indian-female-student_722401-31462.jpg", role: "Franchise Manager" },
-  { name: "RAHUL", img: "https://cdn.pixabay.com/photo/2024/03/31/05/00/ai-generated-8665996_1280.jpg", role: "Franchise Manager" }
-];
 
 const Team: React.FC = () => {
   // Helper to render a row with label and animated cards
@@ -168,16 +162,6 @@ const Team: React.FC = () => {
           style={{ originY: 0 }}
           className="bg-yellow-300 w-[2px] sm:w-[3px] h-8 xs:h-10 sm:h-20 mx-auto my-2 rounded-full z-0 shadow-[0_0_8px_2px_rgba(235,189,40,0.7)]"
         />
-
-        {/* Franchise Managers Row - 4 per row */}
-        {renderRow(
-          "Franchise Managers", 
-          franchiseManagers, 
-          "w-[110px] h-[130px] xs:w-[120px] xs:h-[150px] sm:w-[200px] sm:h-[280px]",
-          "grid-cols-2 sm:grid-cols-4"
-        )}
-
-        {/* Removed bottom horizontal yellow line */}
       </div>
     </>
   );

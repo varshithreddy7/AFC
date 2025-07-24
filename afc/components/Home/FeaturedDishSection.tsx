@@ -18,24 +18,24 @@ interface FeaturedDish {
 const featuredDishes: FeaturedDish[] = [
   {
     id: 1,
-    name: "Classic Fried Chicken",
+    name: "Fried Chicken",
     description: "Our signature crispy chicken marinated in secret blend of spices.",
     price: "₹299",
     image: "/images/burger.png",
-    rating: 4.8,
+    rating: 5,
     isBestSeller: true,
   },
   {
     id: 2,
-    name: "Spicy Wings Bucket",
+    name: "Pizza",
     description: "8 pieces of perfectly spiced wings with our signature sauce.",
     price: "₹399",
     image: "/images/pizza.png",
-    rating: 4.5,
+    rating: 5,
   },
   {
     id: 3,
-    name: "Family Feast",
+    name: "Sandwich",
     description: "12 pieces chicken, 4 sides, and drinks. Perfect for sharing!",
     price: "₹999",
     image: "/images/fried-chicken.jpg",
@@ -44,7 +44,7 @@ const featuredDishes: FeaturedDish[] = [
   },
   {
     id: 4,
-    name: "Chicken Burger Combo",
+    name: "Milk shakes",
     description: "Crispy chicken fillet, fresh veggies with fries and drink.",
     price: "₹349",
     image: "/images/combo-home.jpg",

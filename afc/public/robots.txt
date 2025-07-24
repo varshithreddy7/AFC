@@ -1,0 +1,42 @@
+# AFC - Best Fried Chicken Restaurant - Robots.txt
+# Optimized for search engines to find our best fried chicken content
+
+User-agent: *
+Allow: /
+
+# Important pages for best fried chicken SEO
+Allow: /menu
+Allow: /about
+Allow: /franchise
+Allow: /gallery
+
+# Static assets
+Allow: /images/
+Allow: /icons/
+Allow: /_next/static/
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+# Block access to sensitive files
+Disallow: *.json$
+Disallow: *.xml$
+Disallow: *.log$
+
+# Sitemap location for search engines
+Sitemap: https://your-domain.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Special instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

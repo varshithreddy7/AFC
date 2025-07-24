@@ -15,46 +15,73 @@ interface FoodItem {
 // Data
 // ────────────────────────────────────────────────────────────────────────────────
 const menuItems: string[] = [
-  'Pizza',
-  'Milk Shakes',
+  'Fried Chicken',
   'Combos',
-  'Fries',
+  'Burgers',
+  'Pizzas',
+  'Sandwich',
   'Mojitos',
+  'Milkshakes',
   'Deserts',
 ]
 
 const foodData: Record<string, FoodItem[]> = {
-  Pizza: [
-    { title: 'Margherita Pizza', price: '₹199', image: '/images/pizza.png' },
-    { title: 'Pepperoni Pizza', price: '₹249', image: '/images/pizza.png' },
-    { title: 'BBQ Chicken Pizza', price: '₹299', image: '/images/pizza.png' },
-    { title: 'Veggie Supreme', price: '₹229', image: '/images/pizza.png' },
+  'Fried Chicken': [
+    { title: 'Brosted Chicken', price: '₹150', image: '/images/brosted.png' },
+    { title: 'Chicken legs', price: '₹150', image: '/images/legs.jpg' },
+    { title: "Chicken popcorn", price: "₹120", image:'/images/popcorn.jpg'},
+    {title:"Chicken nugets", price:"₹150", image:"/images/nugets.jpg"},
+    {title:"Chicken lolly pops", price:"₹150", image:"/images/lolly-pops.png"},
+    // Add your fried chicken items here
   ],
-  'Milk Shakes': [
-    { title: 'Chocolate Shake', price: '₹99', image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b' },
-    { title: 'Strawberry Shake', price: '₹89', image: 'https://images.unsplash.com/photo-1559628233-5e5a5c55f9f5' },
-    { title: 'Vanilla Shake', price: '₹79', image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b' },
-    { title: 'Oreo Shake', price: '₹109', image: 'https://images.unsplash.com/photo-1559628233-5e5a5c55f9f5' },
+  'Combos': [
+    { title: "Fried Supreme Combo", price: '₹299', image: '/images/combo-1.jpg' },
+    { title: "Fried Special Combo", price: '₹299', image: '/images/combo-2.jpg' },
+    { title: "Fried Friendship Combo", price: '₹299', image: '/images/combo-3.jpg' },
+    { title: "Wings Combo", price: '₹299', image: '/images/combo-4.jpg' },
+    { title: "Fried Boneless", price: '₹299', image: '/images/combo-5.jpg' },
+    { title: "Brosted Chicken Combo", price: '₹299', image: '/images/combo-6.jpg' },
+    // Add your combo items here
   ],
-  Combos: [
-    { title: 'Burger Combo', price: '₹299', image: 'https://images.unsplash.com/photo-1550547660-d9450f859349' },
-    { title: 'Pizza Combo', price: '₹349', image: 'https://images.unsplash.com/photo-1601924828371-d660d3b9f5b0' },
-    { title: 'Chicken Combo', price: '₹279', image: 'https://images.unsplash.com/photo-1550547660-d9450f859349' },
+  'Burgers': [
+    {title: 'Paneer Burger', price: '₹149', image: '/images/bg-4.jpg' },
+    {title: 'Veg populat Burger', price: '₹149', image: '/images/bg-5.jpg' },
+    {title: 'King Burger', price: '₹149', image: '/images/bg-6.jpg' },
+    { title: 'Chiken Patty Burger', price: '₹149', image: '/images/bg-3.jpg' },
+    { title: 'Special Chicken Grilled Burger', price: '₹149', image: '/images/bg-2.jpg' },
+    { title: 'Chicken Crispy Zinger Burger', price: '₹149', image: '/images/bg-1.jpg' },
+    
+    // Add your burger items here
   ],
-  Fries: [
-    { title: 'Classic Fries', price: '₹79', image: 'https://images.unsplash.com/photo-1606755962773-0b3b220f5b4d' },
-    { title: 'Peri Peri Fries', price: '₹99', image: 'https://images.unsplash.com/photo-1571091655789-9b3d8ddf10b8' },
-    { title: 'Cheese Fries', price: '₹119', image: 'https://images.unsplash.com/photo-1606755962773-0b3b220f5b4d' },
+  'Pizzas': [
+    { title: 'Veggie Paradise Pizza', price: '₹199', image: '/images/piza-1.jpg' },
+    { title: 'Paneer Tika Pizza', price: '₹199', image: '/images/piza-2.jpg' },
+    { title: 'Margarita Pizza', price: '₹199', image: '/images/piza-3.jpg' },
+    { title: 'Chicken Supreme Pizza', price: '₹199', image: '/images/piza-4.jpg' },
+    { title: 'Rosted Chicken Pizza', price: '₹199', image: '/images/piza-5.jpg' },
+    // Add your pizza items here
   ],
-  Mojitos: [
-    { title: 'Mint Mojito', price: '₹59', image: 'https://images.unsplash.com/photo-1589308078051-dba3c1b08358' },
-    { title: 'Lime Mojito', price: '₹69', image: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445' },
-    { title: 'Berry Mojito', price: '₹79', image: 'https://images.unsplash.com/photo-1589308078051-dba3c1b08358' },
+  'Sandwich': [
+    { title: 'Panner Sandwich', price: '₹129', image: '/images/sd-1.jpg' },
+    { title: 'Chicken Sandwich', price: '₹129', image: '/images/sd-2.jpg' },
+    // Add your sandwich items here
   ],
-  Deserts: [
-    { title: 'Chocolate Lava Cake', price: '₹129', image: 'https://images.unsplash.com/photo-1586985289688-1b4a1ae622b8' },
-    { title: 'Vanilla Ice Cream', price: '₹79', image: 'https://images.unsplash.com/photo-1589712235274-22d3d8bc5a36' },
-    { title: 'Brownie Sundae', price: '₹149', image: 'https://images.unsplash.com/photo-1586985289688-1b4a1ae622b8' },
+  'Mojitos': [
+    { title: 'Virgin Mojito', price: '₹70', image: '/images/mocktail1.png' },
+    { title: 'Watermelon Mojito', price: '₹70', image: '/images/mocktail3.png' },
+    { title: 'Blueberry Mojito', price: '₹80', image: '/images/mocktail2.png' },
+    // Add your mojito items here
+  ],
+  'Milkshakes': [
+    { title: 'Oreo Milkshake', price: '₹129', image: '/images/milkshake-1.jpg' },
+    { title: 'Chocolate', price: '₹129', image: '/images/milkshake-2.jpg' },
+    { title: 'Kitkat Milkshake', price: '₹129', image: '/images/milkshake-3.jpg' },
+    // Add your milkshake items here
+  ],
+  'Deserts': [
+    { title: 'Hot Sizzling Brownie', price: '₹149', image: '/images/ds-1.JPG' },
+    { title: 'Choco Lava Brownie', price: '₹149', image: '/images/ds-2.JPG' },
+    // Add your desert items here
   ],
 }
 
@@ -62,7 +89,7 @@ const foodData: Record<string, FoodItem[]> = {
 // Component
 // ────────────────────────────────────────────────────────────────────────────────
 export default function ResponsiveMenu() {
-  const [activeCategory, setActiveCategory] = useState<string>('Pizza')
+  const [activeCategory, setActiveCategory] = useState<string>('Fried Chicken')
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
 
   return (

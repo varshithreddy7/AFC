@@ -6,9 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const stats = [
-  { number: "150+", label: "Locations" },
-  { number: "95%", label: "Success Rate" },
-  { number: "₹40L+", label: "Avg. Monthly Revenue" }
+  { number: "5+", label: "Locations" },
+  { number: "10k+", label:"Happy customers"}
 ];
 
 const testimonials = [

@@ -4,7 +4,6 @@ import Image from "next/image";
 interface Testimonial {
   id: number;
   name: string;
-  role: string;
   rating: number;
   content: string;
   avatar: string;
@@ -18,56 +17,42 @@ const TestimonialsSection: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Riana Madiva",
-      role: "CEO Founder",
+      name: "Akhil",
       rating: 5,
-      content: "The increase in product sales is exponential and takes place gradually. It's really a very good job",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face",
+      content: "Best fried chicken in town! Crispy, juicy, absolutely incredible! 🍗✨",
+      avatar: "/images/test-1.jpg",
       bgColor: "bg-black"
     },
     {
       id: 2,
-      name: "Celine Dion",
-      role: "Cafe Owner",
+      name: "Kiran Kumar",
       rating: 5,
-      content: "Increase product sales and increase the amount of cash that comes in for further development",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face",
+      content: "That spice blend is addictive! Coming here weekly for a year says it all! 🔥",
+      avatar: "/images/test-2.jpg",
       bgColor: "bg-black"
     },
     {
       id: 3,
-      name: "John Melon",
-      role: "Marketing Director",
+      name: "Revanth Akula",
       rating: 5,
-      content: "Outstanding service quality and professional approach. The results exceeded our expectations completely",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face",
+      content: "Perfect every single time. Crispy outside, tender inside. Pure perfection! 👌",
+      avatar: "/images/test-3.jpg",
       bgColor: "bg-black"
     },
     {
       id: 4,
-      name: "Sarah Johnson",
-      role: "Startup Founder",
+      name: "Praveen Kumar",
       rating: 5,
-      content: "Gradual, it's really a very good job. The team understood our vision perfectly and delivered amazing results",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&crop=face",
+      content: "Family favorite! Generous portions, amazing sides. We're hooked! 👨‍👩‍👧‍👦💛",
+      avatar: "/images/test-4.jpg",
       bgColor: "bg-black"
     },
     {
       id: 5,
-      name: "Mike Rodriguez",
-      role: "E-commerce Owner",
+      name: "Shravan Kumar",
       rating: 5,
-      content: "The transformation of our business has been remarkable. Sales have increased by 300% in just 6 months",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face",
-      bgColor: "bg-black"
-    },
-    {
-      id: 6,
-      name: "Emily Chen",
-      role: "Tech Consultant",
-      rating: 5,
-      content: "Professional team with innovative solutions. They delivered exactly what we needed and more",
-      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&h=60&fit=crop&crop=face",
+      content: "Food industry pro here - AFC's quality is unmatched. Simply top-notch! 🏆",
+      avatar: "/images/test-5.jpg",
       bgColor: "bg-black"
     }
   ];

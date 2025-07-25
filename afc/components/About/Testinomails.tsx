@@ -6,23 +6,23 @@ import { motion, AnimatePresence } from "framer-motion";
 const testimonials = [
   {
     id: 1,
-    quote: "The best pasta I've ever had! Fresh ingredients and authentic Italian flavors. The service was impeccable.",
+    quote: "Best chicken ever! Fresh, crispy, and perfectly spiced. Service was amazing! ✨",
     name: "Emily Parker",
-    dish: "Loved our Fettuccine Alfredo",
+    dish: "Loved the Crispy Chicken Combo",
     rating: "★★★★★"
   },
   {
     id: 2,
-    quote: "Amazing atmosphere and delicious food. The tiramisu was to die for! Will definitely come back.",
+    quote: "Incredible atmosphere and taste! That special sauce is pure magic! Coming back for sure! 🔥",
     name: "Michael Johnson",
-    dish: "Enjoyed the Tiramisu dessert",
-    rating: "★★★★☆"
+    dish: "Enjoyed the AFC Special Burger",
+    rating: "★★★★★"
   },
   {
     id: 3,
-    quote: "Perfect date night spot. The wine selection paired beautifully with our meals. Highly recommend!",
+    quote: "Perfect hangout spot! Great flavors, awesome vibes. Highly recommend to everyone! 👌",
     name: "Sarah Williams",
-    dish: "Had the Chef's Special Pasta",
+    dish: "Had the Family Feast Combo",
     rating: "★★★★★"
   }
 ];

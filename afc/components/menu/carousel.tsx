@@ -8,30 +8,31 @@ import Image from "next/image"
 const PIZZA_SIZE = 400
 const RADIUS = 550
 
+// Fixed angle step calculation
 const categories = {
   pizzas: [
-    { id: 1, name: "Margherita", desc: "Classic cheese & tomato", img: "/images/pizza.png" },
-    { id: 2, name: "Pepperoni", desc: "Spicy & bold", img: "/images/pizza2.png" },
-    { id: 3, name: "Veggie", desc: "Fresh & crispy", img: "/images/pizza3.png" },
-    { id: 4, name: "BBQ Chicken", desc: "Smoky & sweet", img: "/images/pizza.png" },
+    { id: 1, name: "Golden Corn Pizza", desc: "", img: "/images/m-pizza-3.png" },
+    { id: 2, name: "Chicken supreme pizza", desc: "", img: "/images/m-pizza-4.png" },
+    { id: 3, name: "Margherita pizza", desc: "", img: "/images/m-pizza-1.png" },
+    { id: 4, name: "Roasted chicken Pizza", desc: "", img: "/images/pizza-2.png" },
   ],
   burgers: [
-    { id: 5, name: "Cheeseburger", desc: "Juicy with melted cheese", img: "/images/burger1.png" },
-    { id: 6, name: "Veggie Burger", desc: "Grilled garden delight", img: "/images/burger2.png" },
-    { id: 7, name: "Double Beef", desc: "Stacked & meaty", img: "/images/burger3.png" },
-    { id: 8, name: "Monster Burger", desc: "Mega-sized goodness", img: "/images/burger2.png" },
+    { id: 5, name: "Chicken Crispy Burger", desc: "", img: "/images/m-burger-1.png" },
+    { id: 6, name: "Veg Popular", desc: "", img: "/images/m-burger-3.png" },
+    { id: 7, name: "Chicken Patty Burger", desc: "", img: "/images/burger3.png" },
+    { id: 8, name: "Spicy Paneer Burger", desc: "", img: "/images/burger2.png" },
   ],
   mocktails: [
-    { id: 9, name: "Mojito", desc: "Minty & fresh", img: "/images/mocktail2.png" },
-    { id: 10, name: "Berry Blast", desc: "Fruity explosion", img: "/images/mocktail1.png" },
-    { id: 11, name: "Sunset Punch", desc: "Tropical vibe", img: "/images/mocktail3.png" },
-    { id: 12, name: "Citrus Rush", desc: "Zesty delight", img: "/images/mocktail2.png" },
+    { id: 9, name: "Virgin Mojito", desc: "", img: "/images/m-moktail-2.png" },
+    { id: 10, name: "Blue Lagoon Mojito", desc: "", img: "/images/m-moktail-1.png" },
+    { id: 11, name: "Green Mint Mojito", desc: "", img: "/images/m-mocktail-3.png" },
+    { id: 12, name: "Watermelon Mojito", desc: "", img: "/images/m-mocktail-4.png" },
   ],
   chickenfries: [
-    { id: 13, name: "Crispy Strips", desc: "Golden & crunchy", img: "/images/fires1.png" },
-    { id: 14, name: "Spicy Wings", desc: "Hot & saucy", img: "/images/fires2.png" },
-    { id: 15, name: "Nuggets", desc: "Bite-sized flavor", img: "/images/fires1.png" },
-    { id: 16, name: "Hot Drumsticks", desc: "Fiery & crunchy", img: "/images/fires2.png" },
+    { id: 13, name: "Broasted Chicken", desc: "", img: "/images/m-fires-1.png" },
+    { id: 14, name: "Chicken Legs", desc: "", img: "/images/m-fires-4.png" },
+    { id: 15, name: "Chicken Wings", desc: "", img: "/images/m-fires-2.png" },
+    { id: 16, name: "Chicken Lollypops", desc: "", img: "/images/m-fires-3.png" },
   ]
 }
 
@@ -49,7 +50,7 @@ const PizzaSpinWheel = () => {
     setSpinningItems(categories[activeCategory as keyof typeof categories])
     setRotation(0)
     rotationRef.current = 0
-    setActiveIndex(0)
+    setActiveIndex(2)
   }, [activeCategory])
 
   const handleNext = () => {
@@ -130,14 +131,18 @@ const PizzaSpinWheel = () => {
           <div className="absolute left-10 flex flex-col items-center gap-6">
             <AnimatePresence mode="wait">
               <motion.div
-                key={spinningItems[activeIndex]?.id}
-                className="text-center mt-4 max-w-[400px] min-h-[60px] mr-40"
+                key={spinningItems[activeIndex]?.id || activeCategory}
+                // FIX 1: Set a fixed width to stop the container from resizing.
+                
+                className="w-[450px] min-h-[90px] mt-4 ml-15" // Increased min-height for content
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
               >
                 <motion.h1
+                  // FIX 3: Removed `ml-18` and `w-auto`. Text is now left-aligned
+                  // within the stable parent container, preventing any movement.
                   className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent"
                   animate={{ 
                     textShadow: "0 0 10px rgba(234, 179, 8, 0.5)"
@@ -159,7 +164,7 @@ const PizzaSpinWheel = () => {
               {categoryKeys.map((key) => (
                 <motion.div
                   key={key}
-                  className={`w-20 h-20 object-cover rounded-full border-2 cursor-pointer relative ${
+                  className={`w-20 h-20 object-cover rounded-full border-2 cursor-pointer relative transition-all duration-300 ${
                     key === activeCategory ? "border-yellow-500 scale-110" : "border-transparent"
                   }`}
                   onClick={() => setActiveCategory(key)}

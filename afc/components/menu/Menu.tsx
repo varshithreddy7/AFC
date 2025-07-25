@@ -67,9 +67,9 @@ const foodData: Record<string, FoodItem[]> = {
     // Add your sandwich items here
   ],
   'Mojitos': [
-    { title: 'Virgin Mojito', price: '₹70', image: '/images/mocktail1.png' },
-    { title: 'Watermelon Mojito', price: '₹70', image: '/images/mocktail3.png' },
-    { title: 'Blueberry Mojito', price: '₹80', image: '/images/mocktail2.png' },
+    { title: 'Virgin Mojito', price: '₹70', image: '/images/mojito-2.jpg' },
+    { title: 'Watermelon Mojito', price: '₹70', image: '/images/mojito-3.jpg' },
+    { title: 'Blueberry Mojito', price: '₹80', image: '/images/mojito-4.jpg' },
     // Add your mojito items here
   ],
   'Milkshakes': [

@@ -8,6 +8,7 @@ import Image from "next/image"
 const PIZZA_SIZE = 400
 const RADIUS = 550
 
+// Fixed angle step calculation
 const categories = {
   pizzas: [
     { id: 1, name: "Golden Corn Pizza", desc: "", img: "/images/m-pizza-3.png" },

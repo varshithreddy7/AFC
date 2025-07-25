@@ -27,7 +27,7 @@ const categories = {
     { id: 8, name: "Monster Burger", desc: "Mega-sized goodness", img: "/images/burger2.png" },
   ],
   mocktails: [
-    { id: 9, name: "Mojito", desc: "Minty & fresh", img: "images/mocktail2.png" },
+    { id: 9, name: "Mojito", desc: "Minty & fresh", img: "/images/mocktail2.png" },
     { id: 10, name: "Berry Blast", desc: "Fruity explosion", img: "/images/mocktail1.png" },
     { id: 11, name: "Sunset Punch", desc: "Tropical vibe", img: "/images/mocktail3.png" },
     { id: 12, name: "Citrus Rush", desc: "Zesty delight", img: "/images/mocktail2.png" },

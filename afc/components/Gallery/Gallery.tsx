@@ -152,10 +152,15 @@ const Gallery: React.FC = () => {
             {/* Row 3 - Full Width */}
             <div className="relative w-full h-[200px] md:h-[350px]">
               <Image
-                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&h=400&fit=crop"
-                alt="Wine"
+                src="/images/amb-2.png"
+                alt="AFC Restaurant Interior"
                 className="w-full h-full object-cover rounded-md"
                 fill
+                style={{ objectPosition: 'center bottom' }}
+                onError={(e) => {
+                  console.error('Gallery row 3 image failed to load');
+                  e.currentTarget.src = '/images/combo-3.jpg';
+                }}
               />
             </div>
 
@@ -171,11 +176,16 @@ const Gallery: React.FC = () => {
               </div>
               <div className="relative w-2/3 h-full overflow-hidden rounded-md">
                 <Image
-                  src="/images/gall-3.jpg"
+                  src="/images/gall-3.JPG"
                   alt="Family"
                   className="w-full h-full object-cover rounded-md"
                   fill
-                  style={{ objectPosition: '50% 75%' }}
+                  style={{ objectPosition: '80% 75%' }}
+                  onError={(e) => {
+                    console.error('Gallery image failed to load: /images/gall-3.JPG');
+                    // Fallback to combo-3.jpg if image fails
+                    e.currentTarget.src = '/images/combo-3.jpg';
+                  }}
                 />
               </div>
             </div>
@@ -183,10 +193,15 @@ const Gallery: React.FC = () => {
             {/* Row 5 - Full Width */}
             <div className="relative w-full h-[200px] md:h-[350px]">
               <Image
-                src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=1400&h=400&fit=crop"
-                alt="Interior"
+                src="/images/gall-4.JPG"
+                alt="AFC Restaurant Ambiance"
                 className="w-full h-full object-cover rounded-md"
                 fill
+                style={{ objectPosition: 'center center' }}
+                onError={(e) => {
+                  console.error('Gallery row 5 image failed to load');
+                  e.currentTarget.src = '/images/combo-3.jpg';
+                }}
               />
             </div>
 

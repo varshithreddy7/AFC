@@ -30,7 +30,7 @@ const featuredDishes: FeaturedDish[] = [
     name: "Pizza",
     description: "8 pieces of perfectly spiced wings with our signature sauce.",
     price: "₹399",
-    image: "/images/piza-4.jpg",
+    image: "/images/piza-4.JPG",
     rating: 5,
   },
   {
@@ -139,6 +139,11 @@ export const FeaturedDishSection = () => {
                   fill
                   className="object-cover rounded-xl"
                   priority
+                  onError={(e) => {
+                    console.error('Featured dish image failed to load:', featuredDishes[currentDish].image);
+                    // Fallback to combo-3.jpg if image fails
+                    e.currentTarget.src = '/images/combo-3.jpg';
+                  }}
                 />
                 {featuredDishes[currentDish].isBestSeller && (
                   <motion.div

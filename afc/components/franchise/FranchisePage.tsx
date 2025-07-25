@@ -11,7 +11,6 @@ import videoPreloader from "../../utils/videoPreloader";
 const FranchisePage: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const [isIntersecting, setIsIntersecting] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -40,18 +39,6 @@ const FranchisePage: React.FC = () => {
     }
   };
 
-  // Detect mobile device
-  useEffect(() => {
-    const checkMobile = () => {
-      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
-      setIsMobile(isMobileDevice);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // Preload video when component mounts
   useEffect(() => {
@@ -86,7 +73,7 @@ const FranchisePage: React.FC = () => {
     };
 
     preloadVideo();
-  }, []);
+  }, [videoSources.optimized, videoSources.primary]);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -277,7 +264,7 @@ const FranchisePage: React.FC = () => {
               x5-video-player-fullscreen="true"
               crossOrigin="anonymous"
               disablePictureInPicture
-              disableRemotePlaybook
+              disableRemotePlayback
               style={{
                 width: '100vw',
                 height: '100vh',
@@ -315,7 +302,7 @@ const FranchisePage: React.FC = () => {
                 <>
                   <div className="text-red-400 text-4xl mb-4">⚠️</div>
                   <p className="text-lg font-medium mb-2">Video Loading Issue</p>
-                  <p className="text-sm text-gray-300 mb-4">We're having trouble loading the video</p>
+                  <p className="text-sm text-gray-300 mb-4">We&apos;re having trouble loading the video</p>
                   {retryCount < 3 && (
                     <button 
                       onClick={retryVideoLoad}

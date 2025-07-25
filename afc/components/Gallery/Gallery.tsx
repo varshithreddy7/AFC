@@ -5,7 +5,6 @@ import Image from "next/image";
 
 const Gallery: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Enhanced video loading strategy
@@ -82,7 +81,7 @@ const Gallery: React.FC = () => {
             onError={(e) => {
               console.error('Gallery video source failed to load:', e);
               // Try to reload the video
-              if (videoRef.current && !videoError) {
+              if (videoRef.current) {
                 console.log('Attempting to reload gallery video...');
                 videoRef.current.load();
               }

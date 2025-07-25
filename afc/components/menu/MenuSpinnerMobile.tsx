@@ -14,29 +14,29 @@ import { motion } from "framer-motion";
 
 const categories = {
   pizzas: [
-    { id: 1, name: "Margherita", desc: "Classic cheese & tomato", img: "/images/pizza.png" },
-    { id: 2, name: "Pepperoni", desc: "Spicy & bold", img: "/images/pizza2.png" },
-    { id: 3, name: "Veggie", desc: "Fresh & crispy", img: "/images/pizza3.png" },
-    { id: 4, name: "BBQ Chicken", desc: "Smoky & sweet", img: "/images/pizza.png" },
+    { id: 1, name: "Golden Corn Pizza", desc: "", img: "/images/m-pizza-3.png" },
+    { id: 2, name: "Chicken supreme pizza", desc: "", img: "/images/m-pizza-4.png" },
+    { id: 3, name: "Margherita pizza", desc: "", img: "/images/m-pizza-1.png" },
+    { id: 4, name: "Roasted chicken Pizza", desc: "", img: "/images/pizza-2.png" },
   ],
   burgers: [
-    { id: 5, name: "Cheeseburger", desc: "Juicy with melted cheese", img: "/images/burger1.png" },
-    { id: 6, name: "Veggie Burger", desc: "Grilled garden delight", img: "/images/burger2.png" },
-    { id: 7, name: "Double Beef", desc: "Stacked & meaty", img: "/images/burger3.png" },
-    { id: 8, name: "Monster Burger", desc: "Mega-sized goodness", img: "/images/burger2.png" },
+    { id: 5, name: "Chicken Crispy Burger", desc: "", img: "/images/m-burger-1.png" },
+    { id: 6, name: "Veg Popular", desc: "", img: "/images/m-burger-3.png" },
+    { id: 7, name: "Chicken Patty Burger", desc: "", img: "/images/burger3.png" },
+    { id: 8, name: "Spicy Paneer Burger", desc: "", img: "/images/burger2.png" },
   ],
   mocktails: [
-    { id: 9, name: "Mojito", desc: "Minty & fresh", img: "images/mocktail2.png" },
-    { id: 10, name: "Berry Blast", desc: "Fruity explosion", img: "/images/mocktail1.png" },
-    { id: 11, name: "Sunset Punch", desc: "Tropical vibe", img: "/images/mocktail3.png" },
-    { id: 12, name: "Citrus Rush", desc: "Zesty delight", img: "/images/mocktail2.png" },
+    { id: 9, name: "Virgin Mojito", desc: "", img: "/images/m-moktail-2.png" },
+    { id: 10, name: "Blue Lagoon Mojito", desc: "", img: "/images/m-moktail-1.png" },
+    { id: 11, name: "Green Mint Mojito", desc: "", img: "/images/m-mocktail-3.png" },
+    { id: 12, name: "Watermelon Mojito", desc: "", img: "/images/m-mocktail-4.png" },
   ],
   chickenfries: [
-    { id: 13, name: "Crispy Strips", desc: "Golden & crunchy", img: "/images/fires1.png" },
-    { id: 14, name: "Spicy Wings", desc: "Hot & saucy", img: "/images/fires2.png" },
-    { id: 15, name: "Nuggets", desc: "Bite-sized flavor", img: "/images/fires1.png" },
-    { id: 16, name: "Hot Drumsticks", desc: "Fiery & crunchy", img: "/images/fires2.png" },
-  ],
+    { id: 13, name: "Broasted Chicken", desc: "", img: "/images/m-fires-1.png" },
+    { id: 14, name: "Chicken Legs", desc: "", img: "/images/m-fires-4.png" },
+    { id: 15, name: "Chicken Wings", desc: "", img: "/images/m-fires-2.png" },
+    { id: 16, name: "Chicken Lollypops", desc: "", img: "/images/m-fires-3.png" },
+  ]
 } as const;
 
 type CategoryKey = keyof typeof categories;

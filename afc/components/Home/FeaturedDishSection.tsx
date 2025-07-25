@@ -18,10 +18,10 @@ interface FeaturedDish {
 const featuredDishes: FeaturedDish[] = [
   {
     id: 1,
-    name: "Fried Chicken",
+    name: "Fried Chicken Combos",
     description: "Our signature crispy chicken marinated in secret blend of spices.",
     price: "₹299",
-    image: "/images/burger.png",
+    image: "/images/combo-3.jpg",
     rating: 5,
     isBestSeller: true,
   },
@@ -30,7 +30,7 @@ const featuredDishes: FeaturedDish[] = [
     name: "Pizza",
     description: "8 pieces of perfectly spiced wings with our signature sauce.",
     price: "₹399",
-    image: "/images/pizza.png",
+    image: "/images/piza-4.jpg",
     rating: 5,
   },
   {
@@ -38,7 +38,7 @@ const featuredDishes: FeaturedDish[] = [
     name: "Sandwich",
     description: "12 pieces chicken, 4 sides, and drinks. Perfect for sharing!",
     price: "₹999",
-    image: "/images/fried-chicken.jpg",
+    image: "/images/sd-2.JPG",
     rating: 5,
     isBestSeller: true,
   },
@@ -47,7 +47,7 @@ const featuredDishes: FeaturedDish[] = [
     name: "Milk shakes",
     description: "Crispy chicken fillet, fresh veggies with fries and drink.",
     price: "₹349",
-    image: "/images/combo-home.jpg",
+    image: "/images/milkshake-1.JPG",
     rating: 4.6,
   },
 ];

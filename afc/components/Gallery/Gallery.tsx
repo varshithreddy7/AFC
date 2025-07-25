@@ -1,126 +1,120 @@
-// import React from "react";
+"use client";
 
-// const Gallery: React.FC = () => {
-//   return (
-//     <div className="bg-[#00000003] flex flex-row justify-center w-full mt-33">
-//       <div className="bg-[#00000003] w-screen relative">
-//         <div className="relative w-full h-[80vh]  rounded-[3px_3px_0px_0px] overflow-hidden bg-[url(https://c.animaapp.com/HEE7tW43/img/grab--n--go-model.png)] object-fit bg-[50%_50%]" />
-//         {/* Sub-banner Label */}
-//         <div className=" absolute top-[70vh] md:top-[510px] bg-black rounded-t-[15px] text-center py-6 px-6">
-//           <h2 className="text-[#ebbd28] text-5xl tracking-[2px] font-serif">GAllERY</h2>
-//         </div>
-//         <div className="min-h-screen w-full bg-black overflow-auto">
-//       {/* Main Grid Container */}
-//       <div className="min-h-screen w-full flex flex-col md:gap-2 gap-1">
-        
-      
-//         <div className="flex-1 w-full f-full mt-10 ">
-//           <img
-//             src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&h=400&fit=crop"
-//             alt="Restaurant outdoor seating"
-//             className="w-full h-full object-cover"
-//           />
-//         </div>
-
-//         {/* Second Row - Two Images with Different Widths */}
-//         <div className="flex-1 w-full flex gap-6 md:min-h-[180px] h-full mt-[-30] md:mt-2">
-//           <div className="w-2/3 h-full">
-//             <img
-//               src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&h=400&fit=crop"
-//               alt="Chef in kitchen"
-//               className="w-full h-full object-cover"
-//             />
-//           </div>
-//           <div className="w-1/3 h-full">
-//             <img
-//               src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=400&fit=crop"
-//               alt="Gourmet burger"
-//               className="w-full h-full object-fit"
-//             />
-//           </div>
-//         </div>
-
-//         {/* Third Row - Single Full Width Image */}
-//         <div className="flex-1 w-full md:min-h-[180px] h-full mt-[-30] md:mb-1 md:mt-0 md:mb-0">
-//           <img
-//             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&h=400&fit=crop"
-//             alt="Wine dining scene"
-//             className="w-full h-full object-cover"
-//           />
-//         </div>
-
-//         {/* Fourth Row - Two Images with Different Widths (Reversed) */}
-//         <div className="flex-1 w-full flex gap-6 min-h-[180px] mb-14 mt-[-30] md:mt-0 md:mb-0">
-//           <div className="w-1/3 h-full">
-//             <img
-//               src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop"
-//               alt="Food plating"
-//               className="w-full h-full object-cover"
-//             />
-//           </div>
-//           <div className="w-2/3 h-full">
-//             <img
-//               src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800&h=400&fit=crop"
-//               alt="Family dining"
-//               className="w-full h-full object-cover"
-//             />
-//           </div>
-//         </div>
-
-//         {/* Fifth Row - Single Full Width Image */}
-//         <div className="flex-1 w-full min-h-[180px] mt-[-90] mb-[70] md:mb-1 md:mt-0 md:mb-0">
-//           <img
-//             src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=1400&h=400&fit=crop"
-//             alt="Restaurant interior"
-//             className="w-full h-full object-cover"
-//           />
-//         </div>
-
-//       </div>
-//     </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Gallery;
-
-
-import React from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 
 const Gallery: React.FC = () => {
-  return (
-    <div className="bg-[#00000003] flex justify-center w-full mt-32">
-      <div className="w-screen relative bg-[#00000003]">
-        {/* Hero Image */}
-        <div className="relative w-full h-[80vh] overflow-hidden rounded-t-md">
-          <Image
-            src="https://c.animaapp.com/HEE7tW43/img/grab--n--go-model.png"
-            alt="AFC Restaurant Gallery Main Banner"
-            className="w-full h-full object-cover"
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-          />
-        </div>
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-        {/* Sub-banner Label */}
-        <div className="absolute top-[70vh] bg-black rounded-t-[15px] text-center py-6 px-6 w-auto">
-          <h2 className="text-[#ebbd28] text-4xl md:text-5xl tracking-wider font-serif">
-            GALLERY
-          </h2>
+  return (
+    <div className="w-full min-w-full overflow-x-hidden">
+      {/* Video Hero Section */}
+      <section className="relative w-screen min-h-screen overflow-hidden" style={{ height: '100vh', minHeight: '100dvh', width: '100vw' }}>
+        {/* Video Container */}
+        <div className="absolute inset-0 w-full h-full bg-black">
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            controls={false}
+            poster="/images/combo-3.jpg"
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            onError={(e) => {
+              console.error('Video failed to load:', e);
+              setVideoError(true);
+            }}
+            onLoadedData={() => {
+              setVideoLoaded(true);
+            }}
+            onCanPlay={() => {
+              // Force play for better mobile compatibility
+              if (videoRef.current) {
+                const playPromise = videoRef.current.play();
+                if (playPromise !== undefined) {
+                  playPromise.catch(err => {
+                    console.log('Autoplay prevented:', err);
+                    // Show fallback image if autoplay fails
+                    setVideoError(true);
+                  });
+                }
+              }
+            }}
+            style={{
+              width: '100vw',
+              height: '100vh',
+              objectFit: 'cover',
+              objectPosition: 'center',
+              minWidth: '100vw',
+              minHeight: '100vh',
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%) scale(1.01)'
+            }}
+          >
+            <source src="https://res.cloudinary.com/dx8ayxllj/video/upload/v1753449979/afc-2_wpvaut.mp4" type="video/mp4" />
+          </video>
         </div>
+        
+        {/* Mobile Fallback Image */}
+        {(videoError || !videoLoaded) && (
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: 'url(/images/combo-3.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'scroll'
+            }}
+          />
+        )}
+        
+        {/* Loading indicator */}
+        {!videoLoaded && !videoError && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div className="text-white text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EBBE29] mx-auto mb-4"></div>
+              <p>Loading video...</p>
+            </div>
+          </div>
+        )}
+        
+        {/* Gallery Call-to-Action Overlay */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="bg-black/60 backdrop-blur-sm rounded-xl px-8 py-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              <span className="text-[#EBBE29]">AFC</span> GALLERY
+            </h2>
+            <p className="text-gray-200 text-sm mb-4 max-w-sm">
+              Discover moments captured at our AFC locations
+            </p>
+            
+            {/* Scroll Hint */}
+            <div className="flex flex-col items-center text-white/60 animate-bounce mt-2">
+              <p className="text-xs mb-1">Explore gallery below</p>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
         {/* Gallery Content */}
-        <div className="min-h-screen w-full bg-black px-4 py-10">
-          <div className="flex flex-col gap-6">
+        <div className="min-h-screen w-full bg-black py-10">
+          <div className="flex flex-col gap-6 md:gap-3 px-4 md:px-3 max-w-screen-xl md:max-w-none mx-auto">
 
             {/* Row 1 - Full Width */}
-            <div className="relative w-full h-[200px] md:h-[250px]">
+            <div className="relative w-full h-[200px] md:h-[350px]">
               <Image
-                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&h=400&fit=crop"
+                src="/images/combo-3.jpg"
                 alt="Restaurant outdoor seating area"
                 className="w-full h-full object-cover rounded-md"
                 fill
@@ -130,36 +124,35 @@ const Gallery: React.FC = () => {
               />
             </div>
 
-            {/* Row 2 - Two Images Side by Side */}
-            <div className="w-full flex flex-row gap-4 h-[200px] md:h-[250px]">
+            {/* Row 2 - Image and Video Side by Side */}
+            <div className="w-full flex flex-row gap-4 md:gap-3 h-[200px] md:h-[350px]">
               <div className="relative w-2/3 h-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&h=400&fit=crop"
+                  src="/images/gall-1.JPG"
                   alt="Professional chef cooking in kitchen"
                   className="w-full h-full object-cover rounded-md"
                   fill
                   loading="lazy"
                   quality={85}
-                  sizes="(max-width: 768px) 66vw, 50vw"
+                  sizes="(max-width: 768px) 66vw, 66vw"
                 />
               </div>
               <div className="relative w-1/3 h-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=400&fit=crop"
-                  alt="Gourmet burger with fresh ingredients"
+                <video
+                  src="https://res.cloudinary.com/dx8ayxllj/video/upload/v1753450192/gall_zi7cb3.mp4"
                   className="w-full h-full object-cover rounded-md"
-                  fill
-                  loading="lazy"
-                  quality={85}
-                  sizes="(max-width: 768px) 33vw, 25vw"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 />
               </div>
             </div>
 
             {/* Row 3 - Full Width */}
-            <div className="relative w-full h-[200px] md:h-[250px]">
+            <div className="relative w-full h-[200px] md:h-[350px]">
               <Image
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&h=400&fit=crop"
+                src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&h=400&fit=crop"
                 alt="Wine"
                 className="w-full h-full object-cover rounded-md"
                 fill
@@ -167,27 +160,28 @@ const Gallery: React.FC = () => {
             </div>
 
             {/* Row 4 - Two Images Side by Side (Reversed) */}
-            <div className="w-full flex flex-row gap-4 h-[200px] md:h-[250px]">
+            <div className="w-full flex flex-row gap-4 md:gap-3 h-[200px] md:h-[350px]">
               <div className="relative w-1/3 h-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop"
+                  src="/images/mojito-2.jpg"
                   alt="Plating"
-                  className="w-full h-full object-cover rounded-md"
+                  className="w-full h-full object-cover rounded-md "
                   fill
                 />
               </div>
-              <div className="relative w-2/3 h-full">
+              <div className="relative w-2/3 h-full overflow-hidden rounded-md">
                 <Image
-                  src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800&h=400&fit=crop"
+                  src="/images/gall-3.jpg"
                   alt="Family"
                   className="w-full h-full object-cover rounded-md"
                   fill
+                  style={{ objectPosition: '50% 75%' }}
                 />
               </div>
             </div>
 
             {/* Row 5 - Full Width */}
-            <div className="relative w-full h-[200px] md:h-[250px]">
+            <div className="relative w-full h-[200px] md:h-[350px]">
               <Image
                 src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=1400&h=400&fit=crop"
                 alt="Interior"
@@ -199,7 +193,6 @@ const Gallery: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

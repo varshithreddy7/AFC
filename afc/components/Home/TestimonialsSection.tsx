@@ -96,9 +96,6 @@ const TestimonialsSection: React.FC = () => {
           <h4 className="font-semibold text-base sm:text-lg text-white animate-fadeInRight">
             {testimonial.name}
           </h4>
-          <p className="text-xs sm:text-sm text-yellow-300 animate-fadeInRight delay-100">
-            {testimonial.role}
-          </p>
         </div>
       </div>
 

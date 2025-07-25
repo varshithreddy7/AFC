@@ -1,12 +1,62 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 const Gallery: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Enhanced video loading strategy
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Set video properties for better compatibility
+    video.volume = 0;
+    video.defaultMuted = true;
+    
+    // Force load the video
+    video.load();
+    
+    // Enhanced play strategy
+    const attemptPlay = async () => {
+      try {
+        video.currentTime = 0;
+        await video.play();
+        setVideoLoaded(true);
+        console.log('Gallery video playing successfully');
+      } catch (error) {
+        console.log('Gallery autoplay attempt failed, trying user interaction:', error);
+        // Don't set error immediately, wait for user interaction
+        const playOnInteraction = async () => {
+          try {
+            await video.play();
+            setVideoLoaded(true);
+            document.removeEventListener('click', playOnInteraction);
+            document.removeEventListener('touchstart', playOnInteraction);
+          } catch (err) {
+            console.error('Gallery video play failed even with user interaction:', err);
+          }
+        };
+        
+        document.addEventListener('click', playOnInteraction, { once: true });
+        document.addEventListener('touchstart', playOnInteraction, { once: true });
+      }
+    };
+
+    // Wait for metadata then attempt play
+    const handleLoadedMetadata = () => {
+      setTimeout(attemptPlay, 100);
+    };
+
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+    
+    return () => {
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+    };
+  }, []);
 
   return (
     <div className="w-full min-w-full overflow-x-hidden">
@@ -21,30 +71,34 @@ const Gallery: React.FC = () => {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             controls={false}
             poster="/images/combo-3.jpg"
             webkit-playsinline="true"
             x5-playsinline="true"
+            x5-video-player-type="h5"
+            x5-video-player-fullscreen="true"
+            crossOrigin="anonymous"
             onError={(e) => {
-              console.error('Video failed to load:', e);
-              setVideoError(true);
+              console.error('Gallery video source failed to load:', e);
+              // Try to reload the video
+              if (videoRef.current && !videoError) {
+                console.log('Attempting to reload gallery video...');
+                videoRef.current.load();
+              }
             }}
             onLoadedData={() => {
+              console.log('Gallery video data loaded successfully');
               setVideoLoaded(true);
             }}
-            onCanPlay={() => {
-              // Force play for better mobile compatibility
-              if (videoRef.current) {
-                const playPromise = videoRef.current.play();
-                if (playPromise !== undefined) {
-                  playPromise.catch(err => {
-                    console.log('Autoplay prevented:', err);
-                    // Show fallback image if autoplay fails
-                    setVideoError(true);
-                  });
-                }
-              }
+            onLoadStart={() => {
+              console.log('Gallery video loading started...');
+            }}
+            onProgress={() => {
+              console.log('Gallery video loading progress...');
+            }}
+            onCanPlayThrough={() => {
+              console.log('Gallery video can play through completely');
             }}
             style={{
               width: '100vw',
@@ -62,25 +116,13 @@ const Gallery: React.FC = () => {
           </video>
         </div>
         
-        {/* Mobile Fallback Image */}
-        {(videoError || !videoLoaded) && (
-          <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ 
-              backgroundImage: 'url(/images/combo-3.jpg)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundAttachment: 'scroll'
-            }}
-          />
-        )}
-        
-        {/* Loading indicator */}
-        {!videoLoaded && !videoError && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        {/* Loading indicator - Only show while video is loading */}
+        {!videoLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-30">
             <div className="text-white text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#EBBE29] mx-auto mb-4"></div>
-              <p>Loading video...</p>
+              <p className="text-lg font-medium">Loading Gallery...</p>
+              <p className="text-sm text-gray-300 mt-2">Preparing your visual experience</p>
             </div>
           </div>
         )}

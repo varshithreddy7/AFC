@@ -4,40 +4,34 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-/**
- * Mobile circular carousel with left ↔ right slide + spin effect on active image
- * ----------------------------------------------------------
- * – `direction` state captures whether the user clicked Next (+1) or Prev (‑1).
- * – Each visible item animates its **x/scale/opacity** as before, but the *active* (center)
- *   image also rotates ±360° depending on the navigation direction.
- * – The new item entering from the left/right starts slightly off‑screen and fades in.
- */
+
 
 const categories = {
+  chickenfries: [
+    { id: 1, name: "Broasted Chicken", desc: "", img: "/images/m-fires-11.png" },
+    { id: 2, name: "Chicken Legs", desc: "", img: "/images/m-fires-12.png" },
+    { id: 3, name: "Chicken Wings", desc: "", img: "/images/m-fires-14.png" },
+    { id: 4, name: "Chicken Lollypops", desc: "", img: "/images/m-fires-3.png" },
+  ],
   pizzas: [
-    { id: 1, name: "Golden Corn Pizza", desc: "", img: "/images/m-pizza-3.png" },
-    { id: 2, name: "Chicken supreme pizza", desc: "", img: "/images/m-pizza-4.png" },
-    { id: 3, name: "Margherita pizza", desc: "", img: "/images/m-pizza-1.png" },
-    { id: 4, name: "Roasted chicken Pizza", desc: "", img: "/images/pizza-2.png" },
+    { id: 5, name: "Golden Corn Pizza", desc: "", img: "/images/m-pizza-3.png" },
+    { id: 6, name: "Chicken supreme pizza", desc: "", img: "/images/m-pizza-4.png" },
+    { id: 7, name: "Margherita pizza", desc: "", img: "/images/m-pizza-1.png" },
+    { id: 8, name: "Roasted chicken Pizza", desc: "", img: "/images/pizza-2.png" },
   ],
   burgers: [
-    { id: 5, name: "Chicken Crispy Burger", desc: "", img: "/images/m-burger-1.png" },
-    { id: 6, name: "Veg Popular", desc: "", img: "/images/m-burger-5.png" },
-    { id: 7, name: "Chicken Patty Burger", desc: "", img: "/images/burger3.png" },
-    { id: 8, name: "Spicy Paneer Burger", desc: "", img: "/images/burger2.png" },
+    { id: 9, name: "Chicken Crispy Burger", desc: "", img: "/images/m-burger-1.png" },
+    { id: 10, name: "Veg Popular", desc: "", img: "/images/m-burger-5.png" },
+    { id: 11, name: "Chicken Patty Burger", desc: "", img: "/images/burger3.png" },
+    { id: 12, name: "Spicy Paneer Burger", desc: "", img: "/images/burger2.png" },
   ],
   mocktails: [
-    { id: 9, name: "Virgin Mojito", desc: "", img: "/images/m-moktail-2.png" },
-    { id: 10, name: "Blue Lagoon Mojito", desc: "", img: "/images/m-moktail-1.png" },
-    { id: 11, name: "Green Mint Mojito", desc: "", img: "/images/m-mojito-6.png" },
-    { id: 12, name: "Watermelon Mojito", desc: "", img: "/images/m-mocktail-4.png" },
+    { id: 13, name: "Virgin Mojito", desc: "", img: "/images/m-moktail-2.png" },
+    { id: 14, name: "Blue Lagoon Mojito", desc: "", img: "/images/m-moktail-1.png" },
+    { id: 15, name: "Green Mint Mojito", desc: "", img: "/images/m-mojito-5.png" },
+    { id: 16, name: "Watermelon Mojito", desc: "", img: "/images/m-mocktail-4.png" },
   ],
-  chickenfries: [
-    { id: 13, name: "Broasted Chicken", desc: "", img: "/images/m-fires-1.png" },
-    { id: 14, name: "Chicken Legs", desc: "", img: "/images/m-fires-4.png" },
-    { id: 15, name: "Chicken Wings", desc: "", img: "/images/m-fires-2.png" },
-    { id: 16, name: "Chicken Lollypops", desc: "", img: "/images/m-fires-3.png" },
-  ]
+
 } as const;
 
 type CategoryKey = keyof typeof categories;
@@ -46,8 +40,8 @@ type Item = (typeof categories)[CategoryKey][number];
 
 const PizzaSpinWheelMobile: React.FC = () => {
   const categoryKeys = Object.keys(categories) as CategoryKey[];
-  const [activeCategory, setActiveCategory] = useState<CategoryKey>("pizzas");
-  const [carouselItems, setCarouselItems] = useState<Item[]>([...categories["pizzas"]]);
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>("chickenfries");
+  const [carouselItems, setCarouselItems] = useState<Item[]>([...categories["chickenfries"]]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1); // +1 -> next, -1 -> prev
 

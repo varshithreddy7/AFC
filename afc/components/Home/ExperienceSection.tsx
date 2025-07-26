@@ -64,7 +64,7 @@ const ExperienceSection = () => {
                     transition={{ delay: 0.4 }}
                     className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 leading-tight"
                   >
-                    Where Vibe <span className="text-[#ebbd28]">Meets Taste</span>
+                    Where Vibe <span className="text-[#ebbd28]">Meets Flavour</span>
                   </motion.h2>
                   
                   <Link href="/gallery">

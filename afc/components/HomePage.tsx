@@ -8,7 +8,7 @@
 // import ExperienceSection from "./Home/ExperienceSection";
 // import Image from "next/image";
 // import AboutSection from "./Home/AboutSection";
-// import TestimonialsSection from "./Home/TestimonialsSection";
+// import TestimonialsSection from "./Home/TestimoniesSection";
  
 // const Home = () => {
 //   const [inputValue, setInputValue] = React.useState("");
@@ -193,7 +193,7 @@ import FranchiseSection from "./Home/FranchiseSection";
 import FeaturedDishSection from "./Home/FeaturedDishSection";
 import ExperienceSection from "./Home/ExperienceSection";
 import AboutSection from "./Home/AboutSection";
-import TestimonialsSection from "./Home/TestimonialsSection";
+import TestimonialsSection from "./Home/TestimoniesSection";
 import Image from "next/image";
 
 const Home = () => {

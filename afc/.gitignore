@@ -12,6 +12,11 @@
 
 # testing
 /coverage
+*.test.*
+*.spec.*
+test-*
+/tests
+/testing
 
 # next.js
 /.next/
@@ -23,6 +28,14 @@
 # misc
 .DS_Store
 *.pem
+*.md.bak
+*.tmp
+/temp
+/tmp
+README-*.md
+DEPLOYMENT*.md
+SEO-*.md
+PRODUCTION*.md
 
 # debug
 npm-debug.log*

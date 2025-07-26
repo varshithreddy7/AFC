@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://your-domain.com',
+    url: 'https://www.afcofficial.in',
     title: 'AFC - Best Fried Chicken | Absolutely Fried Chicken Restaurant',
     description: 'Experience the best fried chicken at AFC. Premium quality, fresh ingredients, crispy chicken, burgers & more. Order online or join our franchise.',
     images: [
@@ -61,10 +61,10 @@ export const metadata: Metadata = {
     title: 'AFC - Best Fried Chicken Restaurant',
     description: 'Experience the best fried chicken at AFC. Premium quality, fresh ingredients, crispy chicken. Order now!',
     images: ['/images/fried-chicken.jpg'],
-    creator: '@AFCRestaurant',
+    creator: '@AfcIndian',
   },
   alternates: {
-    canonical: 'https://your-domain.com',
+    canonical: 'https://www.afcofficial.in',
   },
   category: 'food',
 };
@@ -79,12 +79,12 @@ export default function RootLayout({
     "@type": "Restaurant",
     "name": "AFC - Absolutely Fried Chicken",
     "description": "Best fried chicken restaurant offering premium quality crispy chicken, burgers, pizza and more with fresh ingredients.",
-    "url": "https://your-domain.com",
-    "logo": "https://your-domain.com/images/Afc-logo.png",
-    "image": "https://your-domain.com/images/fried-chicken.jpg",
+    "url": "https://www.afcofficial.in",
+    "logo": "https://www.afcofficial.in/images/Afc-logo.png",
+    "image": "https://www.afcofficial.in/images/fried-chicken.jpg",
     "priceRange": "$$",
     "servesCuisine": ["American", "Fast Food", "Fried Chicken"],
-    "menu": "https://your-domain.com/menu",
+    "menu": "https://www.afcofficial.in/menu",
     "hasMenu": {
       "@type": "Menu",
       "name": "AFC Menu",
@@ -101,14 +101,14 @@ export default function RootLayout({
       "@type": "PostalAddress",
       "addressCountry": "IN"
     },
-    "telephone": "+91-XXXXXXXXXX",
+    "telephone": ["+91 76740 73004", "+91 95050 66245"],
     "openingHours": "Mo-Su 10:00-23:00",
     "paymentAccepted": "Cash, Credit Card, Debit Card, UPI",
     "potentialAction": {
       "@type": "OrderAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://your-domain.com/",
+        "urlTemplate": "https://www.afcofficial.in/",
         "inLanguage": "en-US",
         "actionPlatform": [
           "http://schema.org/DesktopWebPlatform",

@@ -19,7 +19,7 @@ const featuredDishes: FeaturedDish[] = [
   {
     id: 1,
     name: "Fried Chicken Combos",
-    description: "Our signature crispy chicken marinated in secret blend of spices.",
+    description: "A delightful combo of crispy fried chicken pieces, seasoned to perfection and served with sides.",
     price: "₹299",
     image: "/images/combo-3.jpg",
     rating: 5,
@@ -28,7 +28,7 @@ const featuredDishes: FeaturedDish[] = [
   {
     id: 2,
     name: "Pizza",
-    description: "8 pieces of perfectly spiced wings with our signature sauce.",
+    description: "Cheesy and delicious pizza topped with flavorful chicken, veggies, and special seasonings.",
     price: "₹399",
     image: "/images/piza-4.JPG",
     rating: 5,
@@ -36,7 +36,7 @@ const featuredDishes: FeaturedDish[] = [
   {
     id: 3,
     name: "Sandwich",
-    description: "12 pieces chicken, 4 sides, and drinks. Perfect for sharing!",
+    description: "Grilled chicken sandwich layered with fresh veggies and sauces, perfect for a quick bite.",
     price: "₹999",
     image: "/images/sd-2.JPG",
     rating: 5,
@@ -45,12 +45,13 @@ const featuredDishes: FeaturedDish[] = [
   {
     id: 4,
     name: "Milk shakes",
-    description: "Crispy chicken fillet, fresh veggies with fries and drink.",
+    description: "Thick and creamy milkshakes in a variety of classic flavors to cool you down.",
     price: "₹349",
     image: "/images/milkshake-1.JPG",
     rating: 4.6,
   },
 ];
+
 
 export const FeaturedDishSection = () => {
   const [currentDish, setCurrentDish] = useState(0);

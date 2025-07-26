@@ -18,14 +18,14 @@ const categories = {
   ],
   burgers: [
     { id: 5, name: "Chicken Crispy Burger", desc: "", img: "/images/m-burger-1.png" },
-    { id: 6, name: "Veg Popular", desc: "", img: "/images/m-burger-3.png" },
+    { id: 6, name: "Veg Popular", desc: "", img: "/images/m-burger-5.png" },
     { id: 7, name: "Chicken Patty Burger", desc: "", img: "/images/burger3.png" },
     { id: 8, name: "Spicy Paneer Burger", desc: "", img: "/images/burger2.png" },
   ],
   mocktails: [
     { id: 9, name: "Virgin Mojito", desc: "", img: "/images/m-moktail-2.png" },
     { id: 10, name: "Blue Lagoon Mojito", desc: "", img: "/images/m-moktail-1.png" },
-    { id: 11, name: "Green Mint Mojito", desc: "", img: "/images/m-mocktail-3.png" },
+    { id: 11, name: "Green Mint Mojito", desc: "", img: "/images/m-mojito-5.png" },
     { id: 12, name: "Watermelon Mojito", desc: "", img: "/images/m-mocktail-4.png" },
   ],
   chickenfries: [

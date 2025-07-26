@@ -8,7 +8,7 @@ import OrderDetailsCard from "@/components/ui/OrderDetailsCard";
 
 const slides = [
   {
-    video: "https://res.cloudinary.com/dpfwi3nym/video/upload/Untitled_video_-_Made_with_Clipchamp_2_qpylpo.mp4",
+    video: "https://res.cloudinary.com/dx8ayxllj/video/upload/v1753448947/afc-1_wltvat.mp4",
     title: "Absolutely Fried Chicken",
     subtitle: "🔥 Food That Makes You Drool",
     cta: "Order Now",
@@ -19,7 +19,7 @@ const slides = [
     video: "https://res.cloudinary.com/dpfwi3nym/video/upload/C2167_hubcwx.mp4",
     title: "Premium Quality",
     subtitle: "Fresh Ingredients, Amazing Taste",
-    cta: "View Our Chicken Menu",
+    cta: "View Our Menu",
     path: "/menu",
     alt: "Fresh ingredients for the best fried chicken at AFC"
   },
@@ -63,7 +63,7 @@ export const HeroSection = () => {
     videoRefs.current = videoRefs.current.slice(0, slides.length);
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000);
+    }, 15000); // Increased to 15 seconds
     return () => clearInterval(timer);
   }, []);
 

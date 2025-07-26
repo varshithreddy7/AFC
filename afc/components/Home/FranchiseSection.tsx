@@ -141,7 +141,7 @@ export const FranchiseSection = () => {
           >
             <div className="relative rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden mb-6 sm:mb-8">
               <Image
-                src="/images/afc_store.png"
+                src="/images/fra-1.png"
                 alt="AFC Store"
                 width={600}
                 height={400}

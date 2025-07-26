@@ -203,10 +203,13 @@ const Header = () => {
         <Link href="/" onClick={() => setActiveTab("HOME")}>
           <Image
             src="/images/Afc-logo.png"
-            alt="Logo"
+            alt="AFC Restaurant Logo"
             className="w-20 h-20 md:w-32 md:h-32 object-cover"
             width={128}
             height={128}
+            priority
+            quality={95}
+            sizes="(max-width: 768px) 80px, 128px"
           />
         </Link>
 
@@ -294,10 +297,12 @@ const Header = () => {
             <span className="font-black text-black text-xl">ORDER NOW</span>
             <Image
               src="https://c.animaapp.com/X56oiYEi/img/image-54@2x.png"
-              alt="Order"
+              alt="Order Icon"
               className="w-[90px] h-[60px] object-cover"
               width={90}
               height={60}
+              loading="lazy"
+              quality={85}
             />
           </div>
         </motion.div>
@@ -356,10 +361,12 @@ const Header = () => {
                     <span className="font-black text-black text-xl sm:text-2xl">ORDER NOW</span>
                     <Image
                       src="https://c.animaapp.com/X56oiYEi/img/image-54@2x.png"
-                      alt="Order"
-                      className="w-[90px] h-[40px] object-cover"  // Adjusted image size
+                      alt="Order Icon"
+                      className="w-[90px] h-[40px] object-cover"
                       width={90}
                       height={40}
+                      loading="lazy"
+                      quality={85}
                     />
                   </div>
                 </motion.div>

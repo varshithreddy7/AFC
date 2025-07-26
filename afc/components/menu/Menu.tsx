@@ -27,6 +27,18 @@ const menuItems: string[] = [
   'Deserts',
 ]
 
+// Fallback images for different categories
+const categoryFallbacks: Record<string, string> = {
+  'Fried Chicken': '/images/fried-chicken.jpg',
+  'Combos': '/images/combo-home.jpg',
+  'Burgers': '/images/burger.png',
+  'Pizzas': '/images/pizza.png',
+  'Sandwich': '/images/burger.png', // Use burger as sandwich fallback
+  'Mojitos': '/images/mocktail1.png',
+  'Milkshakes': '/images/milkshake-1.JPG',
+  'Deserts': '/images/ds-1.JPG',
+}
+
 const foodData: Record<string, FoodItem[]> = {
   'Fried Chicken': [
     { title: 'Brosted Chicken', price: '₹240', image: '/images/brosted.png', fallbackImage: '/images/fried-chicken.jpg', description: 'Crispy and juicy chicken broasted to golden perfection with a flavorful seasoning.' },
@@ -82,6 +94,67 @@ const foodData: Record<string, FoodItem[]> = {
 // ────────────────────────────────────────────────────────────────────────────────
 // Component
 // ────────────────────────────────────────────────────────────────────────────────
+// Image Component with Loading State
+const MenuItemImage = ({ item, category }: { item: FoodItem; category: string }) => {
+  const [isLoading, setIsLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
+  const [imgSrc, setImgSrc] = useState(item.image)
+
+  const handleLoad = () => {
+    setIsLoading(false)
+    setHasError(false)
+  }
+
+  const handleError = () => {
+    setIsLoading(false)
+    setHasError(true)
+    // Try fallback image first
+    if (item.fallbackImage && imgSrc !== item.fallbackImage) {
+      setImgSrc(item.fallbackImage)
+      setIsLoading(true)
+    } else if (categoryFallbacks[category] && imgSrc !== categoryFallbacks[category]) {
+      setImgSrc(categoryFallbacks[category])
+      setIsLoading(true)
+    }
+  }
+
+  return (
+    <div className="relative h-48 sm:h-40 md:h-48 w-full overflow-hidden bg-gray-800">
+      {/* Loading Skeleton */}
+      {isLoading && (
+        <div className="absolute inset-0 bg-gray-700 animate-pulse flex items-center justify-center">
+          <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      
+      {/* Error State */}
+      {hasError && !isLoading && (
+        <div className="absolute inset-0 bg-gray-800 flex flex-col items-center justify-center text-gray-400">
+          <div className="text-4xl mb-2">🍽️</div>
+          <p className="text-sm text-center px-2">Image not available</p>
+        </div>
+      )}
+      
+      {/* Image */}
+      <Image
+        src={imgSrc}
+        alt={`${item.title} - AFC Restaurant Menu Item`}
+        className={`w-full h-full object-cover hover:scale-105 transition-all duration-300 ${
+          isLoading ? 'opacity-0' : 'opacity-100'
+        }`}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        quality={85}
+        loading="lazy"
+        onLoad={handleLoad}
+        onError={handleError}
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+      />
+    </div>
+  )
+}
+
 export default function ResponsiveMenu() {
   const [activeCategory, setActiveCategory] = useState<string>('Fried Chicken')
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false)
@@ -203,17 +276,7 @@ export default function ResponsiveMenu() {
                   className="bg-gray-900/70 rounded-xl overflow-hidden shadow-xl hover:shadow-2xl backdrop-blur-md flex flex-col"
                 >
                   {/* Image */}
-                  <div className="relative h-48 sm:h-40 md:h-48 w-full overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                      fill
-                      onError={(e) => {
-                        ;(e.currentTarget as HTMLImageElement).src = '/images/pizza.png'
-                      }}
-                    />
-                  </div>
+                  <MenuItemImage item={item} category={activeCategory} />
 
                   {/* Content */}
                   <div className="p-4 flex flex-col flex-1">

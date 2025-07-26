@@ -47,7 +47,7 @@ const ExperienceSection = () => {
               {/* Main Image */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden h-56 sm:h-72 md:h-96 lg:h-[400px] xl:h-[475px]">
                 <Image
-                  src="/images/experience-img.png"
+                  src="/images/amb-2.png"
                   alt="Royal Crunch Chicken"
                   fill
                   className="object-cover"
@@ -64,7 +64,7 @@ const ExperienceSection = () => {
                     transition={{ delay: 0.4 }}
                     className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 leading-tight"
                   >
-                    Royal Crunch Chicken
+                    Where Vibe <span className="text-[#ebbd28]">Meets Taste</span>
                   </motion.h2>
                   
                   <Link href="/gallery">

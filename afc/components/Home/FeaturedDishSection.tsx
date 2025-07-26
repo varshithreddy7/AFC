@@ -21,7 +21,7 @@ const featuredDishes: FeaturedDish[] = [
     name: "Fried Chicken Combos",
     description: "A delightful combo of crispy fried chicken pieces, seasoned to perfection and served with sides.",
     price: "₹299",
-    image: "/images/burger.png",
+    image: "/images/combo-3.jpg",
     rating: 5,
     isBestSeller: true,
   },
@@ -30,7 +30,7 @@ const featuredDishes: FeaturedDish[] = [
     name: "Pizza",
     description: "Cheesy and delicious pizza topped with flavorful chicken, veggies, and special seasonings.",
     price: "₹399",
-    image: "/images/pizza.png",
+    image: "/images/piza-4.JPG",
     rating: 5,
   },
   {
@@ -38,7 +38,7 @@ const featuredDishes: FeaturedDish[] = [
     name: "Sandwich",
     description: "Grilled chicken sandwich layered with fresh veggies and sauces, perfect for a quick bite.",
     price: "₹999",
-    image: "/images/fried-chicken.jpg",
+    image: "/images/sd-2.JPG",
     rating: 5,
     isBestSeller: true,
   },
@@ -47,7 +47,7 @@ const featuredDishes: FeaturedDish[] = [
     name: "Milk shakes",
     description: "Thick and creamy milkshakes in a variety of classic flavors to cool you down.",
     price: "₹349",
-    image: "/images/combo-home.jpg",
+    image: "/images/milkshake-1.JPG",
     rating: 4.6,
   },
 ];
@@ -140,6 +140,11 @@ export const FeaturedDishSection = () => {
                   fill
                   className="object-cover rounded-xl"
                   priority
+                  onError={(e) => {
+                    console.error('Featured dish image failed to load:', featuredDishes[currentDish].image);
+                    // Fallback to combo-3.jpg if image fails
+                    e.currentTarget.src = '/images/combo-3.jpg';
+                  }}
                 />
                 {featuredDishes[currentDish].isBestSeller && (
                   <motion.div

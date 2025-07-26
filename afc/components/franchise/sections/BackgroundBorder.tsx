@@ -88,7 +88,7 @@ export const BackgroundBorder: React.FC = () => {
 
   const cardData: CardProps[] = [
     {
-      image: "https://c.animaapp.com/89fS0TNm/img/grab--n--go-model-3.png",
+      image: "/images/fra-1.png",
       title: "Grab & Go Model",
       points: [
         "Quick service restaurant format",
@@ -99,7 +99,7 @@ export const BackgroundBorder: React.FC = () => {
       cta: "Learn More About Grab & Go"
     },
     {
-      image: "https://c.animaapp.com/HEE7tW43/img/image-82.png",
+      image: "/images/fra-2.png",
       title: "Express Kitchen",
       points: [
         "Full-service restaurant model",
@@ -110,7 +110,7 @@ export const BackgroundBorder: React.FC = () => {
       cta: "Explore Express Kitchen"
     },
     {
-      image: "https://c.animaapp.com/HEE7tW43/img/image-83.png",
+      image: "/images/fra-3.png",
       title: "Premium Outlet",
       points: [
         "Flagship restaurant format",

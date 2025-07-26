@@ -2,6 +2,7 @@
 import { Timeline } from "@/components/ui/timeline";
 import React from "react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 
 // Define TypeScript interfaces
 interface TimelineItemData {
@@ -29,14 +30,22 @@ const OurJourney = () => {
       className="flex flex-col md:flex-row items-center gap-4"
     >
       <motion.div className="relative w-full md:w-1/3 aspect-video rounded-lg overflow-hidden">
-        <motion.img
+        <motion.div
           initial={{ opacity: 0, scale: 1.2 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          src={data.src}
-          alt={data.alt}
-          className="w-full h-full object-cover rounded-lg"
-        />
+          transition={{ duration: 0.8 }}
+          className="w-full h-full"
+        >
+          <Image
+            src={data.src}
+            alt={data.alt}
+            className="w-full h-full object-cover rounded-lg"
+            fill
+            loading="lazy"
+            quality={85}
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </motion.div>
       </motion.div>
       <motion.p 
         initial={{ opacity: 0, y: 20 }}

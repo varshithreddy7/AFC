@@ -116,10 +116,8 @@ const OurJourney = () => {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.8, staggerChildren: 0.3 }}
-      className="relative w-full max-w-screen-xl mx-auto px-4 py-20 bg-black/20"
-      style={{
-        backdropFilter: "blur(10px)",
-      }}
+      className="relative w-full max-w-screen-xl mx-auto px-4 py-20 "
+      
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

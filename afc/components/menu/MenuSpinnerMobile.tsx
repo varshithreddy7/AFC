@@ -8,8 +8,8 @@ import Image from "next/image";
 
 const categories = {
   chickenfries: [
-    { id: 1, name: "Chicken Popcorn", desc: "", img: "/images/m-fires-14.png" },
-    { id: 2, name: "Chicken Legs", desc: "", img: "/images/m-fires-12.png" },
+    { id: 1, name: "Chicken Legs", desc: "", img: "/images/m-fires-12.png" },
+    { id: 2, name: "Chicken Popcorn", desc: "", img: "/images/m-fires-14.png" },
     { id: 3, name: "Chicken Nuggets", desc: "", img: "/images/m-fires-11.png" },
     { id: 4, name: "Chicken Lollypops", desc: "", img: "/images/m-fires-3.png" },
   ],

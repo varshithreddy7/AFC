@@ -8,9 +8,9 @@ import Image from "next/image";
 
 const categories = {
   chickenfries: [
-    { id: 1, name: "Broasted Chicken", desc: "", img: "/images/m-fires-11.png" },
-    { id: 2, name: "Chicken Legs", desc: "", img: "/images/m-fires-12.png" },
-    { id: 3, name: "Chicken Wings", desc: "", img: "/images/m-fires-14.png" },
+    { id: 1, name: "Broasted Chicken", desc: "", img: "/images/m-fires-24.png" },
+    { id: 2, name: "Chicken Legs", desc: "", img: "/images/m-fires-legs.png" },
+    { id: 3, name: "Chicken Wings", desc: "", img: "/images/m-fires-23.png" },
     { id: 4, name: "Chicken Lollypops", desc: "", img: "/images/m-fires-3.png" },
   ],
   pizzas: [
@@ -28,7 +28,7 @@ const categories = {
   mocktails: [
     { id: 13, name: "Virgin Mojito", desc: "", img: "/images/m-moktail-2.png" },
     { id: 14, name: "Blue Lagoon Mojito", desc: "", img: "/images/m-moktail-1.png" },
-    { id: 15, name: "Green Mint Mojito", desc: "", img: "/images/m-mojito-5.png" },
+    { id: 15, name: "Green Mint Mojito", desc: "", img: "/images/m-mojito-6.png" },
     { id: 16, name: "Watermelon Mojito", desc: "", img: "/images/m-mocktail-4.png" },
   ],
 
@@ -80,10 +80,9 @@ const PizzaSpinWheelMobile: React.FC = () => {
     return items;
   };
 
-  // Animation variants removed - using inline animations for better TypeScript compatibility
 
   return (
-    <div className="relative overflow-hidden min-h-screen ">
+    <div className="relative  min-h-screen overflow-x-hidden ">
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10 px-2 py-4">
         {/* Header */}
         <motion.h1
@@ -132,7 +131,7 @@ const PizzaSpinWheelMobile: React.FC = () => {
           </button>
 
           {/* Image track */}
-          <div className="relative w-full h-[400px] flex items-center justify-center  ">
+          <div className="relative w-full h-[600px] flex items-center justify-center  ">
             {getVisibleItems().map((item) => (
               <motion.div
                 key={item.id}
@@ -179,7 +178,7 @@ const PizzaSpinWheelMobile: React.FC = () => {
                   <Image
                     src={item.img}
                     alt={item.name}
-                    className="w-full h-full object-cover rounded-full"
+                    className="w-full h-full object-cover"
                     width={256}
                     height={256}
                     loading="lazy"

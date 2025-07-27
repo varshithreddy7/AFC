@@ -1,2 +1,0 @@
-# AFC
-Absolute Fried Chicken

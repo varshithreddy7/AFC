@@ -204,10 +204,9 @@ const OrderDetailsCard: React.FC<OrderDetailsCardProps> = ({ isOpen, onClose }) 
                       {/* Home Delivery Button */}
                       <button
                         className="w-full bg-yellow-500 hover:bg-yellow-600 rounded-2xl py-3 px-5 text-black font-bold text-lg shadow flex items-center justify-center gap-2"
-                        onClick={() => setShowHomeDelivery(true)}
                       >
                         <Home className="w-5 h-5" />
-                        HOME DELIVERY
+                        HOME DELIVERY AVAILABLE AT LOCAL STORE
                       </button>
                     </div>
 

@@ -28,11 +28,11 @@ const founders = [
   { name: "NARASHIMA", img: "/images/owner1.png", role: "Founder" }
 ];
 
-const franchiseOwners = [
-  { name: "RAVI", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTArlOmRRBmBdYmedl4gxyBQJeyU4x5RTwf6A&s", role: "Franchise Owner" },
-  { name: "SURESH", img: "https://img.freepik.com/premium-photo/ai-human-avatar-characters-male-model_1166271-38.jpg", role: "Franchise Owner" },
-  { name: "PRIYA", img: "https://static.vecteezy.com/system/resources/previews/039/334/802/large_2x/ai-generated-indian-female-student-free-photo.jpg", role: "Franchise Owner" }
-];
+// const franchiseOwners = [
+//   { name: "RAVI", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTArlOmRRBmBdYmedl4gxyBQJeyU4x5RTwf6A&s", role: "Franchise Owner" },
+//   { name: "SURESH", img: "https://img.freepik.com/premium-photo/ai-human-avatar-characters-male-model_1166271-38.jpg", role: "Franchise Owner" },
+//   { name: "PRIYA", img: "https://static.vecteezy.com/system/resources/previews/039/334/802/large_2x/ai-generated-indian-female-student-free-photo.jpg", role: "Franchise Owner" }
+// ];
 
 
 const Team: React.FC = () => {
@@ -146,22 +146,25 @@ const Team: React.FC = () => {
         />
 
         {/* Franchise Owners Row - 3 per row */}
-        {renderRow(
-          "Franchise Owners", 
-          franchiseOwners, 
-          "w-[110px] h-[130px] xs:w-[120px] xs:h-[150px] sm:w-[200px] sm:h-[280px]",
-          "grid-cols-3"
-        )}
-
-        {/* Glowing thin vertical connection line */}
-        <motion.div
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          style={{ originY: 0 }}
-          className="bg-yellow-300 w-[2px] sm:w-[3px] h-8 xs:h-10 sm:h-20 mx-auto my-2 rounded-full z-0 shadow-[0_0_8px_2px_rgba(235,189,40,0.7)]"
-        />
+        {/**
+         * Franchise Owners Row and connection line commented out
+         *
+         * {renderRow(
+         *   "Franchise Owners", 
+         *   franchiseOwners, 
+         *   "w-[110px] h-[130px] xs:w-[120px] xs:h-[150px] sm:w-[200px] sm:h-[280px]",
+         *   "grid-cols-3"
+         * )}
+         *
+         * <motion.div
+         *   initial={{ scaleY: 0 }}
+         *   whileInView={{ scaleY: 1 }}
+         *   viewport={{ once: true }}
+         *   transition={{ duration: 0.8, delay: 0.8 }}
+         *   style={{ originY: 0 }}
+         *   className="bg-yellow-300 w-[2px] sm:w-[3px] h-8 xs:h-10 sm:h-20 mx-auto my-2 rounded-full z-0 shadow-[0_0_8px_2px_rgba(235,189,40,0.7)]"
+         * />
+         */}
       </div>
     </>
   );
